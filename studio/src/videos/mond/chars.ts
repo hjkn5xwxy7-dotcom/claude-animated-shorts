@@ -1,7 +1,8 @@
 // Cast of the moon short (recurring: Ben) and the hand-drawn effect cards. Characters are drawn with the bridge
 // short's Pen / bodyFront / bodySide (toon.ts) on 600 x 1000 design canvases; extra drawings (glasses, sweat, snow,
 // werewolf ears, question marks) are painted on top in the same design space.
-import { Pen, bodyFront, bodySide, FrontOpts, SideOpts, Outfit, INK, Expr, fxBurst } from "../bridge/toon";
+import { Pen, bodyFront, bodySide, FrontOpts, SideOpts, Outfit, INK, Expr, fxBurst, fxStars } from "../bridge/toon";
+export { fxStars };
 
 export const BEN: Outfit = { jacket: "#e8613a", pants: "#2b3550", boots: "#f4f1ea", hat: "hair", hair: "#3b2a20" };
 export const FISHER: Outfit[] = [
@@ -13,7 +14,7 @@ export const WOLF: Outfit = { jacket: "#5d5a6e", pants: "#3a3646", boots: "#2a27
 /** head centre / half width of an adult front drawing in design units (cardshade.ts zones) */
 const HX = 300, HY = 309, HW = 118;
 
-export type Extra = "glasses" | "sweat" | "snow" | "wolf" | "question" | "shiver" | "phone";
+export type Extra = "glasses" | "sweat" | "snow" | "wolf" | "question" | "shiver" | "phone" | "popsicle";
 export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
   const g = p.g;
   for (const e of ex) {
@@ -42,6 +43,19 @@ export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
       g.save(); g.font = "bold 190px sans-serif"; g.textAlign = "center"; g.lineWidth = 14; g.strokeStyle = INK; g.fillStyle = "#ffffff";
       const y = HY - 150 - 10 * Math.sin(t * 5);
       g.strokeText("?", HX + 150, y); g.fillText("?", HX + 150, y); g.restore();
+    } else if (e === "phone") {
+      // raised right arm (screen left) holding a phone up at head height
+      p.line([[HX - 92, HY + 225], [HX - 150, HY + 170], [HX - 170, HY + 95]], BEN.jacket, 26);
+      p.poly([[HX - 220, HY + 10], [HX - 130, HY + 2], [HX - 124, HY + 150], [HX - 214, HY + 158]], "#20222c", 9);
+      p.poly([[HX - 208, HY + 22], [HX - 140, HY + 16], [HX - 136, HY + 136], [HX - 203, HY + 142]], "#3a5fb0", 0);
+      p.ell(HX - 170, HY + 95, 16, 16, "#ffe2c2", 6);
+    } else if (e === "popsicle") {
+      // the frozen cocoa: a brown popsicle on a stick, held at chest height
+      p.line([[HX + 92, HY + 225], [HX + 140, HY + 250], [HX + 150, HY + 200]], BEN.jacket, 26);
+      p.poly([[HX + 150, HY + 205], [HX + 162, HY + 205], [HX + 162, HY + 260], [HX + 150, HY + 260]], "#e9c99a", 6);
+      p.poly([[HX + 118, HY + 70], [HX + 194, HY + 70], [HX + 194, HY + 200], [HX + 118, HY + 200]], "#6b3e22", 9);
+      p.ell(HX + 156, HY + 72, 38, 12, "#dff4ff", 6);
+      p.ell(HX + 150, HY + 205, 16, 16, "#ffe2c2", 6);
     } else if (e === "shiver") {
       for (const s of [-1, 1]) for (const k of [0, 1, 2]) p.stroke([[HX + s * (150 + k * 22), HY + 140 + k * 40], [HX + s * (170 + k * 22), HY + 170 + k * 40]], 7);
     }
@@ -50,7 +64,7 @@ export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
 
 /** a character request: drawing key, the draw call, card scale */
 export type Cue = {
-  who: Outfit; side?: boolean; mirror?: boolean; x: number; y: number; z: number; scale?: number;
+  who: Outfit; side?: boolean; mirror?: boolean; x: number; y: number; z: number; scale?: number; sy?: number;
   front?: FrontOpts; sideOpts?: SideOpts; extras?: Extra[]; seed?: number;
 };
 /** design canvas key + draw for a cue (t = seconds, for animated extras) */
@@ -126,6 +140,8 @@ export const fxJobSign = (p: Pen) => {
 };
 /** pop star burst for the vanishing moon (500 x 500), t 0..1 */
 export const fxPop = (p: Pen, t: number) => fxBurst(p, t, "#fff6c8", 14, 50, 240);
+/** melt puddle (flat on the ground) on a 400 x 200 canvas */
+export const fxPuddle = (p: Pen) => { p.ell(200, 100, 180, 80, "#e8613a", 8); p.ell(150, 80, 50, 18, "rgba(255,255,255,0.5)", 0); };
 /** snowflake on a 64 x 64 canvas */
 export const fxFlake = (p: Pen) => { for (let i = 0; i < 3; i++) { const a = (i * Math.PI) / 3; p.stroke([[32 - 26 * Math.cos(a), 32 - 26 * Math.sin(a)], [32 + 26 * Math.cos(a), 32 + 26 * Math.sin(a)]], 7, "#ffffff"); } };
 /** "PLOPP!" comic word, 700 x 260 */

@@ -16,9 +16,10 @@ import { Clock, FPS, Timing, framesOf, loadTiming } from "./timing";
 import { LOOKS } from "./looks";
 import { MondWorld } from "./sets";
 import { shotAt, Stage } from "./shots";
-import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord } from "./chars";
+import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle } from "./chars";
 import { Pen } from "../bridge/toon";
 import { Captions } from "./Captions";
+import { Overlays } from "./Overlays";
 
 export type MondProps = { timing: Timing | null };
 export const calcMond: CalculateMetadataFunction<MondProps> = async () => {
@@ -46,6 +47,8 @@ const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg: numbe
   pop: { cw: 500, ch: 500, draw: (p, a) => fxPop(p, Math.round(a * 20) / 20) },
   flake: { cw: 64, ch: 64, draw: (p) => fxFlake(p) },
   word: { cw: 700, ch: 260, draw: (p, _a, k) => fxWord(p, k.split(":")[1]) },
+  stars: { cw: 420, ch: 210, draw: (p, a) => fxStars(p, Math.round(a * 12) / 12) },
+  puddle: { cw: 400, ch: 200, draw: (p) => fxPuddle(p) },
 };
 
 const Inner: React.FC<{ clock: Clock }> = ({ clock }) => {
@@ -132,7 +135,7 @@ function poseSpace(w: MondWorld, S: Stage) {
   const b = Math.max(0, sp.bulge);
   w.bulge.visible = b > 0.02 && sp.moon === 0 && sp.wobble === 0;
   w.bulge.scale.set(1 + 0.16 * b, 1, 1 + 0.02 * b);
-  (w.bulge.material as THREE.MeshBasicMaterial).opacity = 0.18 + 0.25 * b;
+  (w.bulge.material as THREE.MeshBasicMaterial).opacity = 0.1 + 0.16 * b;
   w.moon3d.visible = sp.moon > 0.01;
   w.moon3d.scale.setScalar(Math.max(0.01, sp.moon));
   w.moon3d.position.set(16 * Math.cos(sp.moonA), 1.5 * Math.sin(sp.moonA), 16 * Math.sin(sp.moonA));
@@ -155,7 +158,7 @@ function placeCards(S: Stage, cam: THREE.PerspectiveCamera, t: number, f: number
     a.mesh.visible = true;
     a.mesh.position.set(c.x, c.y, c.z);
     a.mesh.rotation.set(0, Math.atan2(cam.position.x - c.x, cam.position.z - c.z), 0);
-    a.mesh.scale.set(c.mirror ? -sc : sc, sc, sc);
+    a.mesh.scale.set(c.mirror ? -sc : sc, sc * (c.sy ?? 1), sc);
     a.mesh.castShadow = false;
     used.push(a);
   });
@@ -181,7 +184,8 @@ function placeCards(S: Stage, cam: THREE.PerspectiveCamera, t: number, f: number
       e.mesh.renderOrder = 5;
     } else {
       e.mesh.position.set(q.x, q.y, q.z);
-      e.mesh.quaternion.copy(cam.quaternion); e.mesh.rotateZ(q.rot ?? 0);
+      if (q.flat) e.mesh.rotation.set(-Math.PI / 2, 0, q.rot ?? 0);
+      else { e.mesh.quaternion.copy(cam.quaternion); e.mesh.rotateZ(q.rot ?? 0); }
       e.mesh.scale.set(q.w, q.h, 1);
     }
     e.mesh.layers.set(NOINK);
@@ -206,9 +210,12 @@ export const MondShort: React.FC<MondProps> = ({ timing }) => {
   const S = shotAt(clock, f / FPS).stage;
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <ThreeCanvas width={1080} height={1920} shadows gl={{ antialias: false, stencil: false, powerPreference: "high-performance" }} camera={{ fov: 40, near: 0.1, far: 3000 }}>
-        <Inner clock={clock} />
-      </ThreeCanvas>
+      <AbsoluteFill style={{ transform: `scale(${S.zoom ?? 1})`, filter: S.filter ?? "none" }}>
+        <ThreeCanvas width={1080} height={1920} shadows gl={{ antialias: false, stencil: false, powerPreference: "high-performance" }} camera={{ fov: 40, near: 0.1, far: 3000 }}>
+          <Inner clock={clock} />
+        </ThreeCanvas>
+      </AbsoluteFill>
+      <Overlays clock={clock} />
       {S.flash > 0 && <AbsoluteFill style={{ background: "#fff", opacity: S.flash }} />}
       <Captions clock={clock} />
     </AbsoluteFill>

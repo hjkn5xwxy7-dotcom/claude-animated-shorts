@@ -2,85 +2,114 @@
   "title": "Was wäre, wenn der Mond verschwindet?",
   "voice": {
     "model": "de_DE-thorsten-high",
-    "lengthScale": 0.92,
-    "gap": 0.18
+    "lengthScale": 1.0,
+    "gap": 0.22
   },
   "sentences": [
     {
       "id": "hook",
-      "text": "Was wäre, wenn heute Nacht um Punkt zwölf der Mond einfach verschwindet?"
+      "text": "Was wäre, wenn heute Nacht um Punkt zwölf einfach der Mond verschwindet?"
     },
     {
-      "id": "plopp",
-      "text": "Ben schaut gerade nach oben, und plopp.",
-      "pause": 0.25
+      "id": "ben",
+      "text": "Das ist Ben. Ben wollte nur kurz den Vollmond fotografieren."
     },
     {
-      "id": "weg",
-      "text": "Weg.",
-      "pause": 0.45
+      "id": "count",
+      "text": "Drei. Zwei. Eins.",
+      "pause": 0.7
     },
     {
-      "id": "nichts",
-      "text": "Kein Knall, keine Trümmer. Erst mal passiert gar nichts."
+      "id": "okay",
+      "text": "Okeh.",
+      "pause": 0.6
     },
     {
-      "id": "dunkel",
-      "text": "Aber dann merkt Ben: Es ist dunkel. Richtig dunkel."
+      "id": "offline",
+      "text": "Kein Knall. Keine Trümmer. Der Mond ist einfach offlein.",
+      "pause": 0.15
     },
     {
-      "id": "hundert",
-      "text": "Eine Vollmondnacht ist nämlich rund hundertmal heller als eine Nacht nur mit Sternen."
-    },
-    {
-      "id": "hafen",
-      "text": "Am nächsten Morgen am Hafen kratzen sich die Fischer am Kopf."
-    },
-    {
-      "id": "ebbe",
-      "text": "Ebbe und Flut sind fast verschwunden."
-    },
-    {
-      "id": "gezeiten",
-      "text": "Denn die Gezeiten macht vor allem der Mond. Ohne ihn zieht nur noch die Sonne am Meer, und die schafft gerade mal ein Drittel."
-    },
-    {
-      "id": "korallen",
-      "text": "Und die Korallen? Viele Riffe laichen alle in derselben Nacht, ein paar Tage nach dem Vollmond."
-    },
-    {
-      "id": "warten",
-      "text": "Jetzt warten sie. Und warten."
-    },
-    {
-      "id": "unheim",
-      "text": "Das wirklich Unheimliche kommt aber erst später.",
-      "pause": 0.3
-    },
-    {
-      "id": "kreisel",
-      "text": "Der Mond hält nämlich die Erdachse stabil, wie eine Hand, die einen Kreisel festhält."
-    },
-    {
-      "id": "taumeln",
-      "text": "Ohne ihn könnte die Erde über Millionen Jahre ins Taumeln geraten."
-    },
-    {
-      "id": "jahresz",
-      "text": "Dann spielen die Jahreszeiten verrückt: glühend heiße Sommer, eisige Winter."
-    },
-    {
-      "id": "finster",
-      "text": "Ach ja, und Sonnenfinsternisse gibt es auch nie wieder."
-    },
-    {
-      "id": "himmel",
-      "text": "Ben schaut in den leeren Himmel und denkt: Na ja, wenigstens eine gute Nachricht.",
+      "id": "post",
+      "text": "Ben macht das einzig Vernünftige: Er postet das Foto trotzdem.",
       "pause": 0.2
     },
     {
+      "id": "dunkel",
+      "text": "Dann wird es dunkel. Eine Vollmondnacht ist nämlich rund hundertmal heller als eine Nacht nur mit Sternen.",
+      "pause": 1.6
+    },
+    {
+      "id": "hafen",
+      "text": "Nächster Morgen. Fischer Hein wartet auf die Flut.",
+      "pause": 0.35
+    },
+    {
+      "id": "gelesen",
+      "text": "Die Flut lässt ihn auf gelesen.",
+      "pause": 0.5
+    },
+    {
+      "id": "gezeiten",
+      "text": "Denn ohne Mond zieht nur noch die Sonne am Meer. Und die gibt sich ungefähr ein Drittel so viel Mühe.",
+      "pause": 0.1
+    },
+    {
+      "id": "korallen",
+      "text": "Korallen trifft es noch härter. Viele laichen alle in derselben Nacht, ein paar Tage nach Vollmond."
+    },
+    {
+      "id": "warten",
+      "text": "Jetzt weiß keiner mehr, wann.",
+      "pause": 0.9
+    },
+    {
+      "id": "unheim",
+      "text": "Und dann wird es richtig unheimlich.",
+      "pause": 0.6
+    },
+    {
+      "id": "kreisel",
+      "text": "Der Mond hält die Erdachse stabil."
+    },
+    {
+      "id": "taumeln",
+      "text": "Ohne ihn kann die Erde über Millionen Jahre ins Taumeln geraten.",
+      "pause": 0.1
+    },
+    {
+      "id": "sommer",
+      "text": "Heißt: Sommer, in denen Ben schmilzt.",
+      "pause": 0.1
+    },
+    {
+      "id": "winter",
+      "text": "Winter, in denen sein Kakao zum Eis am Stiel wird.",
+      "pause": 0.3
+    },
+    {
+      "id": "finster",
+      "text": "Sonnenfinsternisse? Gekänselt.",
+      "pause": 0.4
+    },
+    {
+      "id": "brille",
+      "text": "Ben hat die Brille übrigens schon gekauft. Für die nächste in Deutschland: zweitausendeinundachtzig.",
+      "pause": 0.4
+    },
+    {
       "id": "werwolf",
-      "text": "Die Werwölfe sind ab heute arbeitslos."
+      "text": "Gute Nachricht gibt es trotzdem: Werwölfe sind ab heute offiziell arbeitslos.",
+      "pause": 0.5
+    },
+    {
+      "id": "likes",
+      "text": "Und Bens Foto vom schwarzen Himmel? Zwei Millionen Laiks.",
+      "pause": 0.3
+    },
+    {
+      "id": "bester",
+      "text": "Bester Post seines Lebens."
     }
   ],
   "facts": [
@@ -88,6 +117,14 @@
     "Gezeitenkraft der Sonne ca. 46 % der des Mondes; ohne Mond bleiben ca. 0,46/1,46 = 32 % der heutigen Springtide-Antriebskraft.",
     "Massenlaichen am Great Barrier Reef: wenige Nächte nach dem Vollmond (Okt.-Dez.), viele Riffe weltweit lunar gesteuert.",
     "Der Mond stabilisiert die Neigung der Erdachse (Laskar et al. 1993); ohne ihn wären über Millionen Jahre deutlich größere Schwankungen möglich.",
-    "Ohne Mond keine Sonnenfinsternisse."
-  ]
+    "Ohne Mond keine Sonnenfinsternisse.",
+    "Nächste totale Sonnenfinsternis in Deutschland: 3. September 2081 (Süddeutschland)."
+  ],
+  "captionMap": {
+    "Okeh.": "Okay.",
+    "offlein.": "offline.",
+    "Gekänselt.": "Gecancelt.",
+    "Laiks.": "Likes.",
+    "zweitausendeinundachtzig.": "2081."
+  }
 }

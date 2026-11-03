@@ -45,45 +45,51 @@ def padc(t0, t1, chord, vel=0.35, warm=900, gain=1.0):
         place(music, I.pad([m2f(m) for m in chord], t1 - t0, vel, R, att=0.5, rel=0.8, warm=warm), t0, gain)
 
 B = 60 / 92  # beat (s)
-# A: night mystery (hook .. plopp): music box Am arpeggio over a soft pad; stops dead on "plopp"
-tp = word("plopp", "plopp")
+tp = end("count") + 0.18                      # the moon pops
+tb = end("dunkel") + 0.35                     # Ben hits the lamp post
+nxt = lambda i: T["sentences"][[x["id"] for x in T["sentences"]].index(i) + 1]["start"]
+# A: night mystery (hook .. count): music box Am arpeggio over a soft pad; hard stop on the pop
 arp(0.0, tp - 0.05, [69, 72, 76, 79, 76, 72, 74, 77], B / 2, lambda f, v, r: I.musicbox(f, v, r, 1.4), 0.5, 0.9, 0.2)
 padc(0.0, tp, [45, 52, 57, 60], 0.3, 700)
-# B: quiet / dark (nichts .. hundert): sparse low plucks + dark pad
-arp(at("nichts") + 0.3, at("hafen") - 0.2, [45, 52, 48, 52], B, lambda f, v, r: I.pluck(f, v, r, 1.2, 0.3), 0.45, 0.8)
-padc(at("dunkel"), at("hafen") - 0.1, [33, 40, 45, 48], 0.32, 500)
-# C: harbour morning (hafen .. ebbe): bright vibes in C, light pluck bass
-arp(at("hafen"), at("gezeiten") - 0.1, [72, 76, 79, 84, 79, 76], B / 2, lambda f, v, r: I.vibes(f, v, r, 1.0), 0.45, 0.8, -0.2)
-arp(at("hafen"), at("gezeiten") - 0.1, [48, 55, 53, 55], B, lambda f, v, r: I.pluck(f, v, r, 0.8, 0.6), 0.5, 0.7)
+# (silence on the pop and the "Okay." freeze: the joke lives in the gap)
+# B: deadpan groove (offline .. dunkel): dry pizzicato bass + muted vibes, stops on the bonk
+arp(at("offline"), tb - 0.05, [45, 52, 48, 52, 43, 50], B / 2, lambda f, v, r: I.pluck(f, v, r, 0.5, 0.35), 0.5, 0.85)
+arp(at("post"), tb - 0.05, [72, 76, 79, 76], B, lambda f, v, r: I.vibes(f, v, r, 0.6, damp=0.25), 0.35, 0.55, 0.3)
+padc(at("dunkel"), tb, [33, 40, 45], 0.3, 450)
+# C: harbour morning (hafen .. gelesen): bright vibes in C, light pluck bass; drops out for the read receipt
+arp(at("hafen"), at("gelesen") + 0.9, [72, 76, 79, 84, 79, 76], B / 2, lambda f, v, r: I.vibes(f, v, r, 1.0), 0.45, 0.8, -0.2)
+arp(at("hafen"), at("gelesen") + 0.9, [48, 55, 53, 55], B, lambda f, v, r: I.pluck(f, v, r, 0.8, 0.6), 0.5, 0.7)
 # D: space (gezeiten): wide pad + glock sparkles
 padc(at("gezeiten"), at("korallen"), [41, 48, 53, 57, 64], 0.36, 1200)
 arp(at("gezeiten") + 0.4, at("korallen") - 0.3, [84, 88, 91, 86], B, lambda f, v, r: I.glock(f, v, r, 1.6), 0.3, 0.6, 0.4)
-# E: reef (korallen .. warten): tremolo vibes, bubbly plucks
-arp(at("korallen"), at("unheim") - 0.1, [69, 73, 76, 81, 76, 73], B / 2, lambda f, v, r: I.vibes(f, v, r, 1.4, trem=6.5, trem_depth=0.5), 0.4, 0.8, 0.2)
+# E: reef (korallen .. warten): tremolo vibes, bubbly plucks; thins out while everyone waits
+arp(at("korallen"), at("warten") + 0.6, [69, 73, 76, 81, 76, 73], B / 2, lambda f, v, r: I.vibes(f, v, r, 1.4, trem=6.5, trem_depth=0.5), 0.4, 0.8, 0.2)
 arp(at("korallen") + B / 4, at("warten"), [81, 88, 86, 93], B, lambda f, v, r: I.pluck(f, v, r, 0.3, 0.8), 0.25, 0.5, -0.4)
-# F: ominous (unheim): low drone + timpani hit on the start
+# F: ominous (unheim): low drone + timpani hit
 padc(at("unheim"), at("kreisel") + 0.4, [28, 35, 40], 0.45, 350)
 place(music, st(I.timpani(m2f(40), 0.8, R, 2.5)), at("unheim"), 1.0)
 # G: space wobble (kreisel .. taumeln): pulsing timpani + pad, glock motif rising
-padc(at("kreisel"), at("jahresz"), [38, 45, 50, 53, 57], 0.38, 1000)
+padc(at("kreisel"), at("sommer"), [38, 45, 50, 53, 57], 0.38, 1000)
 t = at("kreisel")
-while t < at("jahresz") - 0.2:
+while t < at("sommer") - 0.2:
     place(music, st(I.timpani(m2f(38), 0.35 + 0.3 * (t > at("taumeln")), R, 1.0)), t, 0.8); t += B
-arp(at("taumeln"), at("jahresz") - 0.2, [74, 77, 81, 86, 89], B / 2, lambda f, v, r: I.glock(f, v, r, 1.2), 0.3, 0.6)
-# H: seasons: hot = lazy vibes, ice = high thin music box
-te = word("jahresz", "eisige")
-arp(at("jahresz"), te - 0.05, [67, 71, 74, 71], B * 0.75, lambda f, v, r: I.vibes(f, v, r, 1.2, trem=3.0, trem_depth=0.4), 0.4, 0.8)
-arp(te, at("finster") - 0.05, [88, 91, 95, 91], B / 3, lambda f, v, r: I.musicbox(f, v, r, 0.9), 0.35, 0.7)
-# I: eclipse letdown: sad tuba "wah wah wah wahhh" on "nie wieder"
-tn = word("finster", "nie")
-for k, (m, d) in enumerate([(55, 0.32), (54, 0.32), (53, 0.32), (52, 1.1)]):
-    place(music, st(I.brass(m2f(m - 12), d, 0.75, R, "soft", scoop=-30, fall=-0.6 if k == 3 else 0.0)), tn + k * 0.36, 0.9)
-# J: reprise (himmel .. end): music box theme again, final button on the last word
-arp(at("himmel"), at("werwolf") + 0.1, [69, 72, 76, 79, 76, 72], B / 2, lambda f, v, r: I.musicbox(f, v, r, 1.4), 0.45, 0.8, 0.2)
-padc(at("himmel"), DUR - 0.3, [45, 52, 57, 60], 0.28, 700)
-tl = S["werwolf"]["words"][-1]["start"]
-place(music, st(I.pluck(m2f(45), 0.8, R, 1.0, 0.7) + I.pluck(m2f(57), 0.7, R, 1.0, 0.7)), tl + 0.55, 1.0)
-place(music, st(I.triangle(0.6, R, 1.4)), tl + 0.55, 0.8)
+arp(at("taumeln"), at("sommer") - 0.2, [74, 77, 81, 86, 89], B / 2, lambda f, v, r: I.glock(f, v, r, 1.2), 0.3, 0.6)
+# H: seasons: hot = lazy detuned vibes, ice = high thin music box
+arp(at("sommer"), at("winter") - 0.05, [67, 71, 74, 71], B * 0.75, lambda f, v, r: I.vibes(f, v, r, 1.2, trem=3.0, trem_depth=0.4), 0.4, 0.8)
+arp(at("winter"), at("finster") - 0.05, [88, 91, 95, 91], B / 3, lambda f, v, r: I.musicbox(f, v, r, 0.9), 0.35, 0.7)
+# I: eclipse: everything stops for the stamp, then a sad tuba under the 2081 line
+tn = word("brille", "zweitausend")
+for k, (m, d) in enumerate([(55, 0.28), (54, 0.28), (53, 0.28), (52, 0.9)]):
+    place(music, st(I.brass(m2f(m - 12), d, 0.7, R, "soft", scoop=-30, fall=-0.6 if k == 3 else 0.0)), tn + 0.9 + k * 0.32, 0.8)
+# J: reprise (werwolf .. end): music box theme, bigger on the likes, button at the very end
+arp(at("werwolf"), at("likes"), [69, 72, 76, 79, 76, 72], B / 2, lambda f, v, r: I.musicbox(f, v, r, 1.4), 0.45, 0.8, 0.2)
+tz = word("likes", "zwei")
+arp(tz, DUR - 0.8, [72, 76, 79, 84, 79, 76], B / 4, lambda f, v, r: I.glock(f, v, r, 0.9), 0.35, 0.6, 0.2)
+padc(at("werwolf"), DUR - 0.3, [45, 52, 57, 60], 0.28, 700)
+padc(tz, DUR - 0.3, [48, 55, 60, 64, 67], 0.3, 1400)
+tl = S["bester"]["words"][-1]["end"]
+place(music, st(I.pluck(m2f(48), 0.8, R, 1.0, 0.7) + I.pluck(m2f(60), 0.7, R, 1.0, 0.7)), tl + 0.25, 1.0)
+place(music, st(I.triangle(0.6, R, 1.4)), tl + 0.25, 0.8)
 music = lp(music, 9000)
 
 # ---------------------------------------------------------------- sfx
@@ -149,25 +155,79 @@ def howl():
     y = bp(src, 300, 1800) * np.minimum(1, t / 0.3) * np.clip((2.2 - t) / 0.5, 0, 1)
     return fades(y, 0.01, 0.1)
 
-night = [("hook", "plopp"), ("weg", "hafen"), ("unheim", "kreisel"), ("himmel", None)]
-for a, b in night:
+def scratch():
+    """record scratch: a fast back-and-forth pitch sweep of filtered noise + a tone"""
+    t = tt(0.45); sw = np.sin(np.pi * np.minimum(t / 0.45, 1) * 3)
+    f = 300 + 900 * np.abs(sw)
+    tone = np.sin(TAU * np.cumsum(f) / SR) * 0.6
+    noise = bp(colored(len(t), rng(12), 0.0), 800, 4000) * 0.5
+    return fades((tone + noise) * np.exp(-t / 0.3), 0.002, 0.05)
+
+def boom():
+    """deep cinematic hit (sub sweep + noise thump)"""
+    t = tt(1.4); f = 90 * np.exp(-t / 0.25) + 38
+    return fades(np.sin(TAU * np.cumsum(f) / SR) * np.exp(-t / 0.45) + lp(rng(13).standard_normal(len(t)), 300) * np.exp(-t / 0.05) * 0.6, 0.001, 0.2)
+
+def bonk():
+    """hollow metal bonk (lamp post)"""
+    return modal_hit([(310, 1.0, 0.5), (845, 0.6, 0.25), (1530, 0.35, 0.12), (2410, 0.2, 0.06)], 0.9)
+
+def modal_hit(modes, dur):
+    t = tt(dur); y = np.zeros_like(t)
+    for f, a, tau in modes:
+        y += a * np.sin(TAU * f * t) * np.exp(-t / tau)
+    return fades(y + hp(rng(14).standard_normal(len(t)), 2000) * np.exp(-t / 0.003) * 0.4, 0.0005, 0.05)
+
+def beep(f=1320, d=0.12):
+    t = tt(d); return fades(np.sin(TAU * f * t) * 0.6, 0.003, 0.02)
+
+def shutter():
+    t = tt(0.16); n = hp(rng(15).standard_normal(len(t)), 1500)
+    return fades(n * (np.exp(-t / 0.01) + 0.6 * np.exp(-np.maximum(t - 0.07, 0) / 0.01) * (t > 0.07)), 0.0005, 0.02)
+
+def ding(f=1568):
+    return I.glock(f, 0.6, R, 0.9) + 0.5 * I.glock(f * 1.5, 0.4, R, 0.9)
+
+def thud():
+    t = tt(0.4); return fades(lp(rng(16).standard_normal(len(t)), 500) * np.exp(-t / 0.06) + np.sin(TAU * 70 * t) * np.exp(-t / 0.12), 0.001, 0.05)
+
+# beds
+for a, b in [("hook", "okay"), ("offline", "hafen"), ("unheim", "kreisel"), ("werwolf", None)]:
     t0, t1 = at(a), (at(b) if b else DUR)
     bed(t0, t1, sea, 0.10); bed(t0, t1, crickets, 0.03 if a != "unheim" else 0.0)
-bed(at("plopp"), at("weg"), sea, 0.08)
 bed(at("hafen"), at("gezeiten"), sea, 0.13)
 for k in range(3): place(sfx, pan(gull(), -0.5 + 0.5 * k), at("hafen") + 0.4 + 1.3 * k, 0.12)
-place(sfx, st(pop()), tp, 0.55); place(sfx, pan(sparkle(), 0.2), tp + 0.05, 0.25)
+# countdown beeps on "Drei. Zwei. Eins.", pop + shutter, then the record scratch into the freeze
+for k, w in enumerate(S["count"]["words"][:3]): place(sfx, st(beep(1320 if k < 2 else 1760)), w["start"], 0.25)
+place(sfx, st(shutter()), tp - 0.05, 0.35)
+place(sfx, st(pop()), tp, 0.55); place(sfx, pan(sparkle(), 0.2), tp + 0.05, 0.22)
+place(sfx, st(scratch()), at("okay") - 0.12, 0.45)
+# post sent (soft swoosh + ding at 0 likes)
+place(sfx, st(whoosh(0.4, True)), word("post", "postet"), 0.18)
+# lamp post: bonk + boom, cartoon stars
+place(sfx, st(bonk()), tb, 0.55); place(sfx, st(boom()), tb + 0.02, 0.5)
+place(sfx, pan(sparkle(), -0.3), tb + 0.15, 0.15)
+# "auf gelesen": message ding, then the read tick
+place(sfx, st(ding()), at("gelesen") + 0.05, 0.25); place(sfx, st(beep(2600, 0.05)), at("gelesen") + 0.95, 0.2)
+# space / reef transitions
 for i in ["gezeiten", "kreisel"]: place(sfx, st(whoosh(0.8, True)), at(i) - 0.35, 0.25)
 place(sfx, st(whoosh(0.9, False)), at("korallen") - 0.4, 0.25)
 bed(at("korallen"), at("unheim"), underwater, 0.35)
-for k in range(14): place(sfx, pan(bubble(500 + 90 * (k % 5)), (k % 3 - 1) * 0.5), at("korallen") + 0.3 + 0.45 * k, 0.12)
-t = at("warten")
-while t < at("unheim") - 0.2: place(sfx, st(tick(int((t - at("warten")) / 0.5) % 2 == 0)), t, 0.35); t += 0.5
-place(sfx, st(whoosh(0.7, True)), at("jahresz") - 0.3, 0.2)
-bed(word("jahresz", "eisige"), at("finster"), wind, 0.3)
-for q in ["hafen"]:
-    tq = word(q, "kratzen"); place(sfx, st(I.pluck(m2f(84), 0.5, R, 0.25, 0.9)), tq, 0.2); place(sfx, st(I.pluck(m2f(88), 0.5, R, 0.25, 0.9)), tq + 0.12, 0.2)
+for k in range(12): place(sfx, pan(bubble(500 + 90 * (k % 5)), (k % 3 - 1) * 0.5), at("korallen") + 0.3 + 0.45 * k, 0.12)
+place(sfx, st(ding(1318)), at("warten") + 0.05, 0.2)
+t = at("warten") + 0.6
+while t < at("unheim") - 0.2: place(sfx, st(tick(int(t / 0.5) % 2 == 0)), t, 0.3); t += 0.5
+place(sfx, st(boom()), at("unheim"), 0.35)
+place(sfx, st(whoosh(0.7, True)), at("sommer") - 0.3, 0.2)
+bed(at("winter"), at("finster"), wind, 0.3)
+# eclipse: stamp
+place(sfx, st(thud()), word("finster", "gek") + 0.1, 0.6)
+place(sfx, st(pop()), word("brille", "zweitausend"), 0.3)
+# werewolf sighs (howl), likes: rising cascade of pings
 place(sfx, st(howl()), S["werwolf"]["words"][-1]["end"] + 0.05, 0.22)
+for k in range(14):
+    tk = tz + 0.08 * k * (1 - k / 30)
+    place(sfx, pan(ding(1568 * 2 ** ((k % 5) / 12)), (k % 3 - 1) * 0.6), tk, 0.12)
 
 # reverb sends
 ir = make_ir(1.4, 31, hf=1.4)
@@ -216,6 +276,6 @@ def limit(x, ceil_db=-1.5):
 for _ in range(3):
     y = limit(y)
     y *= dbg(-14.0 - integrated(y))
-y = limit(y, -1.2)
+y = limit(y, -1.9)
 write_wav(os.path.join(D, "mix.wav"), y)
 print(f"[audio] {DUR:.2f} s, mix {integrated(y):.1f} LUFS, peak {true_peak(y):.1f} dBTP, voice {vI:.1f} LUFS")
