@@ -84,14 +84,22 @@ jobs:
           sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 libxrandr2 libxkbcommon0 \
             libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2 libasound2t64 > /dev/null
           npx remotion browser ensure
-      - name: Kenney models (CC0)
-        uses: actions/cache@v4
+      - name: Kenney models (CC0) from cache
+        uses: actions/cache/restore@v4
         id: kenney
         with:
           path: studio/public/bridge/kenney
-          key: kenney-${{ hashFiles('studio/scripts/fetch_kenney.py', 'studio/src/videos/bridge/world.ts') }}
-      - if: steps.kenney.outputs.cache-hit != 'true'
+          key: kenney-v2-${{ hashFiles('studio/scripts/fetch_kenney.py', 'studio/src/videos/bridge/world.ts') }}
+      - name: Kenney models (CC0) download
+        if: steps.kenney.outputs.cache-hit != 'true'
+        id: fetch
         run: python3 scripts/fetch_kenney.py
+      - name: Kenney models (CC0) save cache
+        if: steps.fetch.outputs.complete == 'true' && matrix.chunk.index == '00'
+        uses: actions/cache/save@v4
+        with:
+          path: studio/public/bridge/kenney
+          key: ${{ steps.kenney.outputs.cache-primary-key }}
       - name: Render frames ${{ matrix.chunk.from }}-${{ matrix.chunk.to }}
         run: >
           node scripts/bench.mjs --comp "$COMP" --from ${{ matrix.chunk.from }} --to ${{ matrix.chunk.to }}
