@@ -5,7 +5,7 @@ import { staticFile } from "remotion";
 export const FPS = 30;
 export type Word = { w: string; start: number; end: number };
 export type Sentence = { id: string; text: string; start: number; end: number; words: Word[] };
-export type Timing = { total: number; sentences: Sentence[]; fake?: boolean };
+export type Timing = { total: number; sentences: Sentence[]; fake?: boolean; captionMap?: Record<string, string> };
 
 export const TIMING_URL = () => staticFile("mond/timing.json");
 export const loadTiming = async (): Promise<Timing> => (await fetch(TIMING_URL())).json();

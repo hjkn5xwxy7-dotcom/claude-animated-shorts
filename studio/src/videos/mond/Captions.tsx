@@ -37,7 +37,7 @@ export const Captions: React.FC<{ clock: Clock }> = ({ clock }) => {
           const active = t >= w.start - 0.03 && (i + 1 >= g.words.length || t < g.words[i + 1].start - 0.03);
           return (
             <span key={i} style={{ color: active ? "#ffe14a" : "#ffffff", WebkitTextStroke: "16px #111", paintOrder: "stroke fill",
-              textShadow: "0 8px 0 rgba(0,0,0,0.55)", margin: "0 12px", display: "inline-block" }}>{w.w.replace(/[,;:]$/, "")}</span>
+              textShadow: "0 8px 0 rgba(0,0,0,0.55)", margin: "0 12px", display: "inline-block" }}>{(clock.t.captionMap?.[w.w] ?? w.w).replace(/[,;:]$/, "")}</span>
           );
         })}
       </div>

@@ -32,6 +32,27 @@ def words_prop(text, t0, t1):
     return out
 
 
+def words_energy(text, audio, sr, t0):
+    """fallback with audio: word times proportional to characters, spread over the VOICED part of the chunk only
+    (20 ms frames above -38 dB of the chunk peak), so pauses at commas / sentence ends do not drift the captions"""
+    hop = int(0.02 * sr)
+    fr = np.array([np.sqrt(np.mean(audio[i:i + hop] ** 2)) for i in range(0, len(audio) - hop, hop)]) + 1e-9
+    voiced = 20 * np.log10(fr / fr.max()) > -38
+    if voiced.sum() < 3:
+        return words_prop(text, t0, t0 + len(audio) / sr)
+    cum = np.concatenate([[0], np.cumsum(voiced)]) / voiced.sum()   # voiced fraction reached at each frame edge
+    def time_at(frac):
+        i = int(np.searchsorted(cum, frac))
+        return t0 + min(i, len(voiced)) * hop / sr
+    ws = text.split()
+    tot = sum(len(w) + 1 for w in ws)
+    out, c = [], 0
+    for w in ws:
+        a = time_at(c / tot); c += len(w) + 1; b = time_at(c / tot)
+        out.append({"w": w, "start": round(a, 3), "end": round(max(b, a + 0.08), 3)})
+    return out
+
+
 def words_aligned(text, al, sr, t0):
     """word times from phoneme alignments: a space phoneme ends a word; BOS/EOS/punctuation padding is skipped"""
     spans, cur, t = [], None, t0
@@ -56,7 +77,7 @@ def words_aligned(text, al, sr, t0):
 sentences, audio, t, DEBUG = [], [], LEAD, []
 if FAKE:
     for s in S["sentences"]:
-        d = len(s["text"]) / 14.5 * LEN
+        d = len(s["text"]) / 17.7 * LEN
         sentences.append({"id": s["id"], "text": s["text"], "start": round(t, 3), "end": round(t + d, 3), "words": words_prop(s["text"], t, t + d)})
         t += d + GAP + float(s.get("pause", 0))
     sr = 22050
@@ -86,14 +107,16 @@ else:
             if i:
                 audio.append(np.zeros(int(INNER * sr), np.float32)); t += INNER
             a = c.audio_float_array.astype(np.float32)
-            w = words_aligned(texts[i], c.phoneme_alignments, sr, t) if (ok and c.phoneme_alignments) else None
+            w = words_aligned(texts[i], c.phoneme_alignments, sr, t) if (texts and c.phoneme_alignments) else None
             if w is None:
                 ok = False
-            else:
+                w = words_energy(texts[i] if texts else s["text"], a, sr, t) if texts else None
+            if w is not None:
                 words += w
             audio.append(a); t += len(a) / sr
         if not ok:
             aligned_all = False
+        if not words or len(words) != len(s["text"].split()):
             words = words_prop(s["text"], start, t)
         sentences.append({"id": s["id"], "text": s["text"], "start": round(start, 3), "end": round(t, 3), "words": words, "aligned": ok})
         pause = GAP + float(s.get("pause", 0))
@@ -110,5 +133,5 @@ else:
 total = round((t if FAKE else len(x) / sr) + (TAIL if FAKE else 0), 3)
 if DEBUG:
     print("[voice] alignment mismatches:", json.dumps(DEBUG[:4], ensure_ascii=False))
-json.dump({"total": total, "sampleRate": sr, "fake": FAKE, "sentences": sentences, "alignDebug": DEBUG}, open(os.path.join(out_dir, "timing.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+json.dump({"total": total, "sampleRate": sr, "fake": FAKE, "captionMap": S.get("captionMap", {}), "sentences": sentences, "alignDebug": DEBUG}, open(os.path.join(out_dir, "timing.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"[voice] {len(sentences)} sentences, {total:.2f} s" + (" (estimated)" if FAKE else ""))
