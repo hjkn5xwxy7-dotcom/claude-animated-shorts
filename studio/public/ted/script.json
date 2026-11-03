@@ -1,0 +1,208 @@
+{
+  "title": "Ich hieß Ted – Teil 1",
+  "voice": {
+    "model": "de_DE-thorsten-high",
+    "lengthScale": 1.0,
+    "gap": 0.25,
+    "lead": 0.3,
+    "tail": 3.6
+  },
+  "voices": {
+    "ted": {
+      "model": "de_DE-thorsten-high",
+      "lengthScale": 1.07,
+      "noiseScale": 0.6,
+      "pitch": -1.5
+    }
+  },
+  "sentences": [
+    {
+      "id": "c1",
+      "voice": "ted",
+      "text": "Man hat mich charmant genannt. Gutaussehend. Intelligent.",
+      "pause": 0.4
+    },
+    {
+      "id": "c2",
+      "voice": "ted",
+      "text": "Ich habe Jura studiert. Ich habe für Politiker Wahlkampf gemacht.",
+      "pause": 0.5
+    },
+    {
+      "id": "c3",
+      "voice": "ted",
+      "text": "Und ich habe mindestens dreißig Frauen getötet.",
+      "pause": 1.3
+    },
+    {
+      "id": "k1",
+      "voice": "ted",
+      "text": "Geboren neunzehnhundertsechsundvierzig in Wörmont. Ich bin bei meinen Großeltern aufgewachsen, und jahrelang dachte ich, sie wären meine Eltern.",
+      "pause": 0.3
+    },
+    {
+      "id": "k2",
+      "voice": "ted",
+      "text": "Meine Mutter hat mir erzählt, sie sei meine große Schwester.",
+      "pause": 0.9
+    },
+    {
+      "id": "s1",
+      "voice": "ted",
+      "text": "Siättel, neunzehnhundertvierundsiebzig. In der Nacht zum ersten Februar ging ich in ein Haus, in dem Studentinnen wohnten. Eine Tür war nicht abgeschlossen.",
+      "pause": 0.3
+    },
+    {
+      "id": "s2",
+      "voice": "ted",
+      "text": "Ich holte sie aus ihrem Zimmer im Keller, während die anderen schliefen.",
+      "pause": 1.8
+    },
+    {
+      "id": "v1",
+      "voice": "ted",
+      "text": "Ich hatte eine Methode. Ich trug einen Gips am Arm, oder ich ging an Krücken.",
+      "pause": 0.2
+    },
+    {
+      "id": "v2",
+      "voice": "ted",
+      "text": "Ich ließ Bücher fallen und bat junge Frauen, mir beim Tragen zu helfen. Bis zu meinem Auto. Ein hellbrauner Käfer.",
+      "pause": 0.3
+    },
+    {
+      "id": "v3",
+      "voice": "ted",
+      "text": "Den Beifahrersitz hatte ich ausgebaut.",
+      "pause": 0.9
+    },
+    {
+      "id": "v4",
+      "voice": "ted",
+      "text": "Neben dem Auto lag eine Brechstange. Ich schlug zu, bevor sie verstanden, was passiert. Dann die Handschellen.",
+      "pause": 0.9
+    },
+    {
+      "id": "v5",
+      "voice": "ted",
+      "text": "Ich habe mich an ihnen vergangen. Dann habe ich sie erwürgt.",
+      "pause": 1.2
+    },
+    {
+      "id": "v6",
+      "voice": "ted",
+      "text": "Manche Orte, an denen ich sie zurückließ, habe ich später wieder besucht. Tage danach. Wochen danach.",
+      "pause": 0.4
+    },
+    {
+      "id": "v7",
+      "voice": "ted",
+      "text": "Ich habe es später selbst gestanden.",
+      "pause": 1.1
+    },
+    {
+      "id": "l1",
+      "voice": "ted",
+      "text": "Leik Sämmämisch, vierzehnter Juli. Ein Sommertag am See. Hunderte Menschen.",
+      "pause": 0.3
+    },
+    {
+      "id": "l2",
+      "voice": "ted",
+      "text": "Ich ging zu ihr, den Arm in einer Schlinge. Hi, ich bin Ted. Kannst du mir helfen, mein Segelboot ans Auto zu bringen?",
+      "pause": 1.6
+    },
+    {
+      "id": "l3",
+      "voice": "ted",
+      "text": "Ein paar Stunden später, am selben See, dieselbe Frage.",
+      "pause": 1.6
+    },
+    {
+      "id": "l4",
+      "voice": "ted",
+      "text": "Zeugen haben meinen Namen gehört. Und mein Auto gesehen. Trotzdem hat mich niemand gestoppt.",
+      "pause": 0.3
+    },
+    {
+      "id": "l5",
+      "voice": "ted",
+      "text": "Zwei Monate später fand man ihre Überreste in einem Waldstück, ein paar Kilometer entfernt.",
+      "pause": 0.9
+    },
+    {
+      "id": "u1",
+      "voice": "ted",
+      "text": "Im Herbst zog ich nach Solt Leik Sitti, um Jura zu studieren. Und machte weiter.",
+      "pause": 0.4
+    },
+    {
+      "id": "u2",
+      "voice": "ted",
+      "text": "Vor einem Einkaufszentrum zeigte ich einer jungen Frau eine Polizeimarke. Ich sagte, jemand habe versucht, ihr Auto aufzubrechen.",
+      "pause": 0.3
+    },
+    {
+      "id": "u3",
+      "voice": "ted",
+      "text": "Sie stieg ein. Ich legte ihr eine Handschelle an und holte die Brechstange.",
+      "pause": 0.3
+    },
+    {
+      "id": "u4",
+      "voice": "ted",
+      "text": "Sie wehrte sich, sprang aus dem Auto und rannte auf die Straße.",
+      "pause": 1.6
+    },
+    {
+      "id": "u5",
+      "voice": "ted",
+      "text": "Am selben Abend nahm ich eine andere mit. Vor einem Schultheater.",
+      "pause": 1.8
+    },
+    {
+      "id": "a1",
+      "voice": "ted",
+      "text": "August neunzehnhundertfünfundsiebzig. Eine normale Verkehrskontrolle.",
+      "pause": 0.3
+    },
+    {
+      "id": "a2",
+      "voice": "ted",
+      "text": "Im Auto fanden sie eine Brechstange, Handschellen und einen Eispickel.",
+      "pause": 0.6
+    },
+    {
+      "id": "a3",
+      "voice": "ted",
+      "text": "Carol hat mich wiedererkannt.",
+      "pause": 0.9
+    },
+    {
+      "id": "a4",
+      "voice": "ted",
+      "text": "Zwei Jahre später sprang ich aus dem Fenster eines Gerichtsgebäudes.",
+      "pause": 1.0
+    }
+  ],
+  "captionMap": {
+    "neunzehnhundertsechsundvierzig": "1946",
+    "Wörmont.": "Vermont.",
+    "Siättel,": "Seattle,",
+    "neunzehnhundertvierundsiebzig.": "1974.",
+    "Leik": "Lake",
+    "Sämmämisch,": "Sammamish,",
+    "vierzehnter": "14.",
+    "Solt": "Salt",
+    "Sitti,": "City,",
+    "neunzehnhundertfünfundsiebzig.": "1975."
+  },
+  "facts": [
+    "Lynda Ann Healy, 21, 1.2.1974 aus ihrem Kellerzimmer in Seattle entführt (ABC, Biography, HistoryLink).",
+    "Lake Sammamish 14.7.1974: Janice Ott (23) und Denise Naslund (18/19) binnen vier Stunden, Masche Arm in Schlinge + Segelboot, Zeugen hörten 'Ted' (Wikipedia, ABC, Oxygen, KIRO7). Überreste am 6.9.1974 bei Issaquah, gut 3 km entfernt.",
+    "Carol DaRonch, 18, 8.11.1974 Murray, Utah: als Polizist ausgegeben, Handschelle, entkommen (Axios, Deseret). Am selben Abend Debra Kent, 17, Viewmont High School (Oxygen, Deseret).",
+    "16.8.1975 Granger, Utah: Verkehrskontrolle, Brechstange, Handschellen, Eispickel im VW (Grunge, killerinthearchives). Beifahrersitz ausgebaut (auto-swiat.pl).",
+    "7.6.1977 Flucht aus dem Gerichtsgebäude in Aspen (Denver Gazette, Crime+Investigation).",
+    "Geständnisse vor der Hinrichtung am 24.1.1989 (ca. 30 Morde)."
+  ]
+}

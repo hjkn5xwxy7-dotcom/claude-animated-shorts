@@ -22,6 +22,7 @@ export type Stage = {
   zoom?: number; filter?: string;                           // whole-frame punch zoom / CSS filter (freeze-frame gag)
   flashColor?: string;                                      // flash colour (default white; black = blackout)
   room?: { curtains: number; phone: number };               // bedroom set state
+  props?: { beetle?: [number, number, number]; police?: [number, number, number, number]; lineup?: boolean }; // [x, z, yaw] / police: [x, z, yaw, t]
 };
 
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x));

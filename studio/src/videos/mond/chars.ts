@@ -9,12 +9,29 @@ export const FISHER: Outfit[] = [
   { jacket: "#f2c230", pants: "#2f4f6f", boots: "#2b2b2b", hat: "cap", cap: "#1f4e79", moustache: "#5a4030", skin: "#f5c9a0", build: "stout" },
   { jacket: "#f2c230", pants: "#3b3f52", boots: "#2b2b2b", hat: "cap", cap: "#b8322c", skin: "#ecd0b6" },
 ];
+/** Ted (1970s): brown corduroy jacket, light shirt, dark flared trousers, wavy dark-brown hair */
+export const TED: Outfit = { jacket: "#7a5236", pants: "#2f3450", boots: "#3a2a20", hat: "hair", hair: "#3e2a1c", skin: "#f3d2b5", buttons: "#d9c7a0" };
+export const TED_KID: Outfit = { jacket: "#4f7aa8", pants: "#5a4a3a", boots: "#3a2a20", hat: "hair", hair: "#5a3b22", build: "kid" };
+/** young women, 1970s colours; long hair is the "longhair" extra */
+export const WOMEN: Outfit[] = [
+  { jacket: "#d9a441", pants: "#3b4f7a", boots: "#5a3b2a", hat: "hair", hair: "#6b4426", skin: "#f5d7c0" },
+  { jacket: "#3f8f86", pants: "#e9e2d0", boots: "#7a5236", hat: "hair", hair: "#2e2018", skin: "#f1cdb0" },
+  { jacket: "#c65a3a", pants: "#2f3a52", boots: "#3a2a20", hat: "hair", hair: "#b98a4a", skin: "#f7dcc6" },
+  { jacket: "#8a6bb8", pants: "#4a3a2e", boots: "#2a2420", hat: "hair", hair: "#4a2c18", skin: "#efc9a8" },
+];
+export const COP: Outfit = { jacket: "#3b4a63", pants: "#2a3346", boots: "#111", hat: "cap", cap: "#1f2838", buttons: "#e2c25a", skin: "#eccbb0", moustache: "#5a4030", build: "stout" };
 export const WOLF: Outfit = { jacket: "#5d5a6e", pants: "#3a3646", boots: "#2a2733", hat: "hair", hair: "#6f6b80", skin: "#a7a3b5", build: "stout" };
 
 /** head centre / half width of an adult front drawing in design units (cardshade.ts zones) */
 const HX = 300, HY = 309, HW = 118;
 
-export type Extra = "glasses" | "sweat" | "snow" | "wolf" | "question" | "shiver" | "phone" | "popsicle";
+export type Extra = "glasses" | "sweat" | "snow" | "wolf" | "question" | "shiver" | "phone" | "popsicle" | "sling" | "longhair" | "books" | "badge";
+let c_hair = "#5a3b22";
+/** long hair behind the head and shoulders (drawn BEFORE the body) */
+const drawUnder = (p: Pen, o: Outfit) => {
+  c_hair = o.hair ?? "#5a3b22";
+  p.poly([[HX - 132, HY - 60], [HX - 120, HY - 128], [HX, HY - 146], [HX + 120, HY - 128], [HX + 132, HY - 60], [HX + 150, HY + 150], [HX + 120, HY + 210], [HX - 120, HY + 210], [HX - 150, HY + 150]], c_hair, 9);
+};
 export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
   const g = p.g;
   for (const e of ex) {
@@ -56,6 +73,20 @@ export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
       p.poly([[HX + 118, HY + 70], [HX + 194, HY + 70], [HX + 194, HY + 200], [HX + 118, HY + 200]], "#6b3e22", 9);
       p.ell(HX + 156, HY + 72, 38, 12, "#dff4ff", 6);
       p.ell(HX + 150, HY + 205, 16, 16, "#ffe2c2", 6);
+    } else if (e === "sling") {
+      // left arm (screen right) in a white sling / cast across the chest
+      p.poly([[HX + 60, HY + 250], [HX + 150, HY + 225], [HX + 40, HY + 400], [HX - 60, HY + 395]], "#f4f3ee", 9);
+      p.line([[HX + 96, HY + 218], [HX - 40, HY + 360]], "#ffffff", 46);
+      p.stroke([[HX - 70, HY + 170], [HX + 60, HY + 395]], 10, "#dcdad2");
+    } else if (e === "books") {
+      p.poly([[HX - 120, HY + 330], [HX + 20, HY + 320], [HX + 26, HY + 360], [HX - 116, HY + 372]], "#b8452f", 8);
+      p.poly([[HX - 110, HY + 290], [HX + 30, HY + 282], [HX + 34, HY + 322], [HX - 108, HY + 330]], "#2f5d8a", 8);
+    } else if (e === "badge") {
+      p.poly([[HX - 200, HY + 210], [HX - 120, HY + 205], [HX - 118, HY + 300], [HX - 198, HY + 305]], "#2a2a2a", 7);
+      p.poly([[HX - 182, HY + 228], [HX - 136, HY + 226], [HX - 140, HY + 280], [HX - 160, HY + 292], [HX - 180, HY + 280]], "#e2c25a", 6);
+    } else if (e === "longhair") {
+      // fringe on top (the long part is drawn under the body)
+      p.poly([[HX - 120, HY - 40], [HX - 112, HY - 112], [HX, HY - 132], [HX + 112, HY - 112], [HX + 120, HY - 40], [HX + 40, HY - 78], [HX - 40, HY - 74]], c_hair, 8);
     } else if (e === "shiver") {
       for (const s of [-1, 1]) for (const k of [0, 1, 2]) p.stroke([[HX + s * (150 + k * 22), HY + 140 + k * 40], [HX + s * (170 + k * 22), HY + 170 + k * 40]], 7);
     }
@@ -78,6 +109,7 @@ export const cueDraw = (c: Cue, t: number, blink: number) => {
   }
   const key = JSON.stringify([c.who, c.side ? c.sideOpts : c.front, ex, tq, blink, c.seed ?? 1]);
   const draw = (p: Pen) => {
+    if (!c.side && ex.includes("longhair")) drawUnder(p, c.who);
     if (c.side) bodySide(p, c.who, { mode: "stand", ...c.sideOpts, blink, seed: c.seed ?? 3 });
     else bodyFront(p, c.who, { mode: "stand", ...c.front, blink, seed: c.seed ?? 3 });
     drawExtras(p, ex, t);
@@ -128,6 +160,16 @@ export const drawSleeper = (p: Pen, breath: number) => {
   p.stroke([[150, 232], [176, 236]], 6); p.stroke([[196, 228], [218, 232]], 6);                    // closed eyes
   p.poly([[230, 250 - b], [330, 205 - b], [600, 215 - b], [880, 250], [960, 300], [960, 380], [210, 380]], "#5d7fb8", 12); // duvet
   p.line([[300, 260 - b], [520, 250 - b], [760, 268]], "#4a6aa0", 6, false);
+};
+/** a young woman asleep, long hair over the pillow (same canvas as drawSleeper) */
+export const drawSleeperW = (p: Pen, breath: number) => {
+  const b = 6 * Math.sin(breath * Math.PI * 2);
+  p.poly([[60, 300], [70, 240], [140, 225], [220, 240], [228, 300]], "#e9edf3", 10);
+  p.poly([[40, 230], [80, 150], [190, 132], [262, 190], [270, 300], [160, 310], [60, 300]], "#6b4426", 10);
+  p.ell(170, 226, 70, 66, "#f5d7c0", 10);
+  p.poly([[104, 196], [130, 150], [200, 142], [248, 182], [236, 206], [190, 186], [130, 206]], "#6b4426", 0);
+  p.stroke([[150, 236], [174, 240]], 6); p.stroke([[194, 232], [214, 236]], 6);
+  p.poly([[230, 250 - b], [330, 210 - b], [600, 220 - b], [880, 250], [960, 300], [960, 380], [210, 380]], "#c9b48a", 12);
 };
 const CUSTOM: Record<Custom, (p: Pen, a: number, blink: number) => void> = {
   man: (p, a) => drawMan(p, a), manPhone: (p, a) => drawMan(p, a, true), sleeper: (p, a) => drawSleeper(p, a),
@@ -193,6 +235,16 @@ export const fxJobSign = (p: Pen) => {
 };
 /** pop star burst for the vanishing moon (500 x 500), t 0..1 */
 export const fxPop = (p: Pen, t: number) => fxBurst(p, t, "#fff6c8", 14, 50, 240);
+/** crowbar lying on the ground (600 x 160) */
+export const fxCrowbar = (p: Pen) => { p.line([[40, 110], [520, 70]], "#5d6470", 22); p.line([[520, 70], [565, 40], [560, 18]], "#5d6470", 18); p.line([[40, 110], [18, 140]], "#5d6470", 16); };
+/** handcuffs (400 x 220) */
+export const fxCuffs = (p: Pen) => { p.ell(110, 120, 70, 70, null, 16); p.ell(290, 120, 70, 70, null, 16); p.stroke([[178, 112], [222, 112]], 12, "#9aa3ad"); p.g.strokeStyle = "#c9d0d8"; };
+/** ice pick (500 x 140) */
+export const fxIcepick = (p: Pen) => { p.poly([[30, 50], [170, 44], [176, 96], [36, 100]], "#8a5a32", 8); p.line([[176, 72], [470, 70]], "#b7bdc6", 9); };
+/** two dropped books on the ground (300 x 150) */
+export const fxBooks = (p: Pen) => { p.poly([[20, 40], [180, 20], [200, 90], [40, 110]], "#b8452f", 8); p.poly([[120, 70], [280, 80], [270, 140], [110, 130]], "#2f5d8a", 8); };
+/** evidence tag (300 x 140), arg-less */
+export const fxTag = (p: Pen) => { p.poly([[10, 20], [250, 20], [290, 70], [250, 120], [10, 120]], "#f2e7c9", 7); p.ell(255, 70, 9, 9, "#3a3a3a", 0); };
 /** melt puddle (flat on the ground) on a 400 x 200 canvas */
 export const fxPuddle = (p: Pen) => { p.ell(200, 100, 180, 80, "#e8613a", 8); p.ell(150, 80, 50, 18, "rgba(255,255,255,0.5)", 0); };
 /** snowflake on a 64 x 64 canvas */

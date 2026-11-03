@@ -16,7 +16,7 @@ import { Clock, FPS, Timing, framesOf, loadTiming } from "./timing";
 import { LOOKS } from "./looks";
 import { MondWorld } from "./sets";
 import { shotAt, Stage } from "./shots";
-import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle, drawSleeper } from "./chars";
+import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle, drawSleeper, drawSleeperW, fxCrowbar, fxCuffs, fxIcepick, fxTag, fxBooks } from "./chars";
 import { Pen } from "../bridge/toon";
 import { Captions } from "./Captions";
 import { Overlays } from "./Overlays";
@@ -52,6 +52,12 @@ export const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg
   word: { cw: 700, ch: 260, draw: (p, _a, k) => fxWord(p, k.split(":")[1]) },
   stars: { cw: 420, ch: 210, draw: (p, a) => fxStars(p, Math.round(a * 12) / 12) },
   puddle: { cw: 400, ch: 200, draw: (p) => fxPuddle(p) },
+  sleeperW: { cw: 1000, ch: 420, draw: (p, a) => { p.g.translate(1000, 0); p.g.scale(-1, 1); drawSleeperW(p, Math.round(a * 10) / 10); } },
+  crowbar: { cw: 600, ch: 160, draw: (p) => fxCrowbar(p) },
+  cuffs: { cw: 400, ch: 220, draw: (p) => fxCuffs(p) },
+  icepick: { cw: 500, ch: 140, draw: (p) => fxIcepick(p) },
+  tag: { cw: 300, ch: 140, draw: (p) => fxTag(p) },
+  books: { cw: 300, ch: 150, draw: (p) => fxBooks(p) },
   // head toward the headboard: drawn mirrored (head on the right)
   sleeper: { cw: 1000, ch: 420, draw: (p, a) => { p.g.translate(1000, 0); p.g.scale(-1, 1); drawSleeper(p, Math.round(a * 10) / 10); } },
 };
@@ -101,6 +107,16 @@ const Inner: React.FC<{ clock: Clock; shot: ShotFn }> = ({ clock, shot }) => {
   world.snow.visible = S.gradeId === "snow";
   world.setCurtains(S.room?.curtains ?? 0);
   world.phoneGlow.visible = (S.room?.phone ?? 0) > 0.01;
+  const bt = S.props?.beetle, pc = S.props?.police;
+  world.lineup.visible = !!S.props?.lineup;
+  world.beetle.visible = !!bt && (S.set === "town" || S.set === "woods");
+  if (bt) { world.beetle.position.set(bt[0] + (S.set === "woods" ? 0 : 0), 0, bt[1]); if (S.set === "woods") world.beetle.position.add(new THREE.Vector3(0, 0, -3000)); world.beetle.rotation.y = bt[2]; }
+  world.police.visible = !!pc && S.set === "town";
+  if (pc) {
+    world.police.position.set(pc[0], 0, pc[1]); world.police.rotation.y = pc[2];
+    const on = Math.floor((pc[3] ?? 0) * 4) % 2 === 0;
+    world.policeRed.color.set("#ff2a2a").multiplyScalar(on ? 3.2 : 0.25); world.policeBlue.color.set("#2a5bff").multiplyScalar(on ? 0.25 : 3.2);
+  }
   world.boats.forEach((b, i) => { b.position.y = -2 + 0.15 + 0.06 * Math.sin(t * 1.3 + i * 2); b.rotation.z = 0.025 * Math.sin(t * 1.1 + i); });
   placeCards(S, cam, t, f, pool, actors, fxs, world);
   fx.lens.focus = S.focus; fx.lens.cInf = S.cInf;

@@ -4,6 +4,7 @@ import { BridgeShort, BRIDGE_FRAMES } from "./videos/bridge/Bridge";
 import { Smoke } from "./videos/smoke/Smoke";
 import { MondShort, calcMond, MondProps } from "./videos/mond/Mond";
 import { MannShort, calcMann } from "./videos/mann/Mann";
+import { TedShort, calcTed } from "./videos/ted/Ted";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -13,5 +14,7 @@ export const RemotionRoot: React.FC = () => (
       durationInFrames={2400} fps={30} width={1080} height={1920} />
     <Composition id="MannShort" component={MannShort} defaultProps={{ timing: null } as MondProps} calculateMetadata={calcMann}
       durationInFrames={3600} fps={30} width={1080} height={1920} />
+    <Composition id="TedShort" component={TedShort} defaultProps={{ timing: null } as MondProps} calculateMetadata={calcTed}
+      durationInFrames={5400} fps={30} width={1080} height={1920} />
   </>
 );

@@ -20,6 +20,8 @@ const GDAY = G([0, 0.1, 0.28, 0.6, 0.835, 0.945, 1], [1.0, 1.08, 1.0], [0.01, 0.
 const GNIGHT = G([0, 0.09, 0.25, 0.55, 0.8, 0.93, 1], [0.95, 1.1, 1.0], [0.035, -0.01], [0.02, -0.01], [0, 0], [0.3, 0.38]);
 const GHOT = G([0, 0.1, 0.29, 0.61, 0.84, 0.95, 1], [1.0, 1.15, 1.05], [-0.02, 0.03], [-0.03, 0.04], [-0.02, 0.02], [0.2, 0.42]);
 const GHORROR = G([0, 0.07, 0.22, 0.5, 0.76, 0.9, 1], [0.8, 0.85, 0.9], [0.045, -0.02], [0.025, -0.015], [0, 0], [0.42, 0.32]);
+const G70 = G([0.04, 0.13, 0.3, 0.58, 0.81, 0.92, 0.97], [0.85, 0.95, 0.9], [-0.02, 0.03], [-0.015, 0.02], [-0.02, 0.015], [0.3, 0.38]);
+const G70N = G([0.02, 0.08, 0.23, 0.5, 0.76, 0.9, 0.97], [0.85, 0.95, 0.9], [0.03, -0.005], [-0.01, 0.02], [-0.02, 0.02], [0.42, 0.32]);
 const GCOLD = G([0, 0.11, 0.3, 0.6, 0.83, 0.94, 1], [0.9, 0.85, 0.9], [0.04, -0.02], [0.03, -0.02], [0.01, -0.005], [0.2, 0.42]);
 
 export const LOOKS = {
@@ -71,6 +73,34 @@ export const LOOKS = {
     charTint: [0.95, 0.85, 0.85], charShade: 0.86, sun: [-0.6, 0.25, 0.7],
     skyTop: "#3a3c6e", skyHor: "#e0977a", fog: "#9a7c8c", fogNear: 25, fogFar: 220,
     stars: 0.1, windows: 0.8, lamps: 0.8, water: "#2a4a7a", grade: GNIGHT, gradeAmt: 0.8, bloom: 0.9,
+  },
+  /** 1970s daylight: warm, slightly faded film */
+  seventies: {
+    lit: [1.5, 1.38, 1.15], shade: [0.32, 0.29, 0.33], lift: [0.07, 0.06, 0.07], sat: 0.85,
+    charTint: [1.0, 0.94, 0.86], charShade: 0.86, sun: [-0.45, 0.75, 0.55],
+    skyTop: "#6f97c4", skyHor: "#dcd3bf", fog: "#d6cdb8", fogNear: 40, fogFar: 380,
+    stars: 0, windows: 0, lamps: 0, water: "#3f7f95", grade: G70, gradeAmt: 1, bloom: 0.5,
+  },
+  /** 1970s night: sodium-orange street light, deep shadows */
+  seventiesNight: {
+    lit: [0.55, 0.38, 0.22], shade: [0.06, 0.06, 0.12], lift: [0.03, 0.02, 0.04], sat: 0.8,
+    charTint: [0.95, 0.72, 0.5], charShade: 0.82, sun: [0.3, 0.8, 0.4],
+    skyTop: "#05060c", skyHor: "#1c1620", fog: "#141018", fogNear: 25, fogFar: 160,
+    stars: 0.3, windows: 0.9, lamps: 1.4, water: "#141e33", grade: G70N, gradeAmt: 1, bloom: 1.1,
+  },
+  /** black void, one hard spotlight from above */
+  stage: {
+    lit: [1.3, 1.2, 1.05], shade: [0.03, 0.03, 0.05], lift: [0.0, 0.0, 0.01], sat: 0.85,
+    charTint: [0.95, 0.9, 0.85], charShade: 0.7, sun: [0.1, 1, 0.25],
+    skyTop: "#000000", skyHor: "#000000", fog: "#000000", fogNear: 2.5, fogFar: 9,
+    stars: 0, windows: 0, lamps: 0, water: "#000000", grade: GHORROR, gradeAmt: 0.8, bloom: 0.8,
+  },
+  /** woods at dusk: cold, misty */
+  woods: {
+    lit: [0.5, 0.55, 0.6], shade: [0.1, 0.12, 0.16], lift: [0.03, 0.04, 0.06], sat: 0.7,
+    charTint: [0.7, 0.75, 0.8], charShade: 0.8, sun: [-0.3, 0.6, 0.6],
+    skyTop: "#3a4450", skyHor: "#8a9294", fog: "#7c8486", fogNear: 6, fogFar: 70,
+    stars: 0, windows: 0, lamps: 0, water: "#3a4a5a", grade: GHORROR, gradeAmt: 0.8, bloom: 0.5,
   },
   /** bright harbour morning */
   day: {

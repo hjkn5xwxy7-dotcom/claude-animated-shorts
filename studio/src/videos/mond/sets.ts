@@ -15,7 +15,9 @@ export const REEF = new THREE.Vector3(0, -3000, 0);
 export const WATER_Y = -2.0;
 export const QUAY_Z = 3.0;
 export const ROOM = new THREE.Vector3(3000, 0, 0);
-export type SetId = "town" | "space" | "reef" | "room";
+export const STAGE = new THREE.Vector3(-3000, 0, 0);
+export const WOODS = new THREE.Vector3(0, 0, -3000);
+export type SetId = "town" | "space" | "reef" | "room" | "stage" | "woods";
 
 // ---------------- painted textures ----------------
 const earthTex = () => ctex("earthMap", 2048, 1024, (g, r) => {
@@ -76,6 +78,8 @@ const basic = (col: THREE.ColorRepresentation, extra: THREE.MeshBasicMaterialPar
 export class MondWorld {
   root = new THREE.Group();
   town = new THREE.Group(); space = new THREE.Group(); reef = new THREE.Group(); room = new THREE.Group();
+  stage = new THREE.Group(); woods = new THREE.Group(); beetle = new THREE.Group(); police = new THREE.Group();
+  lineup!: THREE.Mesh; policeRed!: THREE.MeshBasicMaterial; policeBlue!: THREE.MeshBasicMaterial; spot!: THREE.Mesh;
   curtainL!: THREE.Mesh; curtainR!: THREE.Mesh; phoneGlow!: THREE.Mesh; poolMat!: THREE.MeshBasicMaterial;
   sun = new THREE.DirectionalLight(0xffffff, 1);
   sky: THREE.Mesh; skyMat: THREE.ShaderMaterial;
@@ -90,7 +94,8 @@ export class MondWorld {
   bench = V(5.5, 0, 0.6);
   constructor() {
     const R = this.root;
-    R.add(this.town, this.space, this.reef, this.room);
+    R.add(this.town, this.space, this.reef, this.room, this.stage, this.woods, this.beetle, this.police);
+    this.stage.position.copy(STAGE); this.woods.position.copy(WOODS);
     this.room.position.copy(ROOM);
     this.space.position.copy(SPACE); this.reef.position.copy(REEF);
     // key light (moon / sun): the only shadow caster
@@ -137,7 +142,7 @@ export class MondWorld {
     this.moon3d = new THREE.Mesh(new THREE.SphereGeometry(1.7, 48, 24), mat("moon3d", "#ffffff", moonTex()));
     this.sun3d = new THREE.Mesh(new THREE.CircleGeometry(30, 64), basic(new THREE.Color("#fff3d2").multiplyScalar(3.2)));
     this.axis = new THREE.Group();
-    this.buildTown(); this.buildSpace(); this.buildReef(); this.buildRoom();
+    this.buildTown(); this.buildSpace(); this.buildReef(); this.buildRoom(); this.buildStage(); this.buildWoods(); this.buildBeetle(); this.buildPolice();
   }
 
   private buildTown() {
@@ -325,6 +330,76 @@ export class MondWorld {
     this.curtainL = mk(-1); this.curtainR = mk(1);
   }
 
+  /** black void with one hard spotlight and a wooden chair (interview / confession shots) */
+  private buildStage() {
+    const St = this.stage, b = new Batch();
+    b.add(boxGeo(V(-30, -0.1, -30), V(30, 0, 30)), lam("stageFloor", () => ({ color: "#141217" })));
+    const wood = lam("chairWood", () => ({ color: "#6b4a32" }));
+    b.add(boxGeo(V(-0.28, 0.42, -0.25), V(0.28, 0.48, 0.25)), wood);
+    b.add(boxGeo(V(-0.28, 0.48, -0.27), V(0.28, 1.05, -0.22)), wood);
+    for (const [x, z] of [[-0.24, -0.22], [0.24, -0.22], [-0.24, 0.22], [0.24, 0.22]]) b.add(boxGeo(V(x - 0.03, 0, z - 0.03), V(x + 0.03, 0.42, z + 0.03)), wood);
+    b.build(St);
+    const coneMat = new THREE.MeshBasicMaterial({ color: "#fff1d6", transparent: true, opacity: 0.12, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.DoubleSide, fog: false });
+    this.spot = new THREE.Mesh(new THREE.ConeGeometry(1.5, 6, 40, 1, true), coneMat);
+    this.spot.position.set(0, 3, -0.1); this.spot.layers.set(NOINK); St.add(this.spot);
+    const pool = new THREE.Mesh(new THREE.CircleGeometry(1.6, 48), new THREE.MeshBasicMaterial({ map: glowTex(), color: "#ffe2b0", transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending, fog: false }));
+    pool.rotation.x = -Math.PI / 2; pool.position.set(0, 0.02, -0.1); pool.layers.set(NOINK); St.add(pool);
+    // police line-up wall with height marks (toggled per shot)
+    this.lineup = new THREE.Mesh(new THREE.PlaneGeometry(8, 3.2), twoTone(new THREE.MeshLambertMaterial({ map: lineupTex() })));
+    this.lineup.position.set(5, 1.6, -1.6); this.lineup.receiveShadow = true; this.lineup.visible = false; St.add(this.lineup);
+  }
+
+  /** dark conifer woods along a gravel road (where the remains were found) */
+  private buildWoods() {
+    const Wd = this.woods, b = new Batch(), r = rng(57);
+    b.add(boxGeo(V(-60, -0.1, -60), V(60, 0, 60)), lam("forestFloor", () => ({ color: "#3b3a2a" })));
+    b.add(boxGeo(V(-1.8, 0, -60), V(1.8, 0.02, 60)), lam("gravel", () => ({ color: "#6e675a" })));
+    const trunk = lam("trunk", () => ({ color: "#4a3626" })), needles = ["#2f4a32", "#284030", "#36553a"].map((c) => lam("needle" + c, () => ({ color: c })));
+    for (let i = 0; i < 150; i++) {
+      const x = (r() < 0.5 ? -1 : 1) * (3 + r() * 40), z = (r() - 0.5) * 110, h = 9 + r() * 9;
+      b.add(new THREE.CylinderGeometry(0.18, 0.28, h * 0.35, 7).translate(x, h * 0.17, z), trunk);
+      for (let k = 0; k < 3; k++) b.add(new THREE.ConeGeometry((3 - k * 0.7) * (h / 14), h * 0.35, 9).translate(x, h * (0.3 + k * 0.22), z), needles[(i + k) % 3]);
+    }
+    b.build(Wd);
+  }
+
+  /** a light-brown 1968-style Beetle, built from ellipsoids (local: nose +x, ground y 0) */
+  private buildBeetle() {
+    const Bt = this.beetle, tan = lam("beetleTan", () => ({ color: "#c9a46c" })), glass = lam("beetleGlass", () => ({ color: "#263040" }));
+    const tyre = lam("tyre", () => ({ color: "#1b1b1f" })), chrome = lam("chrome", () => ({ color: "#d8dde2" }));
+    const ell = (m: THREE.Material, rx: number, ry: number, rz: number, x: number, y: number, z: number) => {
+      const g = new THREE.Mesh(new THREE.SphereGeometry(1, 36, 18), m); g.scale.set(rx, ry, rz); g.position.set(x, y, z); g.castShadow = true; g.receiveShadow = true; Bt.add(g); return g;
+    };
+    ell(tan, 1.95, 0.55, 0.82, 0, 0.72, 0);                       // body
+    ell(glass, 1.08, 0.6, 0.74, -0.18, 1.0, 0);                   // cabin glass
+    ell(tan, 1.02, 0.34, 0.7, -0.22, 1.28, 0);                    // roof
+    for (const [x, z] of [[1.15, 0.72], [1.15, -0.72], [-1.2, 0.72], [-1.2, -0.72]]) {
+      ell(tan, 0.5, 0.42, 0.28, x, 0.55, z * 1.02);                // fenders
+      const w = new THREE.Mesh(new THREE.CylinderGeometry(0.33, 0.33, 0.22, 20), tyre); w.rotation.x = Math.PI / 2; w.position.set(x, 0.33, z); w.castShadow = true; Bt.add(w);
+      const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.14, 0.24, 14), chrome); hub.rotation.x = Math.PI / 2; hub.position.set(x, 0.33, z); Bt.add(hub);
+    }
+    for (const z of [0.5, -0.5]) { const h = new THREE.Mesh(new THREE.SphereGeometry(0.11, 14, 10), basic(new THREE.Color("#fff2c8").multiplyScalar(1.4))); h.position.set(1.72, 0.78, z); h.layers.set(NOINK); Bt.add(h); }
+    const bump = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 1.6), chrome); bump.position.set(1.95, 0.42, 0); Bt.add(bump);
+    const bump2 = bump.clone(); bump2.position.x = -1.98; Bt.add(bump2);
+    Bt.visible = false;
+  }
+
+  /** a 1970s patrol car with a red / blue light bar (local: nose +x) */
+  private buildPolice() {
+    const P = this.police, b = new Batch();
+    b.add(boxGeo(V(-2.4, 0.35, -0.9), V(2.4, 0.95, 0.9)), lam("copWhite", () => ({ color: "#ecebe6" })));
+    b.add(boxGeo(V(-1.0, 0.95, -0.82), V(0.9, 1.5, 0.82)), lam("copGlass", () => ({ color: "#263040" })));
+    b.add(boxGeo(V(-1.05, 1.5, -0.84), V(0.95, 1.56, 0.84)), lam("copRoof", () => ({ color: "#1d2230" })));
+    b.add(boxGeo(V(1.0, 0.95, -0.9), V(2.4, 0.97, 0.9)), lam("copHood", () => ({ color: "#1d2230" })));
+    b.add(boxGeo(V(-0.4, 1.56, -0.7), V(0.2, 1.64, 0.7)), lam("copBar", () => ({ color: "#222" })));
+    b.build(P);
+    for (const [x, z] of [[1.6, 0.9], [1.6, -0.9], [-1.6, 0.9], [-1.6, -0.9]]) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.24, 20), lam("tyre", () => ({ color: "#1b1b1f" }))); w.rotation.x = Math.PI / 2; w.position.set(x, 0.36, z); P.add(w); }
+    this.policeRed = basic(new THREE.Color("#ff2a2a").multiplyScalar(3)); this.policeBlue = basic(new THREE.Color("#2a5bff").multiplyScalar(3));
+    const lr = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.5), this.policeRed); lr.position.set(-0.1, 1.72, 0.4); lr.layers.set(NOINK); P.add(lr);
+    const lb = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.5), this.policeBlue); lb.position.set(-0.1, 1.72, -0.4); lb.layers.set(NOINK); P.add(lb);
+    P.visible = false;
+  }
+
   /** curtains: 0 = open (bunched at the sides), 1 = closed */
   setCurtains(k: number) { const s = 0.28 + 0.72 * k; this.curtainL.scale.x = s; this.curtainR.scale.x = s; }
 
@@ -344,6 +419,7 @@ export class MondWorld {
     this.lampGlow.color.set("#ffd28a").multiplyScalar(2.4 * L.lamps);
     this.water.color.set(L.water);
     this.town.visible = setId === "town"; this.space.visible = setId === "space"; this.reef.visible = setId === "reef"; this.room.visible = setId === "room";
+    this.stage.visible = setId === "stage"; this.woods.visible = setId === "woods";
     this.poolMat.opacity = Math.min(0.85, 0.5 * L.lamps);
   }
 }
@@ -355,6 +431,12 @@ const seaTex = () => ctex("seaPaint", 512, 512, (g, r) => {
   for (let y = 16; y < 512; y += 42) { g.beginPath(); for (let x = 0; x <= 512; x += 16) g.lineTo(x, y + 6 * Math.sin((x / 512) * Math.PI * 4 + y)); g.stroke(); }
   g.strokeStyle = "rgba(255,255,255,0.9)"; g.lineWidth = 4; g.lineCap = "round";
   for (let i = 0; i < 70; i++) { const x = r() * 512, y = r() * 512; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + 10, y - 5, x + 22, y); g.stroke(); }
+});
+/** line-up wall: grey with height lines every 10 cm and labels every 50 cm (8 x 3.2 m) */
+const lineupTex = () => ctex("lineup", 1024, 410, (g) => {
+  g.fillStyle = "#b9bcc0"; g.fillRect(0, 0, 1024, 410);
+  g.fillStyle = "#2a2c30"; g.font = "bold 22px sans-serif";
+  for (let cm = 0; cm <= 320; cm += 10) { const y = 410 - (cm / 320) * 410; g.fillRect(0, y - (cm % 50 ? 1 : 2), 1024, cm % 50 ? 2 : 4); if (cm % 50 === 0 && cm) { g.fillText(`${(cm / 100).toFixed(1)}`, 14, y - 6); g.fillText(`${(cm / 100).toFixed(1)}`, 960, y - 6); } }
 });
 /** faded floral wallpaper */
 const wallpaperTex = () => ctex("wallpaper", 512, 512, (g, r) => {
