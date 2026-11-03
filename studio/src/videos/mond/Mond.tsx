@@ -16,7 +16,7 @@ import { Clock, FPS, Timing, framesOf, loadTiming } from "./timing";
 import { LOOKS } from "./looks";
 import { MondWorld } from "./sets";
 import { shotAt, Stage } from "./shots";
-import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle, drawSleeper, drawSleeperW, fxCrowbar, fxCuffs, fxIcepick, fxTag, fxBooks } from "./chars";
+import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle, drawSleeper, drawSleeperW, fxCrowbar, fxCuffs, fxIcepick, fxTag, fxBooks, fxKey } from "./chars";
 import { Pen } from "../bridge/toon";
 import { Captions } from "./Captions";
 import { Overlays } from "./Overlays";
@@ -58,6 +58,7 @@ export const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg
   icepick: { cw: 500, ch: 140, draw: (p) => fxIcepick(p) },
   tag: { cw: 300, ch: 140, draw: (p) => fxTag(p) },
   books: { cw: 300, ch: 150, draw: (p) => fxBooks(p) },
+  key: { cw: 300, ch: 160, draw: (p) => fxKey(p) },
   // head toward the headboard: drawn mirrored (head on the right)
   sleeper: { cw: 1000, ch: 420, draw: (p, a) => { p.g.translate(1000, 0); p.g.scale(-1, 1); drawSleeper(p, Math.round(a * 10) / 10); } },
 };
@@ -109,6 +110,9 @@ const Inner: React.FC<{ clock: Clock; shot: ShotFn }> = ({ clock, shot }) => {
   world.phoneGlow.visible = (S.room?.phone ?? 0) > 0.01;
   const bt = S.props?.beetle, pc = S.props?.police;
   world.lineup.visible = !!S.props?.lineup;
+  world.lagerDoor.rotation.y = 1.5 * (S.props?.door ?? 0);
+  world.cakeHalf.visible = !!S.props?.cakeHalf; world.cakeFull.visible = !S.props?.cakeHalf;
+  world.fairy.color.set("#ffe2a0").multiplyScalar(2.2 * (S.props?.fairy ?? 1));
   world.beetle.visible = !!bt && (S.set === "town" || S.set === "woods");
   if (bt) { world.beetle.position.set(bt[0] + (S.set === "woods" ? 0 : 0), 0, bt[1]); if (S.set === "woods") world.beetle.position.add(new THREE.Vector3(0, 0, -3000)); world.beetle.rotation.y = bt[2]; }
   world.police.visible = !!pc && S.set === "town";

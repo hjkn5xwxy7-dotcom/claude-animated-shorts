@@ -7,15 +7,15 @@ name: Make video
 on:
   push:
     branches: [claude/cloud-ai-animation-studio-aae6pa]
-    paths: [.github/workflows/make-video.yml, studio/public/mond/script.json, studio/public/mann/script.json, studio/public/ted/script.json]
+    paths: [.github/workflows/make-video.yml, studio/public/mond/script.json, studio/public/mann/script.json, studio/public/ted/script.json, studio/public/frucht/script.json]
   workflow_dispatch:
     inputs:
       video:
         description: "Video folder under studio/public (script.json inside)"
-        default: "ted"
+        default: "frucht"
       composition:
         description: "Remotion composition id"
-        default: "TedShort"
+        default: "FruchtShort"
       chunks:
         description: "Parallel render jobs (1-20)"
         default: "20"
@@ -28,8 +28,8 @@ permissions:
   contents: write
 
 env:
-  VIDEO: ${{ inputs.video || 'ted' }}
-  COMP: ${{ inputs.composition || 'TedShort' }}
+  VIDEO: ${{ inputs.video || 'frucht' }}
+  COMP: ${{ inputs.composition || 'FruchtShort' }}
   CHUNKS: ${{ inputs.chunks || '20' }}
   RELEASE: ${{ github.event_name == 'push' || inputs.release }}
 

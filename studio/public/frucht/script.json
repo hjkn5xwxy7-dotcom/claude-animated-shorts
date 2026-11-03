@@ -1,0 +1,276 @@
+{
+  "title": "Die Erdbeere bekam ein Video aus der Zukunft – Teil 1",
+  "voice": {
+    "model": "de_DE-thorsten-high",
+    "lengthScale": 1.0,
+    "gap": 0.22,
+    "lead": 0.25,
+    "tail": 3.4
+  },
+  "voices": {
+    "erz": {
+      "model": "de_DE-thorsten-high",
+      "lengthScale": 0.97,
+      "noiseScale": 0.7,
+      "pitch": -0.5
+    },
+    "erd": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:high:0",
+      "lengthScale": 0.95,
+      "pitch": 1.0
+    },
+    "erdw": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:high:0",
+      "lengthScale": 1.05,
+      "pitch": 1.0
+    },
+    "erd2": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:high:0",
+      "lengthScale": 1.15,
+      "pitch": -1.0,
+      "reverb": 0.3
+    },
+    "kiwi": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:high:3",
+      "lengthScale": 0.97,
+      "pitch": 0.5
+    },
+    "kiwi_c": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:high:3",
+      "lengthScale": 1.12,
+      "pitch": -1.0,
+      "reverb": 0.2
+    },
+    "mango": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:low:6",
+      "lengthScale": 0.97,
+      "pitch": 0.0
+    },
+    "mango_v": {
+      "model": "de_DE-mls-medium",
+      "speaker": "pitch:low:6",
+      "lengthScale": 1.15,
+      "pitch": -1.0,
+      "reverb": 0.35
+    },
+    "banane": {
+      "model": "de_DE-thorsten_emotional-medium",
+      "speaker": "amused",
+      "lengthScale": 0.9,
+      "pitch": 3.0
+    }
+  },
+  "sentences": [
+    {
+      "id": "h1",
+      "voice": "mango_v",
+      "text": "Jetzt ist es zu spät.",
+      "pause": 0.5
+    },
+    {
+      "id": "h2",
+      "voice": "erz",
+      "text": "Einen Tag vor ihrer Hochzeit bekam Erdbeere ein Video aus der Zukunft.",
+      "pause": 0.2
+    },
+    {
+      "id": "h3",
+      "voice": "erz",
+      "text": "Und darin sah sie, wie ihr eigener Freund sie einsperrte.",
+      "pause": 1.3
+    },
+    {
+      "id": "z1",
+      "voice": "erz",
+      "text": "Zwölf Stunden vorher.",
+      "pause": 0.4
+    },
+    {
+      "id": "e1",
+      "voice": "erd",
+      "text": "Morgen heirate ich! Ich kann es immer noch nicht glauben!",
+      "pause": 0.3
+    },
+    {
+      "id": "m1",
+      "voice": "mango",
+      "text": "Du wirst die schönste Braut der Welt.",
+      "pause": 0.3
+    },
+    {
+      "id": "e1b",
+      "voice": "erd",
+      "text": "Und du der schönste Bräutigam.",
+      "pause": 0.5
+    },
+    {
+      "id": "n1",
+      "voice": "erz",
+      "text": "Doch jedes Mal, wenn sein Handy klingelte, ging Mango schnell nach draußen.",
+      "pause": 0.4
+    },
+    {
+      "id": "k1",
+      "voice": "kiwi",
+      "text": "Mach dir keine Sorgen, Süße. Morgen ist dein Tag.",
+      "pause": 0.3
+    },
+    {
+      "id": "n2",
+      "voice": "erz",
+      "text": "Nur ihre Hände zitterten dabei.",
+      "pause": 0.5
+    },
+    {
+      "id": "b1",
+      "voice": "banane",
+      "text": "Leute! Ich hab die Torte probiert. Also, nur ein bisschen.",
+      "pause": 0.5
+    },
+    {
+      "id": "b2",
+      "voice": "banane",
+      "text": "Okeh, die Hälfte.",
+      "pause": 0.3
+    },
+    {
+      "id": "e2",
+      "voice": "erd",
+      "text": "Banane!",
+      "pause": 0.6
+    },
+    {
+      "id": "n3",
+      "voice": "erz",
+      "text": "Am Abend kam das Video. Ohne Absender. Datiert auf morgen, dreiundzwanzig Uhr siebenundvierzig.",
+      "pause": 0.4
+    },
+    {
+      "id": "h1b",
+      "voice": "mango_v",
+      "text": "Jetzt ist es zu spät.",
+      "pause": 0.8
+    },
+    {
+      "id": "n4",
+      "voice": "erz",
+      "text": "Erdbeere sah es sich zehnmal an. Und beim elften Mal fiel ihr etwas auf.",
+      "pause": 0.5
+    },
+    {
+      "id": "e3",
+      "voice": "erd",
+      "text": "Diese Tür. Lager drei. Das ist in unserer Hochzeitslocation!",
+      "pause": 0.5
+    },
+    {
+      "id": "e4",
+      "voice": "erd",
+      "text": "Mango, was ist hinter der Tür neben dem Festsaal?",
+      "pause": 0.3
+    },
+    {
+      "id": "m2",
+      "voice": "mango",
+      "text": "Nur ein Lagerraum. Warum fragst du?",
+      "pause": 0.4
+    },
+    {
+      "id": "e4b",
+      "voice": "erd",
+      "text": "Nur so.",
+      "pause": 0.6
+    },
+    {
+      "id": "n5",
+      "voice": "erz",
+      "text": "Er lächelte. Aber er sah ihr nicht in die Augen.",
+      "pause": 0.5
+    },
+    {
+      "id": "k2",
+      "voice": "kiwi",
+      "text": "Bitte hör auf, nach Problemen zu suchen. Geh einfach schlafen.",
+      "pause": 0.4
+    },
+    {
+      "id": "n6",
+      "voice": "erz",
+      "text": "Doch als Kiwi ging, fiel etwas aus ihrer Tasche.",
+      "pause": 0.4
+    },
+    {
+      "id": "e5",
+      "voice": "erd",
+      "text": "Ein Schlüssel. Für Lager drei.",
+      "pause": 0.7
+    },
+    {
+      "id": "e5b",
+      "voice": "erd",
+      "text": "Kiwi, was hast du vor?",
+      "pause": 0.8
+    },
+    {
+      "id": "n7",
+      "voice": "erz",
+      "text": "Um Mitternacht schlich Erdbeere allein in die Hochzeitslocation.",
+      "pause": 0.5
+    },
+    {
+      "id": "e6",
+      "voice": "erdw",
+      "text": "Hallo? Ist da jemand?",
+      "pause": 0.8
+    },
+    {
+      "id": "n7b",
+      "voice": "erz",
+      "text": "Irgendwo im Dunkeln weinte jemand.",
+      "pause": 0.9
+    },
+    {
+      "id": "n8",
+      "voice": "erz",
+      "text": "Die Tür von Lager drei war nicht verschlossen.",
+      "pause": 0.6
+    },
+    {
+      "id": "n9",
+      "voice": "erz",
+      "text": "Und drinnen saß sie selbst.",
+      "pause": 1.4
+    },
+    {
+      "id": "x1",
+      "voice": "erd2",
+      "text": "Du denkst, du bist die echte Erdbeere? Dann weißt du nicht, was Kiwi mit dir gemacht hat.",
+      "pause": 1.2000000000000002
+    },
+    {
+      "id": "e7",
+      "voice": "erdw",
+      "text": "Was?",
+      "pause": 0.7
+    },
+    {
+      "id": "k3",
+      "voice": "kiwi_c",
+      "text": "Du hättest niemals die Wahrheit finden dürfen.",
+      "pause": 1.4
+    }
+  ],
+  "captionMap": {
+    "Okeh,": "Okay,",
+    "dreiundzwanzig": "23:47",
+    "Uhr": "",
+    "siebenundvierzig.": ""
+  },
+  "credits": "Stimmen: Thorsten (CC0), MLS German (CC-BY 4.0)"
+}

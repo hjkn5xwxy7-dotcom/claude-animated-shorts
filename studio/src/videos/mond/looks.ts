@@ -102,6 +102,34 @@ export const LOOKS = {
     skyTop: "#3a4450", skyHor: "#8a9294", fog: "#7c8486", fogNear: 6, fogFar: 70,
     stars: 0, windows: 0, lamps: 0, water: "#3a4a5a", grade: GHORROR, gradeAmt: 0.8, bloom: 0.5,
   },
+  /** the bedroom in the evening with the bedside lamp on */
+  roomLamp: {
+    lit: [0.95, 0.75, 0.55], shade: [0.12, 0.1, 0.16], lift: [0.04, 0.03, 0.05], sat: 0.9,
+    charTint: [1.0, 0.86, 0.72], charShade: 0.84, sun: [-0.6, 0.7, -0.5],
+    skyTop: "#02040b", skyHor: "#0c1428", fog: "#120d10", fogNear: 30, fogFar: 140,
+    stars: 0.4, windows: 0.6, lamps: 1, water: "#0b1a38", grade: GNIGHT, gradeAmt: 0.8, bloom: 1.0,
+  },
+  /** the wedding hall by day: warm, glowing, soft */
+  hallDay: {
+    lit: [1.45, 1.32, 1.12], shade: [0.4, 0.33, 0.36], lift: [0.08, 0.06, 0.07], sat: 1.12,
+    charTint: [1.0, 0.95, 0.9], charShade: 0.88, sun: [-0.6, 0.8, 0.3],
+    skyTop: "#8fb4e6", skyHor: "#f6e1c2", fog: "#f3e2cb", fogNear: 30, fogFar: 160,
+    stars: 0, windows: 0, lamps: 0, water: "#3f7f95", grade: GDAY, gradeAmt: 0.9, bloom: 0.9,
+  },
+  /** the hall at midnight: blue moonlight through the tall windows */
+  hallNight: {
+    lit: [0.28, 0.33, 0.55], shade: [0.05, 0.06, 0.12], lift: [0.02, 0.02, 0.06], sat: 0.75,
+    charTint: [0.7, 0.75, 0.95], charShade: 0.82, sun: [-1, 0.5, 0.2],
+    skyTop: "#02040b", skyHor: "#0c1428", fog: "#05070f", fogNear: 12, fogFar: 60,
+    stars: 0, windows: 0, lamps: 0, water: "#0b1a38", grade: GHORROR, gradeAmt: 1, bloom: 1.2,
+  },
+  /** LAGER 3: one warm bulb, deep shadows */
+  lager: {
+    lit: [0.9, 0.66, 0.4], shade: [0.04, 0.04, 0.07], lift: [0.01, 0.01, 0.03], sat: 0.85,
+    charTint: [0.95, 0.78, 0.6], charShade: 0.75, sun: [0.15, 1, 0.1],
+    skyTop: "#000000", skyHor: "#000000", fog: "#050404", fogNear: 3, fogFar: 14,
+    stars: 0, windows: 0, lamps: 0, water: "#000000", grade: GHORROR, gradeAmt: 0.9, bloom: 1.3,
+  },
   /** bright harbour morning */
   day: {
     lit: [1.58, 1.5, 1.33], shade: [0.3, 0.29, 0.36], lift: [0.05, 0.06, 0.11], sat: 1.08,

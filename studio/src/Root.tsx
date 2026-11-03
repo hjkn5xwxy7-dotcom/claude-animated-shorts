@@ -5,6 +5,7 @@ import { Smoke } from "./videos/smoke/Smoke";
 import { MondShort, calcMond, MondProps } from "./videos/mond/Mond";
 import { MannShort, calcMann } from "./videos/mann/Mann";
 import { TedShort, calcTed } from "./videos/ted/Ted";
+import { FruchtShort, calcFrucht } from "./videos/frucht/Frucht";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -16,5 +17,7 @@ export const RemotionRoot: React.FC = () => (
       durationInFrames={3600} fps={30} width={1080} height={1920} />
     <Composition id="TedShort" component={TedShort} defaultProps={{ timing: null } as MondProps} calculateMetadata={calcTed}
       durationInFrames={5400} fps={30} width={1080} height={1920} />
+    <Composition id="FruchtShort" component={FruchtShort} defaultProps={{ timing: null } as MondProps} calculateMetadata={calcFrucht}
+      durationInFrames={3600} fps={30} width={1080} height={1920} />
   </>
 );

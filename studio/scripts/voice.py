@@ -90,6 +90,30 @@ else:
     # voices: script "voices" {name: {model, speaker?, lengthScale?, noiseScale?, pitch? (semitones), reverb? (wet 0..1)}};
     # a sentence picks one with "voice" (default: the script-level "voice" model)
     VOICES = S.get("voices", {})
+    def pick_by_pitch(v, model, order, n):
+        """median f0 of every speaker on a short phrase (cached next to the model), then rank"""
+        cache = os.path.join(mdir, model + ".pitch.json")
+        if os.path.exists(cache):
+            table = json.load(open(cache))
+        else:
+            vsr = v.config.sample_rate
+            table = []
+            ids = v.config.speaker_id_map or {str(i): i for i in range(v.config.num_speakers)}
+            for name, sid in ids.items():
+                x = np.concatenate([c.audio_float_array for c in v.synthesize("Hallo, wie geht es dir heute?", syn_config=SynthesisConfig(speaker_id=sid))])
+                nfr, f0s = int(0.04 * vsr), []
+                for i in range(0, len(x) - nfr, nfr):
+                    fr = x[i:i + nfr] - x[i:i + nfr].mean()
+                    if np.sqrt(np.mean(fr ** 2)) < 0.05: continue
+                    ac = np.correlate(fr, fr, "full")[nfr - 1:]
+                    lo, hi = int(vsr / 400), int(vsr / 60)
+                    k = lo + int(np.argmax(ac[lo:hi]))
+                    if ac[k] > 0.3 * ac[0]: f0s.append(vsr / k)
+                if f0s: table.append([float(np.median(f0s)), name, sid])
+            json.dump(table, open(cache, "w"))
+        table = sorted(table, reverse=(order == "high"))
+        print(f"[voice] pitch:{order}:{n} -> speaker {table[n][1]} ({table[n][0]:.0f} Hz)")
+        return table[n][2]
     loaded = {}
     def get_voice(name):
         spec = VOICES.get(name, {"model": MODEL, "lengthScale": LEN})
@@ -101,7 +125,11 @@ else:
             loaded[model] = PiperVoice.load(onnx, include_alignments=True)
         v = loaded[model]
         sid = None
-        if "speaker" in spec:
+        if str(spec.get("speaker", "")).startswith("pitch:"):
+            # pick a speaker of a multi-speaker model by voice pitch: "pitch:high:N" = N-th highest, "pitch:low:N" = N-th lowest
+            _, order, n = spec["speaker"].split(":")
+            sid = pick_by_pitch(v, model, order, int(n))
+        elif "speaker" in spec:
             sid = (v.config.speaker_id_map or {}).get(spec["speaker"])
             if sid is None:
                 raise SystemExit(f"voice {name}: speaker {spec['speaker']} not in {list((v.config.speaker_id_map or {}).keys())}")

@@ -17,7 +17,8 @@ export const QUAY_Z = 3.0;
 export const ROOM = new THREE.Vector3(3000, 0, 0);
 export const STAGE = new THREE.Vector3(-3000, 0, 0);
 export const WOODS = new THREE.Vector3(0, 0, -3000);
-export type SetId = "town" | "space" | "reef" | "room" | "stage" | "woods";
+export const HALL = new THREE.Vector3(6000, 0, 0);
+export type SetId = "town" | "space" | "reef" | "room" | "stage" | "woods" | "hall";
 
 // ---------------- painted textures ----------------
 const earthTex = () => ctex("earthMap", 2048, 1024, (g, r) => {
@@ -78,6 +79,7 @@ const basic = (col: THREE.ColorRepresentation, extra: THREE.MeshBasicMaterialPar
 export class MondWorld {
   root = new THREE.Group();
   town = new THREE.Group(); space = new THREE.Group(); reef = new THREE.Group(); room = new THREE.Group();
+  hall = new THREE.Group(); lagerDoor!: THREE.Mesh; cakeFull!: THREE.Object3D; cakeHalf!: THREE.Object3D; bulb!: THREE.MeshBasicMaterial; fairy!: THREE.MeshBasicMaterial;
   stage = new THREE.Group(); woods = new THREE.Group(); beetle = new THREE.Group(); police = new THREE.Group();
   lineup!: THREE.Mesh; policeRed!: THREE.MeshBasicMaterial; policeBlue!: THREE.MeshBasicMaterial; spot!: THREE.Mesh;
   curtainL!: THREE.Mesh; curtainR!: THREE.Mesh; phoneGlow!: THREE.Mesh; poolMat!: THREE.MeshBasicMaterial;
@@ -94,7 +96,8 @@ export class MondWorld {
   bench = V(5.5, 0, 0.6);
   constructor() {
     const R = this.root;
-    R.add(this.town, this.space, this.reef, this.room, this.stage, this.woods, this.beetle, this.police);
+    R.add(this.town, this.space, this.reef, this.room, this.stage, this.woods, this.beetle, this.police, this.hall);
+    this.hall.position.copy(HALL);
     this.stage.position.copy(STAGE); this.woods.position.copy(WOODS);
     this.room.position.copy(ROOM);
     this.space.position.copy(SPACE); this.reef.position.copy(REEF);
@@ -142,7 +145,7 @@ export class MondWorld {
     this.moon3d = new THREE.Mesh(new THREE.SphereGeometry(1.7, 48, 24), mat("moon3d", "#ffffff", moonTex()));
     this.sun3d = new THREE.Mesh(new THREE.CircleGeometry(30, 64), basic(new THREE.Color("#fff3d2").multiplyScalar(3.2)));
     this.axis = new THREE.Group();
-    this.buildTown(); this.buildSpace(); this.buildReef(); this.buildRoom(); this.buildStage(); this.buildWoods(); this.buildBeetle(); this.buildPolice();
+    this.buildTown(); this.buildSpace(); this.buildReef(); this.buildRoom(); this.buildStage(); this.buildWoods(); this.buildHall(); this.buildBeetle(); this.buildPolice();
   }
 
   private buildTown() {
@@ -330,6 +333,66 @@ export class MondWorld {
     this.curtainL = mk(-1); this.curtainR = mk(1);
   }
 
+  /** the wedding venue: cream hall with parquet, round tables, a flower arch, fairy lights, the cake; a side door
+   *  "LAGER 3" in the right wall leads to a bare storage room with one bulb (local coords, floor y 0) */
+  private buildHall() {
+    const H = this.hall, b = new Batch(), r = rng(71);
+    const wall = lam("hallWall", () => ({ color: "#efe4d2" })), wain = lam("hallWain", () => ({ color: "#c9b18c" }));
+    b.add(boxGeo(V(-10, -0.1, -7), V(10, 0, 7)), lam("parquet", () => ({ map: rep(planksHD(), 2, 2) })));
+    b.add(boxGeo(V(-10, 6, -7), V(10, 6.1, 7)), lam("hallCeil", () => ({ color: "#f6efe4" })));
+    b.add(boxGeo(V(-10.2, 0, -7.2), V(10.2, 6, -7)), wall); b.add(boxGeo(V(-10.2, 0, 7), V(10.2, 6, 7.2)), wall);
+    b.add(boxGeo(V(-10.2, 0, -7), V(-10, 6, 7)), wall);
+    b.add(boxGeo(V(10, 0, -7), V(10.2, 6, -3.6)), wall); b.add(boxGeo(V(10, 0, -2.4), V(10.2, 6, 7)), wall); b.add(boxGeo(V(10, 2.3, -3.6), V(10.2, 6, -2.4)), wall);
+    for (const [a, c] of [[V(-10, 0, -7), V(10, 1.0, -6.95)], [V(-10, 0, 6.95), V(10, 1.0, 7)], [V(-10, 0, -7), V(-9.95, 1.0, 7)]] as const) b.add(boxGeo(a, c), wain);
+    // tall windows (dark blue glass) on the left wall
+    for (let z = -5; z <= 5; z += 2.5) b.add(boxGeo(V(-9.99, 1.4, z - 0.6), V(-9.95, 4.8, z + 0.6)), lam("hallGlass", () => ({ color: "#5d7fb8" })));
+    // round tables with cloths, chairs, flowers
+    const cloth = lam("cloth", () => ({ color: "#ffffff" })), chairM = lam("goldChair", () => ({ color: "#d8b45a" }));
+    const flowers = ["#ff6f9a", "#ffd34e", "#ff9f43", "#c77dff"].map((c) => lam("flower" + c, () => ({ color: c })));
+    for (const [x, z] of [[-5.5, -2.5], [-5.5, 2.5], [-1.8, 0.5], [4.5, -2.0], [5.0, 2.8], [-5.5, 6.0]]) {
+      b.add(new THREE.CylinderGeometry(1.0, 1.15, 0.78, 28).translate(x, 0.39, z), cloth);
+      for (let k = 0; k < 6; k++) b.add(new THREE.SphereGeometry(0.11, 10, 8).translate(x + 0.15 * Math.cos(k), 0.92, z + 0.15 * Math.sin(k)), flowers[k % 4]);
+      for (let k = 0; k < 6; k++) { const a = (k / 6) * Math.PI * 2, cx = x + 1.45 * Math.cos(a), cz = z + 1.45 * Math.sin(a); b.add(boxGeo(V(cx - 0.2, 0.45, cz - 0.2), V(cx + 0.2, 0.5, cz + 0.2)), chairM); b.add(new THREE.CylinderGeometry(0.03, 0.03, 0.45, 6).translate(cx, 0.22, cz), chairM); }
+    }
+    // flower arch + altar at the back
+    for (let i = 0; i <= 24; i++) { const a = Math.PI * (i / 24), x = -2.2 * Math.cos(a), y = 3.6 * Math.sin(a); b.add(new THREE.SphereGeometry(0.28, 12, 10).translate(x, y + 0.2, -6.3), flowers[i % 4]); b.add(new THREE.SphereGeometry(0.22, 10, 8).translate(x * 1.06, y * 1.04 + 0.2, -6.2), lam("leaf", () => ({ color: "#4fa45a" }))); }
+    b.add(boxGeo(V(-0.6, 0, -6.4), V(0.6, 1.0, -5.8)), lam("altar", () => ({ color: "#f8f4ec" })));
+    // the door to LAGER 3 + its sign
+    // the door (hinged at z -3.6, swings into the storage room) is a separate mesh: props.door 0..1
+    const dg = boxGeo(V(0, 0, 0), V(0.08, 2.3, 1.2)); dg.translate(-0.04, 0, 0);
+    this.lagerDoor = new THREE.Mesh(dg, lam("lagerDoor", () => ({ color: "#8a6446" }))); this.lagerDoor.position.set(10.06, 0, -3.6); this.lagerDoor.castShadow = true; H.add(this.lagerDoor);
+    b.add(boxGeo(V(10.21, 1.8, -1.9), V(10.25, 2.15, -1.1)), lam("lagerSign", () => ({ map: signTex("LAGER 3") })));
+    b.add(boxGeo(V(9.88, 2.4, -3.4), V(9.95, 2.75, -2.6)), lam("lagerSign", () => ({ map: signTex("LAGER 3") })));
+    // the storage room behind (x 10.2 .. 14, z -5 .. -1)
+    const conc = lam("concrete", () => ({ color: "#7d7a78" }));
+    b.add(boxGeo(V(10.2, -0.1, -5), V(14, 0, -1)), conc); b.add(boxGeo(V(10.2, 3, -5), V(14, 3.1, -1)), conc);
+    b.add(boxGeo(V(10.2, 0, -5.2), V(14, 3, -5)), conc); b.add(boxGeo(V(10.2, 0, -1), V(14, 3, -0.8)), conc); b.add(boxGeo(V(14, 0, -5), V(14.2, 3, -1)), conc);
+    for (const [x, z, h] of [[13.4, -4.4, 1.4], [13.4, -1.6, 0.9], [12.8, -4.5, 0.6]]) b.add(boxGeo(V(x - 0.4, 0, z - 0.4), V(x + 0.4, h, z + 0.4)), lam("box", () => ({ color: "#b08a5a" })));
+    b.add(boxGeo(V(12.1, 0.45, -3.3), V(12.6, 0.5, -2.8)), lam("chairWood", () => ({ color: "#6b4a32" })));
+    b.add(boxGeo(V(12.55, 0.5, -3.3), V(12.6, 1.05, -2.8)), lam("chairWood", () => ({ color: "#6b4a32" })));
+    b.build(H);
+    this.bulb = basic(new THREE.Color("#ffd28a").multiplyScalar(3));
+    const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 10), this.bulb); bulb.position.set(12.0, 2.4, -3.0); bulb.layers.set(NOINK); H.add(bulb);
+    const wire = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, 0.6, 4), basic("#222")); wire.position.set(12.0, 2.7, -3.0); H.add(wire);
+    // fairy lights across the ceiling
+    this.fairy = basic(new THREE.Color("#ffe2a0").multiplyScalar(2.2));
+    for (let k = 0; k < 6; k++) for (let i = 0; i < 26; i++) { const x = -9 + (18 * i) / 25, z = -6 + k * 2.4, y = 5.4 - 0.5 * Math.sin((Math.PI * i) / 25); const m = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), this.fairy); m.position.set(x, y, z); m.layers.set(NOINK); H.add(m); }
+    // the cake: full and half-eaten
+    const icing = lam("icing", () => ({ color: "#fff6f0" })), pinkC = lam("icingPink", () => ({ color: "#ffb6c9" }));
+    const cake = (half: boolean) => {
+      const g = new THREE.Group(), th = half ? Math.PI : Math.PI * 2;
+      [[0.55, 0.35], [0.42, 0.32], [0.3, 0.3]].forEach(([rad, h], i) => {
+        const m = new THREE.Mesh(new THREE.CylinderGeometry(rad, rad, h, 32, 1, false, 0, th), i % 2 ? pinkC : icing);
+        m.position.y = 0.8 + 0.17 + i * 0.32; m.castShadow = true; g.add(m);
+        if (half) { const cut = new THREE.Mesh(new THREE.PlaneGeometry(rad * 2, h), lam("sponge", () => ({ color: "#f3d39a" }))); cut.position.copy(m.position); cut.rotation.y = Math.PI / 2; g.add(cut); }
+      });
+      g.position.set(7.2, 0, 4.6); H.add(g); return g;
+    };
+    b.add(new THREE.CylinderGeometry(0.8, 0.9, 0.8, 24).translate(7.2, 0.4, 4.6), cloth); b.build(H);
+    this.cakeFull = cake(false); this.cakeHalf = cake(true); this.cakeHalf.visible = false;
+    void r;
+  }
+
   /** black void with one hard spotlight and a wooden chair (interview / confession shots) */
   private buildStage() {
     const St = this.stage, b = new Batch();
@@ -419,7 +482,7 @@ export class MondWorld {
     this.lampGlow.color.set("#ffd28a").multiplyScalar(2.4 * L.lamps);
     this.water.color.set(L.water);
     this.town.visible = setId === "town"; this.space.visible = setId === "space"; this.reef.visible = setId === "reef"; this.room.visible = setId === "room";
-    this.stage.visible = setId === "stage"; this.woods.visible = setId === "woods";
+    this.stage.visible = setId === "stage"; this.woods.visible = setId === "woods"; this.hall.visible = setId === "hall";
     this.poolMat.opacity = Math.min(0.85, 0.5 * L.lamps);
   }
 }
@@ -431,6 +494,10 @@ const seaTex = () => ctex("seaPaint", 512, 512, (g, r) => {
   for (let y = 16; y < 512; y += 42) { g.beginPath(); for (let x = 0; x <= 512; x += 16) g.lineTo(x, y + 6 * Math.sin((x / 512) * Math.PI * 4 + y)); g.stroke(); }
   g.strokeStyle = "rgba(255,255,255,0.9)"; g.lineWidth = 4; g.lineCap = "round";
   for (let i = 0; i < 70; i++) { const x = r() * 512, y = r() * 512; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + 10, y - 5, x + 22, y); g.stroke(); }
+});
+/** door sign: dark plate with white letters (256 x 96) */
+const signTex = (txt: string) => ctex("sign" + txt, 256, 96, (g) => {
+  g.fillStyle = "#2b2d36"; g.fillRect(0, 0, 256, 96); g.fillStyle = "#f2efe6"; g.font = "bold 44px sans-serif"; g.textAlign = "center"; g.fillText(txt, 128, 64);
 });
 /** line-up wall: grey with height lines every 10 cm and labels every 50 cm (8 x 3.2 m) */
 const lineupTex = () => ctex("lineup", 1024, 410, (g) => {

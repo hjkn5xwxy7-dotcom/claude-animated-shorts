@@ -94,7 +94,9 @@ export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
 };
 
 /** a character request: drawing key, the draw call, card scale */
-export type Custom = "man" | "manPhone" | "sleeper";
+export type Custom = "man" | "manPhone" | "sleeper" | `fruit:${string}`;
+/** extra custom drawers registered by other stories (key = full custom string prefix before the first "|") */
+export const EXTRA_CUSTOM: Record<string, (p: Pen, spec: string, blink: number) => void> = {};
 export type Cue = {
   who: Outfit; side?: boolean; mirror?: boolean; x: number; y: number; z: number; scale?: number; sy?: number; custom?: Custom; arg?: number;
   front?: FrontOpts; sideOpts?: SideOpts; extras?: Extra[]; seed?: number;
@@ -103,9 +105,13 @@ export type Cue = {
 export const cueDraw = (c: Cue, t: number, blink: number) => {
   const ex = c.extras ?? [];
   const tq = ex.some((e) => e === "sweat" || e === "question") ? Math.round(t * 12) / 12 : 0;
+  if (c.custom && c.custom.startsWith("fruit:")) {
+    const spec = c.custom;
+    return { key: `custom|${spec}|${blink}`, draw: (p: Pen) => EXTRA_CUSTOM.fruit(p, spec, blink) };
+  }
   if (c.custom) {
     const a = Math.round((c.arg ?? 0) * 20) / 20;
-    return { key: `custom|${c.custom}|${a}|${blink}`, draw: (p: Pen) => CUSTOM[c.custom!](p, a, blink) };
+    return { key: `custom|${c.custom}|${a}|${blink}`, draw: (p: Pen) => CUSTOM[c.custom as "man"](p, a, blink) };
   }
   const key = JSON.stringify([c.who, c.side ? c.sideOpts : c.front, ex, tq, blink, c.seed ?? 1]);
   const draw = (p: Pen) => {
@@ -243,6 +249,12 @@ export const fxCuffs = (p: Pen) => { p.ell(110, 120, 70, 70, null, 16); p.ell(29
 export const fxIcepick = (p: Pen) => { p.poly([[30, 50], [170, 44], [176, 96], [36, 100]], "#8a5a32", 8); p.line([[176, 72], [470, 70]], "#b7bdc6", 9); };
 /** two dropped books on the ground (300 x 150) */
 export const fxBooks = (p: Pen) => { p.poly([[20, 40], [180, 20], [200, 90], [40, 110]], "#b8452f", 8); p.poly([[120, 70], [280, 80], [270, 140], [110, 130]], "#2f5d8a", 8); };
+/** a brass key on a ring with a paper tag "LAGER 3" (300 x 160) */
+export const fxKey = (p: Pen) => {
+  p.ell(60, 80, 34, 34, null, 10); p.line([[92, 80], [220, 80]], "#e2b84a", 18); p.line([[180, 80], [180, 108]], "#e2b84a", 12); p.line([[205, 80], [205, 104]], "#e2b84a", 12);
+  p.poly([[20, 120], [120, 110], [126, 150], [26, 158]], "#f2e7c9", 6);
+  const g = p.g; g.save(); g.fillStyle = "#3a2a20"; g.font = "bold 22px sans-serif"; g.fillText("LAGER 3", 32, 142); g.restore();
+};
 /** evidence tag (300 x 140), arg-less */
 export const fxTag = (p: Pen) => { p.poly([[10, 20], [250, 20], [290, 70], [250, 120], [10, 120]], "#f2e7c9", 7); p.ell(255, 70, 9, 9, "#3a3a3a", 0); };
 /** melt puddle (flat on the ground) on a 400 x 200 canvas */
