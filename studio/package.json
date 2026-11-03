@@ -1,0 +1,27 @@
+{
+  "name": "animated-shorts-studio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio src/index.ts",
+    "bench": "node scripts/bench.mjs"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "@remotion/bundler": "4.0.540",
+    "@remotion/cli": "4.0.540",
+    "@remotion/renderer": "4.0.540",
+    "@remotion/three": "4.0.540",
+    "postprocessing": "6.39.6",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.540",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/three": "0.187.0",
+    "typescript": "5.9.3"
+  }
+}
