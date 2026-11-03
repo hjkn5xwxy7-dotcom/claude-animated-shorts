@@ -1,0 +1,57 @@
+# Renders voice auditions (Ben + "the man") as MP3s and publishes them as a release for listening on the phone.
+name: Voice samples
+
+on:
+  push:
+    branches: [claude/cloud-ai-animation-studio-aae6pa]
+    paths: [.github/workflows/voice-samples.yml, studio/scripts/voice_samples.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: studio
+
+jobs:
+  samples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: studio/scripts/requirements-audio.txt
+      - run: pip install -r scripts/requirements-audio.txt
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+      - name: Render raw samples
+        run: python3 scripts/voice_samples.py out/raw | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Pitch / reverb treatments and MP3s
+        run: |
+          mkdir -p out/samples
+          cd out/raw
+          mp3() { ffmpeg -v error -y -i "$1" -af "$2,loudnorm=I=-16:TP=-1.5" -ar 44100 -b:a 160k "../samples/$3.mp3"; }
+          shift_st() { python3 -c "print(2**($1/12))"; }
+          for f in ben_*.wav; do
+            sr=$(ffprobe -v error -show_entries stream=sample_rate -of csv=p=0 "$f"); b="${f%.wav}"
+            mp3 "$f" "anull" "$b"
+            k=$(shift_st 1.5); mp3 "$f" "asetrate=$sr*$k,aresample=$sr,atempo=1/$k" "${b}_hoeher"
+          done
+          for f in mann_*.wav; do
+            sr=$(ffprobe -v error -show_entries stream=sample_rate -of csv=p=0 "$f"); b="${f%.wav}"
+            mp3 "$f" "anull" "$b"
+            k=$(shift_st -4); mp3 "$f" "asetrate=$sr*$k,aresample=$sr,atempo=1/$k,aecho=0.8:0.6:45|110:0.3|0.18,lowpass=f=5200" "${b}_dunkel"
+          done
+          cp voices.txt ../samples/
+          ls -la ../samples
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voice-samples
+          path: studio/out/samples
+      - name: Publish release
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "voices-${{ github.run_number }}" out/samples/* --prerelease --target "${{ github.sha }}" --title "Hörproben #${{ github.run_number }}" --notes "Voice auditions for the horror short"
