@@ -1,0 +1,1531 @@
+{
+ "total": 109.455,
+ "sampleRate": 22050,
+ "fake": true,
+ "captionMap": {
+  "Okeh,": "Okay,",
+  "dreiundzwanzig": "23:47",
+  "Uhr": "",
+  "siebenundvierzig.": ""
+ },
+ "sentences": [
+  {
+   "id": "h1",
+   "text": "Jetzt ist es zu spät.",
+   "voice": "mango_v",
+   "start": 0.25,
+   "end": 1.696,
+   "words": [
+    {
+     "w": "Jetzt",
+     "start": 0.25,
+     "end": 0.644
+    },
+    {
+     "w": "ist",
+     "start": 0.644,
+     "end": 0.907
+    },
+    {
+     "w": "es",
+     "start": 0.907,
+     "end": 1.104
+    },
+    {
+     "w": "zu",
+     "start": 1.104,
+     "end": 1.301
+    },
+    {
+     "w": "spät.",
+     "start": 1.301,
+     "end": 1.696
+    }
+   ]
+  },
+  {
+   "id": "h2",
+   "text": "Einen Tag vor ihrer Hochzeit bekam Erdbeere ein Video aus der Zukunft.",
+   "voice": "erz",
+   "start": 2.416,
+   "end": 6.364,
+   "words": [
+    {
+     "w": "Einen",
+     "start": 2.416,
+     "end": 2.749
+    },
+    {
+     "w": "Tag",
+     "start": 2.749,
+     "end": 2.972
+    },
+    {
+     "w": "vor",
+     "start": 2.972,
+     "end": 3.194
+    },
+    {
+     "w": "ihrer",
+     "start": 3.194,
+     "end": 3.528
+    },
+    {
+     "w": "Hochzeit",
+     "start": 3.528,
+     "end": 4.028
+    },
+    {
+     "w": "bekam",
+     "start": 4.028,
+     "end": 4.362
+    },
+    {
+     "w": "Erdbeere",
+     "start": 4.362,
+     "end": 4.863
+    },
+    {
+     "w": "ein",
+     "start": 4.863,
+     "end": 5.085
+    },
+    {
+     "w": "Video",
+     "start": 5.085,
+     "end": 5.419
+    },
+    {
+     "w": "aus",
+     "start": 5.419,
+     "end": 5.641
+    },
+    {
+     "w": "der",
+     "start": 5.641,
+     "end": 5.864
+    },
+    {
+     "w": "Zukunft.",
+     "start": 5.864,
+     "end": 6.364
+    }
+   ]
+  },
+  {
+   "id": "h3",
+   "text": "Und darin sah sie, wie ihr eigener Freund sie einsperrte.",
+   "voice": "erz",
+   "start": 6.784,
+   "end": 9.999,
+   "words": [
+    {
+     "w": "Und",
+     "start": 6.784,
+     "end": 7.006
+    },
+    {
+     "w": "darin",
+     "start": 7.006,
+     "end": 7.338
+    },
+    {
+     "w": "sah",
+     "start": 7.338,
+     "end": 7.56
+    },
+    {
+     "w": "sie,",
+     "start": 7.56,
+     "end": 7.837
+    },
+    {
+     "w": "wie",
+     "start": 7.837,
+     "end": 8.059
+    },
+    {
+     "w": "ihr",
+     "start": 8.059,
+     "end": 8.281
+    },
+    {
+     "w": "eigener",
+     "start": 8.281,
+     "end": 8.724
+    },
+    {
+     "w": "Freund",
+     "start": 8.724,
+     "end": 9.112
+    },
+    {
+     "w": "sie",
+     "start": 9.112,
+     "end": 9.334
+    },
+    {
+     "w": "einsperrte.",
+     "start": 9.334,
+     "end": 9.999
+    }
+   ]
+  },
+  {
+   "id": "z1",
+   "text": "Zwölf Stunden vorher.",
+   "voice": "erz",
+   "start": 11.519,
+   "end": 12.704,
+   "words": [
+    {
+     "w": "Zwölf",
+     "start": 11.519,
+     "end": 11.842
+    },
+    {
+     "w": "Stunden",
+     "start": 11.842,
+     "end": 12.273
+    },
+    {
+     "w": "vorher.",
+     "start": 12.273,
+     "end": 12.704
+    }
+   ]
+  },
+  {
+   "id": "e1",
+   "text": "Morgen heirate ich! Ich kann es immer noch nicht glauben!",
+   "voice": "erd",
+   "start": 13.324,
+   "end": 16.212,
+   "words": [
+    {
+     "w": "Morgen",
+     "start": 13.324,
+     "end": 13.672
+    },
+    {
+     "w": "heirate",
+     "start": 13.672,
+     "end": 14.071
+    },
+    {
+     "w": "ich!",
+     "start": 14.071,
+     "end": 14.32
+    },
+    {
+     "w": "Ich",
+     "start": 14.32,
+     "end": 14.519
+    },
+    {
+     "w": "kann",
+     "start": 14.519,
+     "end": 14.768
+    },
+    {
+     "w": "es",
+     "start": 14.768,
+     "end": 14.917
+    },
+    {
+     "w": "immer",
+     "start": 14.917,
+     "end": 15.216
+    },
+    {
+     "w": "noch",
+     "start": 15.216,
+     "end": 15.465
+    },
+    {
+     "w": "nicht",
+     "start": 15.465,
+     "end": 15.763
+    },
+    {
+     "w": "glauben!",
+     "start": 15.763,
+     "end": 16.212
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "text": "Du wirst die schönste Braut der Welt.",
+   "voice": "mango",
+   "start": 16.732,
+   "end": 18.759,
+   "words": [
+    {
+     "w": "Du",
+     "start": 16.732,
+     "end": 16.892
+    },
+    {
+     "w": "wirst",
+     "start": 16.892,
+     "end": 17.212
+    },
+    {
+     "w": "die",
+     "start": 17.212,
+     "end": 17.425
+    },
+    {
+     "w": "schönste",
+     "start": 17.425,
+     "end": 17.905
+    },
+    {
+     "w": "Braut",
+     "start": 17.905,
+     "end": 18.226
+    },
+    {
+     "w": "der",
+     "start": 18.226,
+     "end": 18.439
+    },
+    {
+     "w": "Welt.",
+     "start": 18.439,
+     "end": 18.759
+    }
+   ]
+  },
+  {
+   "id": "e1b",
+   "text": "Und du der schönste Bräutigam.",
+   "voice": "erd",
+   "start": 19.279,
+   "end": 20.799,
+   "words": [
+    {
+     "w": "Und",
+     "start": 19.279,
+     "end": 19.475
+    },
+    {
+     "w": "du",
+     "start": 19.475,
+     "end": 19.622
+    },
+    {
+     "w": "der",
+     "start": 19.622,
+     "end": 19.819
+    },
+    {
+     "w": "schönste",
+     "start": 19.819,
+     "end": 20.26
+    },
+    {
+     "w": "Bräutigam.",
+     "start": 20.26,
+     "end": 20.799
+    }
+   ]
+  },
+  {
+   "id": "n1",
+   "text": "Doch jedes Mal, wenn sein Handy klingelte, ging Mango schnell nach draußen.",
+   "voice": "erz",
+   "start": 21.519,
+   "end": 25.75,
+   "words": [
+    {
+     "w": "Doch",
+     "start": 21.519,
+     "end": 21.797
+    },
+    {
+     "w": "jedes",
+     "start": 21.797,
+     "end": 22.131
+    },
+    {
+     "w": "Mal,",
+     "start": 22.131,
+     "end": 22.41
+    },
+    {
+     "w": "wenn",
+     "start": 22.41,
+     "end": 22.688
+    },
+    {
+     "w": "sein",
+     "start": 22.688,
+     "end": 22.966
+    },
+    {
+     "w": "Handy",
+     "start": 22.966,
+     "end": 23.3
+    },
+    {
+     "w": "klingelte,",
+     "start": 23.3,
+     "end": 23.913
+    },
+    {
+     "w": "ging",
+     "start": 23.913,
+     "end": 24.191
+    },
+    {
+     "w": "Mango",
+     "start": 24.191,
+     "end": 24.525
+    },
+    {
+     "w": "schnell",
+     "start": 24.525,
+     "end": 24.97
+    },
+    {
+     "w": "nach",
+     "start": 24.97,
+     "end": 25.249
+    },
+    {
+     "w": "draußen.",
+     "start": 25.249,
+     "end": 25.75
+    }
+   ]
+  },
+  {
+   "id": "k1",
+   "text": "Mach dir keine Sorgen, Süße. Morgen ist dein Tag.",
+   "voice": "kiwi",
+   "start": 26.37,
+   "end": 28.979,
+   "words": [
+    {
+     "w": "Mach",
+     "start": 26.37,
+     "end": 26.631
+    },
+    {
+     "w": "dir",
+     "start": 26.631,
+     "end": 26.839
+    },
+    {
+     "w": "keine",
+     "start": 26.839,
+     "end": 27.152
+    },
+    {
+     "w": "Sorgen,",
+     "start": 27.152,
+     "end": 27.57
+    },
+    {
+     "w": "Süße.",
+     "start": 27.57,
+     "end": 27.883
+    },
+    {
+     "w": "Morgen",
+     "start": 27.883,
+     "end": 28.248
+    },
+    {
+     "w": "ist",
+     "start": 28.248,
+     "end": 28.457
+    },
+    {
+     "w": "dein",
+     "start": 28.457,
+     "end": 28.718
+    },
+    {
+     "w": "Tag.",
+     "start": 28.718,
+     "end": 28.979
+    }
+   ]
+  },
+  {
+   "id": "n2",
+   "text": "Nur ihre Hände zitterten dabei.",
+   "voice": "erz",
+   "start": 29.499,
+   "end": 31.247,
+   "words": [
+    {
+     "w": "Nur",
+     "start": 29.499,
+     "end": 29.717
+    },
+    {
+     "w": "ihre",
+     "start": 29.717,
+     "end": 29.99
+    },
+    {
+     "w": "Hände",
+     "start": 29.99,
+     "end": 30.318
+    },
+    {
+     "w": "zitterten",
+     "start": 30.318,
+     "end": 30.865
+    },
+    {
+     "w": "dabei.",
+     "start": 30.865,
+     "end": 31.247
+    }
+   ]
+  },
+  {
+   "id": "b1",
+   "text": "Leute! Ich hab die Torte probiert. Also, nur ein bisschen.",
+   "voice": "banane",
+   "start": 31.967,
+   "end": 34.447,
+   "words": [
+    {
+     "w": "Leute!",
+     "start": 31.967,
+     "end": 32.261
+    },
+    {
+     "w": "Ich",
+     "start": 32.261,
+     "end": 32.43
+    },
+    {
+     "w": "hab",
+     "start": 32.43,
+     "end": 32.598
+    },
+    {
+     "w": "die",
+     "start": 32.598,
+     "end": 32.766
+    },
+    {
+     "w": "Torte",
+     "start": 32.766,
+     "end": 33.018
+    },
+    {
+     "w": "probiert.",
+     "start": 33.018,
+     "end": 33.438
+    },
+    {
+     "w": "Also,",
+     "start": 33.438,
+     "end": 33.69
+    },
+    {
+     "w": "nur",
+     "start": 33.69,
+     "end": 33.859
+    },
+    {
+     "w": "ein",
+     "start": 33.859,
+     "end": 34.027
+    },
+    {
+     "w": "bisschen.",
+     "start": 34.027,
+     "end": 34.447
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "text": "Okeh, die Hälfte.",
+   "voice": "banane",
+   "start": 35.167,
+   "end": 35.894,
+   "words": [
+    {
+     "w": "Okeh,",
+     "start": 35.167,
+     "end": 35.409
+    },
+    {
+     "w": "die",
+     "start": 35.409,
+     "end": 35.571
+    },
+    {
+     "w": "Hälfte.",
+     "start": 35.571,
+     "end": 35.894
+    }
+   ]
+  },
+  {
+   "id": "e2",
+   "text": "Banane!",
+   "voice": "erd",
+   "start": 36.414,
+   "end": 36.769,
+   "words": [
+    {
+     "w": "Banane!",
+     "start": 36.414,
+     "end": 36.769
+    }
+   ]
+  },
+  {
+   "id": "n3",
+   "text": "Am Abend kam das Video. Ohne Absender. Datiert auf morgen, dreiundzwanzig Uhr siebenundvierzig.",
+   "voice": "erz",
+   "start": 37.589,
+   "end": 42.947,
+   "words": [
+    {
+     "w": "Am",
+     "start": 37.589,
+     "end": 37.756
+    },
+    {
+     "w": "Abend",
+     "start": 37.756,
+     "end": 38.091
+    },
+    {
+     "w": "kam",
+     "start": 38.091,
+     "end": 38.314
+    },
+    {
+     "w": "das",
+     "start": 38.314,
+     "end": 38.538
+    },
+    {
+     "w": "Video.",
+     "start": 38.538,
+     "end": 38.928
+    },
+    {
+     "w": "Ohne",
+     "start": 38.928,
+     "end": 39.207
+    },
+    {
+     "w": "Absender.",
+     "start": 39.207,
+     "end": 39.766
+    },
+    {
+     "w": "Datiert",
+     "start": 39.766,
+     "end": 40.212
+    },
+    {
+     "w": "auf",
+     "start": 40.212,
+     "end": 40.435
+    },
+    {
+     "w": "morgen,",
+     "start": 40.435,
+     "end": 40.882
+    },
+    {
+     "w": "dreiundzwanzig",
+     "start": 40.882,
+     "end": 41.719
+    },
+    {
+     "w": "Uhr",
+     "start": 41.719,
+     "end": 41.943
+    },
+    {
+     "w": "siebenundvierzig.",
+     "start": 41.943,
+     "end": 42.947
+    }
+   ]
+  },
+  {
+   "id": "h1b",
+   "text": "Jetzt ist es zu spät.",
+   "voice": "mango_v",
+   "start": 43.567,
+   "end": 45.013,
+   "words": [
+    {
+     "w": "Jetzt",
+     "start": 43.567,
+     "end": 43.962
+    },
+    {
+     "w": "ist",
+     "start": 43.962,
+     "end": 44.224
+    },
+    {
+     "w": "es",
+     "start": 44.224,
+     "end": 44.422
+    },
+    {
+     "w": "zu",
+     "start": 44.422,
+     "end": 44.619
+    },
+    {
+     "w": "spät.",
+     "start": 44.619,
+     "end": 45.013
+    }
+   ]
+  },
+  {
+   "id": "n4",
+   "text": "Erdbeere sah es sich zehnmal an. Und beim elften Mal fiel ihr etwas auf.",
+   "voice": "erz",
+   "start": 46.033,
+   "end": 50.094,
+   "words": [
+    {
+     "w": "Erdbeere",
+     "start": 46.033,
+     "end": 46.534
+    },
+    {
+     "w": "sah",
+     "start": 46.534,
+     "end": 46.756
+    },
+    {
+     "w": "es",
+     "start": 46.756,
+     "end": 46.923
+    },
+    {
+     "w": "sich",
+     "start": 46.923,
+     "end": 47.201
+    },
+    {
+     "w": "zehnmal",
+     "start": 47.201,
+     "end": 47.646
+    },
+    {
+     "w": "an.",
+     "start": 47.646,
+     "end": 47.869
+    },
+    {
+     "w": "Und",
+     "start": 47.869,
+     "end": 48.091
+    },
+    {
+     "w": "beim",
+     "start": 48.091,
+     "end": 48.37
+    },
+    {
+     "w": "elften",
+     "start": 48.37,
+     "end": 48.759
+    },
+    {
+     "w": "Mal",
+     "start": 48.759,
+     "end": 48.982
+    },
+    {
+     "w": "fiel",
+     "start": 48.982,
+     "end": 49.26
+    },
+    {
+     "w": "ihr",
+     "start": 49.26,
+     "end": 49.482
+    },
+    {
+     "w": "etwas",
+     "start": 49.482,
+     "end": 49.816
+    },
+    {
+     "w": "auf.",
+     "start": 49.816,
+     "end": 50.094
+    }
+   ]
+  },
+  {
+   "id": "e3",
+   "text": "Diese Tür. Lager drei. Das ist in unserer Hochzeitslocation!",
+   "voice": "erd",
+   "start": 50.814,
+   "end": 53.854,
+   "words": [
+    {
+     "w": "Diese",
+     "start": 50.814,
+     "end": 51.113
+    },
+    {
+     "w": "Tür.",
+     "start": 51.113,
+     "end": 51.362
+    },
+    {
+     "w": "Lager",
+     "start": 51.362,
+     "end": 51.661
+    },
+    {
+     "w": "drei.",
+     "start": 51.661,
+     "end": 51.96
+    },
+    {
+     "w": "Das",
+     "start": 51.96,
+     "end": 52.16
+    },
+    {
+     "w": "ist",
+     "start": 52.16,
+     "end": 52.359
+    },
+    {
+     "w": "in",
+     "start": 52.359,
+     "end": 52.508
+    },
+    {
+     "w": "unserer",
+     "start": 52.508,
+     "end": 52.907
+    },
+    {
+     "w": "Hochzeitslocation!",
+     "start": 52.907,
+     "end": 53.854
+    }
+   ]
+  },
+  {
+   "id": "e4",
+   "text": "Mango, was ist hinter der Tür neben dem Festsaal?",
+   "voice": "erd",
+   "start": 54.574,
+   "end": 57.056,
+   "words": [
+    {
+     "w": "Mango,",
+     "start": 54.574,
+     "end": 54.921
+    },
+    {
+     "w": "was",
+     "start": 54.921,
+     "end": 55.12
+    },
+    {
+     "w": "ist",
+     "start": 55.12,
+     "end": 55.319
+    },
+    {
+     "w": "hinter",
+     "start": 55.319,
+     "end": 55.666
+    },
+    {
+     "w": "der",
+     "start": 55.666,
+     "end": 55.865
+    },
+    {
+     "w": "Tür",
+     "start": 55.865,
+     "end": 56.063
+    },
+    {
+     "w": "neben",
+     "start": 56.063,
+     "end": 56.361
+    },
+    {
+     "w": "dem",
+     "start": 56.361,
+     "end": 56.56
+    },
+    {
+     "w": "Festsaal?",
+     "start": 56.56,
+     "end": 57.056
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "text": "Nur ein Lagerraum. Warum fragst du?",
+   "voice": "mango",
+   "start": 57.576,
+   "end": 59.494,
+   "words": [
+    {
+     "w": "Nur",
+     "start": 57.576,
+     "end": 57.789
+    },
+    {
+     "w": "ein",
+     "start": 57.789,
+     "end": 58.002
+    },
+    {
+     "w": "Lagerraum.",
+     "start": 58.002,
+     "end": 58.589
+    },
+    {
+     "w": "Warum",
+     "start": 58.589,
+     "end": 58.908
+    },
+    {
+     "w": "fragst",
+     "start": 58.908,
+     "end": 59.281
+    },
+    {
+     "w": "du?",
+     "start": 59.281,
+     "end": 59.494
+    }
+   ]
+  },
+  {
+   "id": "e4b",
+   "text": "Nur so.",
+   "voice": "erd",
+   "start": 60.114,
+   "end": 60.469,
+   "words": [
+    {
+     "w": "Nur",
+     "start": 60.114,
+     "end": 60.292
+    },
+    {
+     "w": "so.",
+     "start": 60.292,
+     "end": 60.469
+    }
+   ]
+  },
+  {
+   "id": "n5",
+   "text": "Er lächelte. Aber er sah ihr nicht in die Augen.",
+   "voice": "erz",
+   "start": 61.289,
+   "end": 63.996,
+   "words": [
+    {
+     "w": "Er",
+     "start": 61.289,
+     "end": 61.455
+    },
+    {
+     "w": "lächelte.",
+     "start": 61.455,
+     "end": 62.007
+    },
+    {
+     "w": "Aber",
+     "start": 62.007,
+     "end": 62.284
+    },
+    {
+     "w": "er",
+     "start": 62.284,
+     "end": 62.449
+    },
+    {
+     "w": "sah",
+     "start": 62.449,
+     "end": 62.67
+    },
+    {
+     "w": "ihr",
+     "start": 62.67,
+     "end": 62.891
+    },
+    {
+     "w": "nicht",
+     "start": 62.891,
+     "end": 63.223
+    },
+    {
+     "w": "in",
+     "start": 63.223,
+     "end": 63.389
+    },
+    {
+     "w": "die",
+     "start": 63.389,
+     "end": 63.61
+    },
+    {
+     "w": "Augen.",
+     "start": 63.61,
+     "end": 63.996
+    }
+   ]
+  },
+  {
+   "id": "k2",
+   "text": "Bitte hör auf, nach Problemen zu suchen. Geh einfach schlafen.",
+   "voice": "kiwi",
+   "start": 64.716,
+   "end": 68.018,
+   "words": [
+    {
+     "w": "Bitte",
+     "start": 64.716,
+     "end": 65.031
+    },
+    {
+     "w": "hör",
+     "start": 65.031,
+     "end": 65.24
+    },
+    {
+     "w": "auf,",
+     "start": 65.24,
+     "end": 65.502
+    },
+    {
+     "w": "nach",
+     "start": 65.502,
+     "end": 65.764
+    },
+    {
+     "w": "Problemen",
+     "start": 65.764,
+     "end": 66.288
+    },
+    {
+     "w": "zu",
+     "start": 66.288,
+     "end": 66.446
+    },
+    {
+     "w": "suchen.",
+     "start": 66.446,
+     "end": 66.865
+    },
+    {
+     "w": "Geh",
+     "start": 66.865,
+     "end": 67.074
+    },
+    {
+     "w": "einfach",
+     "start": 67.074,
+     "end": 67.494
+    },
+    {
+     "w": "schlafen.",
+     "start": 67.494,
+     "end": 68.018
+    }
+   ]
+  },
+  {
+   "id": "n6",
+   "text": "Doch als Kiwi ging, fiel etwas aus ihrer Tasche.",
+   "voice": "erz",
+   "start": 68.638,
+   "end": 71.345,
+   "words": [
+    {
+     "w": "Doch",
+     "start": 68.638,
+     "end": 68.914
+    },
+    {
+     "w": "als",
+     "start": 68.914,
+     "end": 69.135
+    },
+    {
+     "w": "Kiwi",
+     "start": 69.135,
+     "end": 69.411
+    },
+    {
+     "w": "ging,",
+     "start": 69.411,
+     "end": 69.743
+    },
+    {
+     "w": "fiel",
+     "start": 69.743,
+     "end": 70.019
+    },
+    {
+     "w": "etwas",
+     "start": 70.019,
+     "end": 70.35
+    },
+    {
+     "w": "aus",
+     "start": 70.35,
+     "end": 70.571
+    },
+    {
+     "w": "ihrer",
+     "start": 70.571,
+     "end": 70.903
+    },
+    {
+     "w": "Tasche.",
+     "start": 70.903,
+     "end": 71.345
+    }
+   ]
+  },
+  {
+   "id": "e5",
+   "text": "Ein Schlüssel. Für Lager drei.",
+   "voice": "erd",
+   "start": 71.965,
+   "end": 73.485,
+   "words": [
+    {
+     "w": "Ein",
+     "start": 71.965,
+     "end": 72.161
+    },
+    {
+     "w": "Schlüssel.",
+     "start": 72.161,
+     "end": 72.7
+    },
+    {
+     "w": "Für",
+     "start": 72.7,
+     "end": 72.897
+    },
+    {
+     "w": "Lager",
+     "start": 72.897,
+     "end": 73.191
+    },
+    {
+     "w": "drei.",
+     "start": 73.191,
+     "end": 73.485
+    }
+   ]
+  },
+  {
+   "id": "e5b",
+   "text": "Kiwi, was hast du vor?",
+   "voice": "erd",
+   "start": 74.405,
+   "end": 75.519,
+   "words": [
+    {
+     "w": "Kiwi,",
+     "start": 74.405,
+     "end": 74.696
+    },
+    {
+     "w": "was",
+     "start": 74.696,
+     "end": 74.889
+    },
+    {
+     "w": "hast",
+     "start": 74.889,
+     "end": 75.132
+    },
+    {
+     "w": "du",
+     "start": 75.132,
+     "end": 75.277
+    },
+    {
+     "w": "vor?",
+     "start": 75.277,
+     "end": 75.519
+    }
+   ]
+  },
+  {
+   "id": "n7",
+   "text": "Um Mitternacht schlich Erdbeere allein in die Hochzeitslocation.",
+   "voice": "erz",
+   "start": 76.539,
+   "end": 80.15,
+   "words": [
+    {
+     "w": "Um",
+     "start": 76.539,
+     "end": 76.706
+    },
+    {
+     "w": "Mitternacht",
+     "start": 76.706,
+     "end": 77.373
+    },
+    {
+     "w": "schlich",
+     "start": 77.373,
+     "end": 77.817
+    },
+    {
+     "w": "Erdbeere",
+     "start": 77.817,
+     "end": 78.317
+    },
+    {
+     "w": "allein",
+     "start": 78.317,
+     "end": 78.705
+    },
+    {
+     "w": "in",
+     "start": 78.705,
+     "end": 78.872
+    },
+    {
+     "w": "die",
+     "start": 78.872,
+     "end": 79.094
+    },
+    {
+     "w": "Hochzeitslocation.",
+     "start": 79.094,
+     "end": 80.15
+    }
+   ]
+  },
+  {
+   "id": "e6",
+   "text": "Hallo? Ist da jemand?",
+   "voice": "erdw",
+   "start": 80.87,
+   "end": 82.045,
+   "words": [
+    {
+     "w": "Hallo?",
+     "start": 80.87,
+     "end": 81.244
+    },
+    {
+     "w": "Ist",
+     "start": 81.244,
+     "end": 81.457
+    },
+    {
+     "w": "da",
+     "start": 81.457,
+     "end": 81.618
+    },
+    {
+     "w": "jemand?",
+     "start": 81.618,
+     "end": 82.045
+    }
+   ]
+  },
+  {
+   "id": "n7b",
+   "text": "Irgendwo im Dunkeln weinte jemand.",
+   "voice": "erz",
+   "start": 83.065,
+   "end": 84.983,
+   "words": [
+    {
+     "w": "Irgendwo",
+     "start": 83.065,
+     "end": 83.559
+    },
+    {
+     "w": "im",
+     "start": 83.559,
+     "end": 83.723
+    },
+    {
+     "w": "Dunkeln",
+     "start": 83.723,
+     "end": 84.161
+    },
+    {
+     "w": "weinte",
+     "start": 84.161,
+     "end": 84.545
+    },
+    {
+     "w": "jemand.",
+     "start": 84.545,
+     "end": 84.983
+    }
+   ]
+  },
+  {
+   "id": "n8",
+   "text": "Die Tür von Lager drei war nicht verschlossen.",
+   "voice": "erz",
+   "start": 86.103,
+   "end": 88.698,
+   "words": [
+    {
+     "w": "Die",
+     "start": 86.103,
+     "end": 86.324
+    },
+    {
+     "w": "Tür",
+     "start": 86.324,
+     "end": 86.545
+    },
+    {
+     "w": "von",
+     "start": 86.545,
+     "end": 86.766
+    },
+    {
+     "w": "Lager",
+     "start": 86.766,
+     "end": 87.097
+    },
+    {
+     "w": "drei",
+     "start": 87.097,
+     "end": 87.373
+    },
+    {
+     "w": "war",
+     "start": 87.373,
+     "end": 87.594
+    },
+    {
+     "w": "nicht",
+     "start": 87.594,
+     "end": 87.925
+    },
+    {
+     "w": "verschlossen.",
+     "start": 87.925,
+     "end": 88.698
+    }
+   ]
+  },
+  {
+   "id": "n9",
+   "text": "Und drinnen saß sie selbst.",
+   "voice": "erz",
+   "start": 89.518,
+   "end": 91.041,
+   "words": [
+    {
+     "w": "Und",
+     "start": 89.518,
+     "end": 89.736
+    },
+    {
+     "w": "drinnen",
+     "start": 89.736,
+     "end": 90.171
+    },
+    {
+     "w": "saß",
+     "start": 90.171,
+     "end": 90.388
+    },
+    {
+     "w": "sie",
+     "start": 90.388,
+     "end": 90.606
+    },
+    {
+     "w": "selbst.",
+     "start": 90.606,
+     "end": 91.041
+    }
+   ]
+  },
+  {
+   "id": "x1",
+   "text": "Du denkst, du bist die echte Erdbeere? Dann weißt du nicht, was Kiwi mit dir gemacht hat.",
+   "voice": "erd2",
+   "start": 92.661,
+   "end": 98.787,
+   "words": [
+    {
+     "w": "Du",
+     "start": 92.661,
+     "end": 92.865
+    },
+    {
+     "w": "denkst,",
+     "start": 92.865,
+     "end": 93.41
+    },
+    {
+     "w": "du",
+     "start": 93.41,
+     "end": 93.614
+    },
+    {
+     "w": "bist",
+     "start": 93.614,
+     "end": 93.954
+    },
+    {
+     "w": "die",
+     "start": 93.954,
+     "end": 94.227
+    },
+    {
+     "w": "echte",
+     "start": 94.227,
+     "end": 94.635
+    },
+    {
+     "w": "Erdbeere?",
+     "start": 94.635,
+     "end": 95.316
+    },
+    {
+     "w": "Dann",
+     "start": 95.316,
+     "end": 95.656
+    },
+    {
+     "w": "weißt",
+     "start": 95.656,
+     "end": 96.065
+    },
+    {
+     "w": "du",
+     "start": 96.065,
+     "end": 96.269
+    },
+    {
+     "w": "nicht,",
+     "start": 96.269,
+     "end": 96.745
+    },
+    {
+     "w": "was",
+     "start": 96.745,
+     "end": 97.018
+    },
+    {
+     "w": "Kiwi",
+     "start": 97.018,
+     "end": 97.358
+    },
+    {
+     "w": "mit",
+     "start": 97.358,
+     "end": 97.63
+    },
+    {
+     "w": "dir",
+     "start": 97.63,
+     "end": 97.902
+    },
+    {
+     "w": "gemacht",
+     "start": 97.902,
+     "end": 98.447
+    },
+    {
+     "w": "hat.",
+     "start": 98.447,
+     "end": 98.787
+    }
+   ]
+  },
+  {
+   "id": "e7",
+   "text": "Was?",
+   "voice": "erdw",
+   "start": 100.207,
+   "end": 100.431,
+   "words": [
+    {
+     "w": "Was?",
+     "start": 100.207,
+     "end": 100.431
+    }
+   ]
+  },
+  {
+   "id": "k3",
+   "text": "Du hättest niemals die Wahrheit finden dürfen.",
+   "voice": "kiwi_c",
+   "start": 101.351,
+   "end": 104.435,
+   "words": [
+    {
+     "w": "Du",
+     "start": 101.351,
+     "end": 101.548
+    },
+    {
+     "w": "hättest",
+     "start": 101.548,
+     "end": 102.073
+    },
+    {
+     "w": "niemals",
+     "start": 102.073,
+     "end": 102.598
+    },
+    {
+     "w": "die",
+     "start": 102.598,
+     "end": 102.86
+    },
+    {
+     "w": "Wahrheit",
+     "start": 102.86,
+     "end": 103.451
+    },
+    {
+     "w": "finden",
+     "start": 103.451,
+     "end": 103.91
+    },
+    {
+     "w": "dürfen.",
+     "start": 103.91,
+     "end": 104.435
+    }
+   ]
+  }
+ ],
+ "alignDebug": []
+}

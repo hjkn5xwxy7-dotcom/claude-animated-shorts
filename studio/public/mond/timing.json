@@ -1,0 +1,1166 @@
+{
+ "total": 81.1,
+ "sampleRate": 22050,
+ "fake": true,
+ "captionMap": {
+  "Okeh.": "Okay.",
+  "offlein.": "offline.",
+  "Gekänselt.": "Gecancelt.",
+  "Laiks.": "Likes.",
+  "zweitausendeinundachtzig.": "2081."
+ },
+ "sentences": [
+  {
+   "id": "hook",
+   "text": "Was wäre, wenn heute Nacht um Punkt zwölf einfach der Mond verschwindet?",
+   "start": 0.12,
+   "end": 4.188,
+   "words": [
+    {
+     "w": "Was",
+     "start": 0.12,
+     "end": 0.343
+    },
+    {
+     "w": "wäre,",
+     "start": 0.343,
+     "end": 0.677
+    },
+    {
+     "w": "wenn",
+     "start": 0.677,
+     "end": 0.956
+    },
+    {
+     "w": "heute",
+     "start": 0.956,
+     "end": 1.29
+    },
+    {
+     "w": "Nacht",
+     "start": 1.29,
+     "end": 1.625
+    },
+    {
+     "w": "um",
+     "start": 1.625,
+     "end": 1.792
+    },
+    {
+     "w": "Punkt",
+     "start": 1.792,
+     "end": 2.126
+    },
+    {
+     "w": "zwölf",
+     "start": 2.126,
+     "end": 2.46
+    },
+    {
+     "w": "einfach",
+     "start": 2.46,
+     "end": 2.906
+    },
+    {
+     "w": "der",
+     "start": 2.906,
+     "end": 3.129
+    },
+    {
+     "w": "Mond",
+     "start": 3.129,
+     "end": 3.408
+    },
+    {
+     "w": "verschwindet?",
+     "start": 3.408,
+     "end": 4.188
+    }
+   ]
+  },
+  {
+   "id": "ben",
+   "text": "Das ist Ben. Ben wollte nur kurz den Vollmond fotografieren.",
+   "start": 4.408,
+   "end": 7.798,
+   "words": [
+    {
+     "w": "Das",
+     "start": 4.408,
+     "end": 4.63
+    },
+    {
+     "w": "ist",
+     "start": 4.63,
+     "end": 4.852
+    },
+    {
+     "w": "Ben.",
+     "start": 4.852,
+     "end": 5.13
+    },
+    {
+     "w": "Ben",
+     "start": 5.13,
+     "end": 5.353
+    },
+    {
+     "w": "wollte",
+     "start": 5.353,
+     "end": 5.742
+    },
+    {
+     "w": "nur",
+     "start": 5.742,
+     "end": 5.964
+    },
+    {
+     "w": "kurz",
+     "start": 5.964,
+     "end": 6.242
+    },
+    {
+     "w": "den",
+     "start": 6.242,
+     "end": 6.464
+    },
+    {
+     "w": "Vollmond",
+     "start": 6.464,
+     "end": 6.964
+    },
+    {
+     "w": "fotografieren.",
+     "start": 6.964,
+     "end": 7.798
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "text": "Drei. Zwei. Eins.",
+   "start": 8.018,
+   "end": 8.978,
+   "words": [
+    {
+     "w": "Drei.",
+     "start": 8.018,
+     "end": 8.338
+    },
+    {
+     "w": "Zwei.",
+     "start": 8.338,
+     "end": 8.658
+    },
+    {
+     "w": "Eins.",
+     "start": 8.658,
+     "end": 8.978
+    }
+   ]
+  },
+  {
+   "id": "okay",
+   "text": "Okeh.",
+   "start": 9.898,
+   "end": 10.181,
+   "words": [
+    {
+     "w": "Okeh.",
+     "start": 9.898,
+     "end": 10.181
+    }
+   ]
+  },
+  {
+   "id": "offline",
+   "text": "Kein Knall. Keine Trümmer. Der Mond ist einfach offlein.",
+   "start": 11.001,
+   "end": 14.164,
+   "words": [
+    {
+     "w": "Kein",
+     "start": 11.001,
+     "end": 11.278
+    },
+    {
+     "w": "Knall.",
+     "start": 11.278,
+     "end": 11.667
+    },
+    {
+     "w": "Keine",
+     "start": 11.667,
+     "end": 12.0
+    },
+    {
+     "w": "Trümmer.",
+     "start": 12.0,
+     "end": 12.499
+    },
+    {
+     "w": "Der",
+     "start": 12.499,
+     "end": 12.721
+    },
+    {
+     "w": "Mond",
+     "start": 12.721,
+     "end": 12.999
+    },
+    {
+     "w": "ist",
+     "start": 12.999,
+     "end": 13.221
+    },
+    {
+     "w": "einfach",
+     "start": 13.221,
+     "end": 13.665
+    },
+    {
+     "w": "offlein.",
+     "start": 13.665,
+     "end": 14.164
+    }
+   ]
+  },
+  {
+   "id": "post",
+   "text": "Ben macht das einzig Vernünftige: Er postet das Foto trotzdem.",
+   "start": 14.534,
+   "end": 18.037,
+   "words": [
+    {
+     "w": "Ben",
+     "start": 14.534,
+     "end": 14.757
+    },
+    {
+     "w": "macht",
+     "start": 14.757,
+     "end": 15.09
+    },
+    {
+     "w": "das",
+     "start": 15.09,
+     "end": 15.313
+    },
+    {
+     "w": "einzig",
+     "start": 15.313,
+     "end": 15.702
+    },
+    {
+     "w": "Vernünftige:",
+     "start": 15.702,
+     "end": 16.425
+    },
+    {
+     "w": "Er",
+     "start": 16.425,
+     "end": 16.592
+    },
+    {
+     "w": "postet",
+     "start": 16.592,
+     "end": 16.981
+    },
+    {
+     "w": "das",
+     "start": 16.981,
+     "end": 17.203
+    },
+    {
+     "w": "Foto",
+     "start": 17.203,
+     "end": 17.481
+    },
+    {
+     "w": "trotzdem.",
+     "start": 17.481,
+     "end": 18.037
+    }
+   ]
+  },
+  {
+   "id": "dunkel",
+   "text": "Dann wird es dunkel. Eine Vollmondnacht ist nämlich rund hundertmal heller als eine Nacht nur mit Sternen.",
+   "start": 18.457,
+   "end": 24.446,
+   "words": [
+    {
+     "w": "Dann",
+     "start": 18.457,
+     "end": 18.737
+    },
+    {
+     "w": "wird",
+     "start": 18.737,
+     "end": 19.017
+    },
+    {
+     "w": "es",
+     "start": 19.017,
+     "end": 19.185
+    },
+    {
+     "w": "dunkel.",
+     "start": 19.185,
+     "end": 19.633
+    },
+    {
+     "w": "Eine",
+     "start": 19.633,
+     "end": 19.912
+    },
+    {
+     "w": "Vollmondnacht",
+     "start": 19.912,
+     "end": 20.696
+    },
+    {
+     "w": "ist",
+     "start": 20.696,
+     "end": 20.92
+    },
+    {
+     "w": "nämlich",
+     "start": 20.92,
+     "end": 21.368
+    },
+    {
+     "w": "rund",
+     "start": 21.368,
+     "end": 21.647
+    },
+    {
+     "w": "hundertmal",
+     "start": 21.647,
+     "end": 22.263
+    },
+    {
+     "w": "heller",
+     "start": 22.263,
+     "end": 22.655
+    },
+    {
+     "w": "als",
+     "start": 22.655,
+     "end": 22.879
+    },
+    {
+     "w": "eine",
+     "start": 22.879,
+     "end": 23.159
+    },
+    {
+     "w": "Nacht",
+     "start": 23.159,
+     "end": 23.494
+    },
+    {
+     "w": "nur",
+     "start": 23.494,
+     "end": 23.718
+    },
+    {
+     "w": "mit",
+     "start": 23.718,
+     "end": 23.942
+    },
+    {
+     "w": "Sternen.",
+     "start": 23.942,
+     "end": 24.446
+    }
+   ]
+  },
+  {
+   "id": "hafen",
+   "text": "Nächster Morgen. Fischer Hein wartet auf die Flut.",
+   "start": 26.266,
+   "end": 29.091,
+   "words": [
+    {
+     "w": "Nächster",
+     "start": 26.266,
+     "end": 26.764
+    },
+    {
+     "w": "Morgen.",
+     "start": 26.764,
+     "end": 27.208
+    },
+    {
+     "w": "Fischer",
+     "start": 27.208,
+     "end": 27.651
+    },
+    {
+     "w": "Hein",
+     "start": 27.651,
+     "end": 27.928
+    },
+    {
+     "w": "wartet",
+     "start": 27.928,
+     "end": 28.315
+    },
+    {
+     "w": "auf",
+     "start": 28.315,
+     "end": 28.537
+    },
+    {
+     "w": "die",
+     "start": 28.537,
+     "end": 28.758
+    },
+    {
+     "w": "Flut.",
+     "start": 28.758,
+     "end": 29.091
+    }
+   ]
+  },
+  {
+   "id": "gelesen",
+   "text": "Die Flut lässt ihn auf gelesen.",
+   "start": 29.661,
+   "end": 31.412,
+   "words": [
+    {
+     "w": "Die",
+     "start": 29.661,
+     "end": 29.88
+    },
+    {
+     "w": "Flut",
+     "start": 29.88,
+     "end": 30.153
+    },
+    {
+     "w": "lässt",
+     "start": 30.153,
+     "end": 30.482
+    },
+    {
+     "w": "ihn",
+     "start": 30.482,
+     "end": 30.701
+    },
+    {
+     "w": "auf",
+     "start": 30.701,
+     "end": 30.92
+    },
+    {
+     "w": "gelesen.",
+     "start": 30.92,
+     "end": 31.412
+    }
+   ]
+  },
+  {
+   "id": "gezeiten",
+   "text": "Denn ohne Mond zieht nur noch die Sonne am Meer. Und die gibt sich ungefähr ein Drittel so viel Mühe.",
+   "start": 32.132,
+   "end": 37.838,
+   "words": [
+    {
+     "w": "Denn",
+     "start": 32.132,
+     "end": 32.412
+    },
+    {
+     "w": "ohne",
+     "start": 32.412,
+     "end": 32.692
+    },
+    {
+     "w": "Mond",
+     "start": 32.692,
+     "end": 32.971
+    },
+    {
+     "w": "zieht",
+     "start": 32.971,
+     "end": 33.307
+    },
+    {
+     "w": "nur",
+     "start": 33.307,
+     "end": 33.531
+    },
+    {
+     "w": "noch",
+     "start": 33.531,
+     "end": 33.811
+    },
+    {
+     "w": "die",
+     "start": 33.811,
+     "end": 34.034
+    },
+    {
+     "w": "Sonne",
+     "start": 34.034,
+     "end": 34.37
+    },
+    {
+     "w": "am",
+     "start": 34.37,
+     "end": 34.538
+    },
+    {
+     "w": "Meer.",
+     "start": 34.538,
+     "end": 34.873
+    },
+    {
+     "w": "Und",
+     "start": 34.873,
+     "end": 35.097
+    },
+    {
+     "w": "die",
+     "start": 35.097,
+     "end": 35.321
+    },
+    {
+     "w": "gibt",
+     "start": 35.321,
+     "end": 35.601
+    },
+    {
+     "w": "sich",
+     "start": 35.601,
+     "end": 35.88
+    },
+    {
+     "w": "ungefähr",
+     "start": 35.88,
+     "end": 36.384
+    },
+    {
+     "w": "ein",
+     "start": 36.384,
+     "end": 36.608
+    },
+    {
+     "w": "Drittel",
+     "start": 36.608,
+     "end": 37.055
+    },
+    {
+     "w": "so",
+     "start": 37.055,
+     "end": 37.223
+    },
+    {
+     "w": "viel",
+     "start": 37.223,
+     "end": 37.503
+    },
+    {
+     "w": "Mühe.",
+     "start": 37.503,
+     "end": 37.838
+    }
+   ]
+  },
+  {
+   "id": "korallen",
+   "text": "Korallen trifft es noch härter. Viele laichen alle in derselben Nacht, ein paar Tage nach Vollmond.",
+   "start": 38.158,
+   "end": 43.752,
+   "words": [
+    {
+     "w": "Korallen",
+     "start": 38.158,
+     "end": 38.662
+    },
+    {
+     "w": "trifft",
+     "start": 38.662,
+     "end": 39.053
+    },
+    {
+     "w": "es",
+     "start": 39.053,
+     "end": 39.221
+    },
+    {
+     "w": "noch",
+     "start": 39.221,
+     "end": 39.501
+    },
+    {
+     "w": "härter.",
+     "start": 39.501,
+     "end": 39.948
+    },
+    {
+     "w": "Viele",
+     "start": 39.948,
+     "end": 40.284
+    },
+    {
+     "w": "laichen",
+     "start": 40.284,
+     "end": 40.731
+    },
+    {
+     "w": "alle",
+     "start": 40.731,
+     "end": 41.011
+    },
+    {
+     "w": "in",
+     "start": 41.011,
+     "end": 41.179
+    },
+    {
+     "w": "derselben",
+     "start": 41.179,
+     "end": 41.738
+    },
+    {
+     "w": "Nacht,",
+     "start": 41.738,
+     "end": 42.13
+    },
+    {
+     "w": "ein",
+     "start": 42.13,
+     "end": 42.353
+    },
+    {
+     "w": "paar",
+     "start": 42.353,
+     "end": 42.633
+    },
+    {
+     "w": "Tage",
+     "start": 42.633,
+     "end": 42.913
+    },
+    {
+     "w": "nach",
+     "start": 42.913,
+     "end": 43.192
+    },
+    {
+     "w": "Vollmond.",
+     "start": 43.192,
+     "end": 43.752
+    }
+   ]
+  },
+  {
+   "id": "warten",
+   "text": "Jetzt weiß keiner mehr, wann.",
+   "start": 43.972,
+   "end": 45.61,
+   "words": [
+    {
+     "w": "Jetzt",
+     "start": 43.972,
+     "end": 44.299
+    },
+    {
+     "w": "weiß",
+     "start": 44.299,
+     "end": 44.572
+    },
+    {
+     "w": "keiner",
+     "start": 44.572,
+     "end": 44.955
+    },
+    {
+     "w": "mehr,",
+     "start": 44.955,
+     "end": 45.282
+    },
+    {
+     "w": "wann.",
+     "start": 45.282,
+     "end": 45.61
+    }
+   ]
+  },
+  {
+   "id": "unheim",
+   "text": "Und dann wird es richtig unheimlich.",
+   "start": 46.73,
+   "end": 48.764,
+   "words": [
+    {
+     "w": "Und",
+     "start": 46.73,
+     "end": 46.95
+    },
+    {
+     "w": "dann",
+     "start": 46.95,
+     "end": 47.225
+    },
+    {
+     "w": "wird",
+     "start": 47.225,
+     "end": 47.5
+    },
+    {
+     "w": "es",
+     "start": 47.5,
+     "end": 47.665
+    },
+    {
+     "w": "richtig",
+     "start": 47.665,
+     "end": 48.104
+    },
+    {
+     "w": "unheimlich.",
+     "start": 48.104,
+     "end": 48.764
+    }
+   ]
+  },
+  {
+   "id": "kreisel",
+   "text": "Der Mond hält die Erdachse stabil.",
+   "start": 49.584,
+   "end": 51.505,
+   "words": [
+    {
+     "w": "Der",
+     "start": 49.584,
+     "end": 49.803
+    },
+    {
+     "w": "Mond",
+     "start": 49.803,
+     "end": 50.078
+    },
+    {
+     "w": "hält",
+     "start": 50.078,
+     "end": 50.352
+    },
+    {
+     "w": "die",
+     "start": 50.352,
+     "end": 50.572
+    },
+    {
+     "w": "Erdachse",
+     "start": 50.572,
+     "end": 51.066
+    },
+    {
+     "w": "stabil.",
+     "start": 51.066,
+     "end": 51.505
+    }
+   ]
+  },
+  {
+   "id": "taumeln",
+   "text": "Ohne ihn kann die Erde über Millionen Jahre ins Taumeln geraten.",
+   "start": 51.725,
+   "end": 55.341,
+   "words": [
+    {
+     "w": "Ohne",
+     "start": 51.725,
+     "end": 52.003
+    },
+    {
+     "w": "ihn",
+     "start": 52.003,
+     "end": 52.226
+    },
+    {
+     "w": "kann",
+     "start": 52.226,
+     "end": 52.504
+    },
+    {
+     "w": "die",
+     "start": 52.504,
+     "end": 52.726
+    },
+    {
+     "w": "Erde",
+     "start": 52.726,
+     "end": 53.004
+    },
+    {
+     "w": "über",
+     "start": 53.004,
+     "end": 53.282
+    },
+    {
+     "w": "Millionen",
+     "start": 53.282,
+     "end": 53.839
+    },
+    {
+     "w": "Jahre",
+     "start": 53.839,
+     "end": 54.172
+    },
+    {
+     "w": "ins",
+     "start": 54.172,
+     "end": 54.395
+    },
+    {
+     "w": "Taumeln",
+     "start": 54.395,
+     "end": 54.84
+    },
+    {
+     "w": "geraten.",
+     "start": 54.84,
+     "end": 55.341
+    }
+   ]
+  },
+  {
+   "id": "sommer",
+   "text": "Heißt: Sommer, in denen Ben schmilzt.",
+   "start": 55.661,
+   "end": 57.751,
+   "words": [
+    {
+     "w": "Heißt:",
+     "start": 55.661,
+     "end": 56.046
+    },
+    {
+     "w": "Sommer,",
+     "start": 56.046,
+     "end": 56.486
+    },
+    {
+     "w": "in",
+     "start": 56.486,
+     "end": 56.651
+    },
+    {
+     "w": "denen",
+     "start": 56.651,
+     "end": 56.981
+    },
+    {
+     "w": "Ben",
+     "start": 56.981,
+     "end": 57.201
+    },
+    {
+     "w": "schmilzt.",
+     "start": 57.201,
+     "end": 57.751
+    }
+   ]
+  },
+  {
+   "id": "winter",
+   "text": "Winter, in denen sein Kakao zum Eis am Stiel wird.",
+   "start": 58.071,
+   "end": 60.896,
+   "words": [
+    {
+     "w": "Winter,",
+     "start": 58.071,
+     "end": 58.514
+    },
+    {
+     "w": "in",
+     "start": 58.514,
+     "end": 58.68
+    },
+    {
+     "w": "denen",
+     "start": 58.68,
+     "end": 59.013
+    },
+    {
+     "w": "sein",
+     "start": 59.013,
+     "end": 59.29
+    },
+    {
+     "w": "Kakao",
+     "start": 59.29,
+     "end": 59.622
+    },
+    {
+     "w": "zum",
+     "start": 59.622,
+     "end": 59.844
+    },
+    {
+     "w": "Eis",
+     "start": 59.844,
+     "end": 60.065
+    },
+    {
+     "w": "am",
+     "start": 60.065,
+     "end": 60.231
+    },
+    {
+     "w": "Stiel",
+     "start": 60.231,
+     "end": 60.564
+    },
+    {
+     "w": "wird.",
+     "start": 60.564,
+     "end": 60.896
+    }
+   ]
+  },
+  {
+   "id": "finster",
+   "text": "Sonnenfinsternisse? Gekänselt.",
+   "start": 61.416,
+   "end": 63.111,
+   "words": [
+    {
+     "w": "Sonnenfinsternisse?",
+     "start": 61.416,
+     "end": 62.509
+    },
+    {
+     "w": "Gekänselt.",
+     "start": 62.509,
+     "end": 63.111
+    }
+   ]
+  },
+  {
+   "id": "brille",
+   "text": "Ben hat die Brille übrigens schon gekauft. Für die nächste in Deutschland: zweitausendeinundachtzig.",
+   "start": 63.731,
+   "end": 69.381,
+   "words": [
+    {
+     "w": "Ben",
+     "start": 63.731,
+     "end": 63.955
+    },
+    {
+     "w": "hat",
+     "start": 63.955,
+     "end": 64.178
+    },
+    {
+     "w": "die",
+     "start": 64.178,
+     "end": 64.402
+    },
+    {
+     "w": "Brille",
+     "start": 64.402,
+     "end": 64.794
+    },
+    {
+     "w": "übrigens",
+     "start": 64.794,
+     "end": 65.297
+    },
+    {
+     "w": "schon",
+     "start": 65.297,
+     "end": 65.633
+    },
+    {
+     "w": "gekauft.",
+     "start": 65.633,
+     "end": 66.136
+    },
+    {
+     "w": "Für",
+     "start": 66.136,
+     "end": 66.36
+    },
+    {
+     "w": "die",
+     "start": 66.36,
+     "end": 66.584
+    },
+    {
+     "w": "nächste",
+     "start": 66.584,
+     "end": 67.031
+    },
+    {
+     "w": "in",
+     "start": 67.031,
+     "end": 67.199
+    },
+    {
+     "w": "Deutschland:",
+     "start": 67.199,
+     "end": 67.926
+    },
+    {
+     "w": "zweitausendeinundachtzig.",
+     "start": 67.926,
+     "end": 69.381
+    }
+   ]
+  },
+  {
+   "id": "werwolf",
+   "text": "Gute Nachricht gibt es trotzdem: Werwölfe sind ab heute offiziell arbeitslos.",
+   "start": 70.001,
+   "end": 74.351,
+   "words": [
+    {
+     "w": "Gute",
+     "start": 70.001,
+     "end": 70.279
+    },
+    {
+     "w": "Nachricht",
+     "start": 70.279,
+     "end": 70.837
+    },
+    {
+     "w": "gibt",
+     "start": 70.837,
+     "end": 71.116
+    },
+    {
+     "w": "es",
+     "start": 71.116,
+     "end": 71.283
+    },
+    {
+     "w": "trotzdem:",
+     "start": 71.283,
+     "end": 71.841
+    },
+    {
+     "w": "Werwölfe",
+     "start": 71.841,
+     "end": 72.343
+    },
+    {
+     "w": "sind",
+     "start": 72.343,
+     "end": 72.622
+    },
+    {
+     "w": "ab",
+     "start": 72.622,
+     "end": 72.789
+    },
+    {
+     "w": "heute",
+     "start": 72.789,
+     "end": 73.124
+    },
+    {
+     "w": "offiziell",
+     "start": 73.124,
+     "end": 73.682
+    },
+    {
+     "w": "arbeitslos.",
+     "start": 73.682,
+     "end": 74.351
+    }
+   ]
+  },
+  {
+   "id": "likes",
+   "text": "Und Bens Foto vom schwarzen Himmel? Zwei Millionen Laiks.",
+   "start": 75.071,
+   "end": 78.291,
+   "words": [
+    {
+     "w": "Und",
+     "start": 75.071,
+     "end": 75.293
+    },
+    {
+     "w": "Bens",
+     "start": 75.293,
+     "end": 75.571
+    },
+    {
+     "w": "Foto",
+     "start": 75.571,
+     "end": 75.848
+    },
+    {
+     "w": "vom",
+     "start": 75.848,
+     "end": 76.07
+    },
+    {
+     "w": "schwarzen",
+     "start": 76.07,
+     "end": 76.625
+    },
+    {
+     "w": "Himmel?",
+     "start": 76.625,
+     "end": 77.07
+    },
+    {
+     "w": "Zwei",
+     "start": 77.07,
+     "end": 77.347
+    },
+    {
+     "w": "Millionen",
+     "start": 77.347,
+     "end": 77.903
+    },
+    {
+     "w": "Laiks.",
+     "start": 77.903,
+     "end": 78.291
+    }
+   ]
+  },
+  {
+   "id": "bester",
+   "text": "Bester Post seines Lebens.",
+   "start": 78.811,
+   "end": 80.28,
+   "words": [
+    {
+     "w": "Bester",
+     "start": 78.811,
+     "end": 79.192
+    },
+    {
+     "w": "Post",
+     "start": 79.192,
+     "end": 79.464
+    },
+    {
+     "w": "seines",
+     "start": 79.464,
+     "end": 79.845
+    },
+    {
+     "w": "Lebens.",
+     "start": 79.845,
+     "end": 80.28
+    }
+   ]
+  }
+ ],
+ "alignDebug": []
+}

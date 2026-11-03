@@ -1,0 +1,1315 @@
+{
+ "total": 96.243,
+ "sampleRate": 22050,
+ "fake": true,
+ "captionMap": {
+  "Okeh.": "Okay.",
+  "Laiks.": "Likes."
+ },
+ "sentences": [
+  {
+   "id": "c1",
+   "text": "Es ist drei Uhr zwölf.",
+   "voice": "benw",
+   "start": 0.3,
+   "end": 1.52,
+   "words": [
+    {
+     "w": "Es",
+     "start": 0.3,
+     "end": 0.459
+    },
+    {
+     "w": "ist",
+     "start": 0.459,
+     "end": 0.671
+    },
+    {
+     "w": "drei",
+     "start": 0.671,
+     "end": 0.937
+    },
+    {
+     "w": "Uhr",
+     "start": 0.937,
+     "end": 1.149
+    },
+    {
+     "w": "zwölf.",
+     "start": 1.149,
+     "end": 1.52
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "text": "Ich wurde gerade in einem Foto markiert.",
+   "voice": "benw",
+   "start": 2.27,
+   "end": 4.488,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 2.27,
+     "end": 2.487
+    },
+    {
+     "w": "wurde",
+     "start": 2.487,
+     "end": 2.811
+    },
+    {
+     "w": "gerade",
+     "start": 2.811,
+     "end": 3.19
+    },
+    {
+     "w": "in",
+     "start": 3.19,
+     "end": 3.352
+    },
+    {
+     "w": "einem",
+     "start": 3.352,
+     "end": 3.677
+    },
+    {
+     "w": "Foto",
+     "start": 3.677,
+     "end": 3.947
+    },
+    {
+     "w": "markiert.",
+     "start": 3.947,
+     "end": 4.488
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "text": "Das bin ich. Im Bett. Schlafend. Von draußen, durchs Fenster fotografiert.",
+   "voice": "benw",
+   "start": 5.138,
+   "end": 9.242,
+   "words": [
+    {
+     "w": "Das",
+     "start": 5.138,
+     "end": 5.357
+    },
+    {
+     "w": "bin",
+     "start": 5.357,
+     "end": 5.576
+    },
+    {
+     "w": "ich.",
+     "start": 5.576,
+     "end": 5.85
+    },
+    {
+     "w": "Im",
+     "start": 5.85,
+     "end": 6.014
+    },
+    {
+     "w": "Bett.",
+     "start": 6.014,
+     "end": 6.342
+    },
+    {
+     "w": "Schlafend.",
+     "start": 6.342,
+     "end": 6.944
+    },
+    {
+     "w": "Von",
+     "start": 6.944,
+     "end": 7.163
+    },
+    {
+     "w": "draußen,",
+     "start": 7.163,
+     "end": 7.656
+    },
+    {
+     "w": "durchs",
+     "start": 7.656,
+     "end": 8.039
+    },
+    {
+     "w": "Fenster",
+     "start": 8.039,
+     "end": 8.476
+    },
+    {
+     "w": "fotografiert.",
+     "start": 8.476,
+     "end": 9.242
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "text": "Hochgeladen vor einer Minute.",
+   "voice": "benw",
+   "start": 9.892,
+   "end": 11.501,
+   "words": [
+    {
+     "w": "Hochgeladen",
+     "start": 9.892,
+     "end": 10.536
+    },
+    {
+     "w": "vor",
+     "start": 10.536,
+     "end": 10.75
+    },
+    {
+     "w": "einer",
+     "start": 10.75,
+     "end": 11.072
+    },
+    {
+     "w": "Minute.",
+     "start": 11.072,
+     "end": 11.501
+    }
+   ]
+  },
+  {
+   "id": "c5",
+   "text": "Von meinem eigenen Account.",
+   "voice": "benw",
+   "start": 12.351,
+   "end": 13.848,
+   "words": [
+    {
+     "w": "Von",
+     "start": 12.351,
+     "end": 12.565
+    },
+    {
+     "w": "meinem",
+     "start": 12.565,
+     "end": 12.939
+    },
+    {
+     "w": "eigenen",
+     "start": 12.939,
+     "end": 13.367
+    },
+    {
+     "w": "Account.",
+     "start": 13.367,
+     "end": 13.848
+    }
+   ]
+  },
+  {
+   "id": "c6",
+   "text": "Okeh. Ich muss euch erzählen, wie es dazu kam.",
+   "voice": "ben",
+   "start": 14.998,
+   "end": 17.304,
+   "words": [
+    {
+     "w": "Okeh.",
+     "start": 14.998,
+     "end": 15.293
+    },
+    {
+     "w": "Ich",
+     "start": 15.293,
+     "end": 15.489
+    },
+    {
+     "w": "muss",
+     "start": 15.489,
+     "end": 15.734
+    },
+    {
+     "w": "euch",
+     "start": 15.734,
+     "end": 15.979
+    },
+    {
+     "w": "erzählen,",
+     "start": 15.979,
+     "end": 16.47
+    },
+    {
+     "w": "wie",
+     "start": 16.47,
+     "end": 16.666
+    },
+    {
+     "w": "es",
+     "start": 16.666,
+     "end": 16.813
+    },
+    {
+     "w": "dazu",
+     "start": 16.813,
+     "end": 17.059
+    },
+    {
+     "w": "kam.",
+     "start": 17.059,
+     "end": 17.304
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "text": "Montag. Ich habe mein altes Handy online verkauft.",
+   "voice": "ben",
+   "start": 18.154,
+   "end": 20.66,
+   "words": [
+    {
+     "w": "Montag.",
+     "start": 18.154,
+     "end": 18.547
+    },
+    {
+     "w": "Ich",
+     "start": 18.547,
+     "end": 18.744
+    },
+    {
+     "w": "habe",
+     "start": 18.744,
+     "end": 18.989
+    },
+    {
+     "w": "mein",
+     "start": 18.989,
+     "end": 19.235
+    },
+    {
+     "w": "altes",
+     "start": 19.235,
+     "end": 19.53
+    },
+    {
+     "w": "Handy",
+     "start": 19.53,
+     "end": 19.825
+    },
+    {
+     "w": "online",
+     "start": 19.825,
+     "end": 20.169
+    },
+    {
+     "w": "verkauft.",
+     "start": 20.169,
+     "end": 20.66
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "text": "Abgeholt hat es ein Mann. Bar bezahlt. Kein einziges Wort gesagt.",
+   "voice": "ben",
+   "start": 21.11,
+   "end": 24.369,
+   "words": [
+    {
+     "w": "Abgeholt",
+     "start": 21.11,
+     "end": 21.555
+    },
+    {
+     "w": "hat",
+     "start": 21.555,
+     "end": 21.752
+    },
+    {
+     "w": "es",
+     "start": 21.752,
+     "end": 21.9
+    },
+    {
+     "w": "ein",
+     "start": 21.9,
+     "end": 22.098
+    },
+    {
+     "w": "Mann.",
+     "start": 22.098,
+     "end": 22.394
+    },
+    {
+     "w": "Bar",
+     "start": 22.394,
+     "end": 22.591
+    },
+    {
+     "w": "bezahlt.",
+     "start": 22.591,
+     "end": 23.036
+    },
+    {
+     "w": "Kein",
+     "start": 23.036,
+     "end": 23.282
+    },
+    {
+     "w": "einziges",
+     "start": 23.282,
+     "end": 23.727
+    },
+    {
+     "w": "Wort",
+     "start": 23.727,
+     "end": 23.974
+    },
+    {
+     "w": "gesagt.",
+     "start": 23.974,
+     "end": 24.369
+    }
+   ]
+  },
+  {
+   "id": "m3",
+   "text": "Abends habe ich, wie jeden Abend, ein Foto von meiner Straße gepostet. Laternen, leere Straße. Zwölf Laiks.",
+   "voice": "ben",
+   "start": 25.019,
+   "end": 30.382,
+   "words": [
+    {
+     "w": "Abends",
+     "start": 25.019,
+     "end": 25.366
+    },
+    {
+     "w": "habe",
+     "start": 25.366,
+     "end": 25.615
+    },
+    {
+     "w": "ich,",
+     "start": 25.615,
+     "end": 25.863
+    },
+    {
+     "w": "wie",
+     "start": 25.863,
+     "end": 26.061
+    },
+    {
+     "w": "jeden",
+     "start": 26.061,
+     "end": 26.359
+    },
+    {
+     "w": "Abend,",
+     "start": 26.359,
+     "end": 26.707
+    },
+    {
+     "w": "ein",
+     "start": 26.707,
+     "end": 26.906
+    },
+    {
+     "w": "Foto",
+     "start": 26.906,
+     "end": 27.154
+    },
+    {
+     "w": "von",
+     "start": 27.154,
+     "end": 27.353
+    },
+    {
+     "w": "meiner",
+     "start": 27.353,
+     "end": 27.7
+    },
+    {
+     "w": "Straße",
+     "start": 27.7,
+     "end": 28.048
+    },
+    {
+     "w": "gepostet.",
+     "start": 28.048,
+     "end": 28.545
+    },
+    {
+     "w": "Laternen,",
+     "start": 28.545,
+     "end": 29.041
+    },
+    {
+     "w": "leere",
+     "start": 29.041,
+     "end": 29.339
+    },
+    {
+     "w": "Straße.",
+     "start": 29.339,
+     "end": 29.737
+    },
+    {
+     "w": "Zwölf",
+     "start": 29.737,
+     "end": 30.034
+    },
+    {
+     "w": "Laiks.",
+     "start": 30.034,
+     "end": 30.382
+    }
+   ]
+  },
+  {
+   "id": "d1",
+   "text": "Dienstag. Gleiches Foto. Aber diesmal hat jemand kommentiert.",
+   "voice": "ben",
+   "start": 31.132,
+   "end": 34.19,
+   "words": [
+    {
+     "w": "Dienstag.",
+     "start": 31.132,
+     "end": 31.625
+    },
+    {
+     "w": "Gleiches",
+     "start": 31.625,
+     "end": 32.069
+    },
+    {
+     "w": "Foto.",
+     "start": 32.069,
+     "end": 32.365
+    },
+    {
+     "w": "Aber",
+     "start": 32.365,
+     "end": 32.612
+    },
+    {
+     "w": "diesmal",
+     "start": 32.612,
+     "end": 33.006
+    },
+    {
+     "w": "hat",
+     "start": 33.006,
+     "end": 33.203
+    },
+    {
+     "w": "jemand",
+     "start": 33.203,
+     "end": 33.549
+    },
+    {
+     "w": "kommentiert.",
+     "start": 33.549,
+     "end": 34.19
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "text": "Ich zoome rein. Und da steht wirklich jemand. Langer Mantel. Kapuze. Kein Gesicht.",
+   "voice": "ben",
+   "start": 36.04,
+   "end": 40.15,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 36.04,
+     "end": 36.238
+    },
+    {
+     "w": "zoome",
+     "start": 36.238,
+     "end": 36.535
+    },
+    {
+     "w": "rein.",
+     "start": 36.535,
+     "end": 36.832
+    },
+    {
+     "w": "Und",
+     "start": 36.832,
+     "end": 37.03
+    },
+    {
+     "w": "da",
+     "start": 37.03,
+     "end": 37.179
+    },
+    {
+     "w": "steht",
+     "start": 37.179,
+     "end": 37.476
+    },
+    {
+     "w": "wirklich",
+     "start": 37.476,
+     "end": 37.922
+    },
+    {
+     "w": "jemand.",
+     "start": 37.922,
+     "end": 38.318
+    },
+    {
+     "w": "Langer",
+     "start": 38.318,
+     "end": 38.665
+    },
+    {
+     "w": "Mantel.",
+     "start": 38.665,
+     "end": 39.061
+    },
+    {
+     "w": "Kapuze.",
+     "start": 39.061,
+     "end": 39.457
+    },
+    {
+     "w": "Kein",
+     "start": 39.457,
+     "end": 39.705
+    },
+    {
+     "w": "Gesicht.",
+     "start": 39.705,
+     "end": 40.15
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "text": "Ich dachte: Nachbar, geht mit dem Hund raus.",
+   "voice": "ben",
+   "start": 40.8,
+   "end": 43.006,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 40.8,
+     "end": 40.996
+    },
+    {
+     "w": "dachte:",
+     "start": 40.996,
+     "end": 41.388
+    },
+    {
+     "w": "Nachbar,",
+     "start": 41.388,
+     "end": 41.83
+    },
+    {
+     "w": "geht",
+     "start": 41.83,
+     "end": 42.075
+    },
+    {
+     "w": "mit",
+     "start": 42.075,
+     "end": 42.271
+    },
+    {
+     "w": "dem",
+     "start": 42.271,
+     "end": 42.467
+    },
+    {
+     "w": "Hund",
+     "start": 42.467,
+     "end": 42.712
+    },
+    {
+     "w": "raus.",
+     "start": 42.712,
+     "end": 43.006
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "text": "Ohne Hund.",
+   "voice": "ben",
+   "start": 43.756,
+   "end": 44.257,
+   "words": [
+    {
+     "w": "Ohne",
+     "start": 43.756,
+     "end": 43.984
+    },
+    {
+     "w": "Hund.",
+     "start": 43.984,
+     "end": 44.257
+    }
+   ]
+  },
+  {
+   "id": "w1",
+   "text": "Mittwoch. Er ist wieder auf dem Foto.",
+   "voice": "ben",
+   "start": 45.307,
+   "end": 47.162,
+   "words": [
+    {
+     "w": "Mittwoch.",
+     "start": 45.307,
+     "end": 45.795
+    },
+    {
+     "w": "Er",
+     "start": 45.795,
+     "end": 45.942
+    },
+    {
+     "w": "ist",
+     "start": 45.942,
+     "end": 46.137
+    },
+    {
+     "w": "wieder",
+     "start": 46.137,
+     "end": 46.478
+    },
+    {
+     "w": "auf",
+     "start": 46.478,
+     "end": 46.674
+    },
+    {
+     "w": "dem",
+     "start": 46.674,
+     "end": 46.869
+    },
+    {
+     "w": "Foto.",
+     "start": 46.869,
+     "end": 47.162
+    }
+   ]
+  },
+  {
+   "id": "w2",
+   "text": "Zwei Laternen näher.",
+   "voice": "ben",
+   "start": 48.012,
+   "end": 49.014,
+   "words": [
+    {
+     "w": "Zwei",
+     "start": 48.012,
+     "end": 48.25
+    },
+    {
+     "w": "Laternen",
+     "start": 48.25,
+     "end": 48.68
+    },
+    {
+     "w": "näher.",
+     "start": 48.68,
+     "end": 49.014
+    }
+   ]
+  },
+  {
+   "id": "w3",
+   "text": "Also habe ich gemacht, was jeder vernünftige Mensch macht: Kommentar gelöscht. Passwort geändert.",
+   "voice": "ben",
+   "start": 50.064,
+   "end": 54.927,
+   "words": [
+    {
+     "w": "Also",
+     "start": 50.064,
+     "end": 50.312
+    },
+    {
+     "w": "habe",
+     "start": 50.312,
+     "end": 50.56
+    },
+    {
+     "w": "ich",
+     "start": 50.56,
+     "end": 50.759
+    },
+    {
+     "w": "gemacht,",
+     "start": 50.759,
+     "end": 51.205
+    },
+    {
+     "w": "was",
+     "start": 51.205,
+     "end": 51.404
+    },
+    {
+     "w": "jeder",
+     "start": 51.404,
+     "end": 51.702
+    },
+    {
+     "w": "vernünftige",
+     "start": 51.702,
+     "end": 52.297
+    },
+    {
+     "w": "Mensch",
+     "start": 52.297,
+     "end": 52.644
+    },
+    {
+     "w": "macht:",
+     "start": 52.644,
+     "end": 52.992
+    },
+    {
+     "w": "Kommentar",
+     "start": 52.992,
+     "end": 53.488
+    },
+    {
+     "w": "gelöscht.",
+     "start": 53.488,
+     "end": 53.984
+    },
+    {
+     "w": "Passwort",
+     "start": 53.984,
+     "end": 54.43
+    },
+    {
+     "w": "geändert.",
+     "start": 54.43,
+     "end": 54.927
+    }
+   ]
+  },
+  {
+   "id": "t1",
+   "text": "Donnerstag. Ich fotografiere nur noch die Hauswand gegenüber. Kein Mann. Perfekt.",
+   "voice": "ben",
+   "start": 55.677,
+   "end": 59.737,
+   "words": [
+    {
+     "w": "Donnerstag.",
+     "start": 55.677,
+     "end": 56.271
+    },
+    {
+     "w": "Ich",
+     "start": 56.271,
+     "end": 56.469
+    },
+    {
+     "w": "fotografiere",
+     "start": 56.469,
+     "end": 57.113
+    },
+    {
+     "w": "nur",
+     "start": 57.113,
+     "end": 57.311
+    },
+    {
+     "w": "noch",
+     "start": 57.311,
+     "end": 57.558
+    },
+    {
+     "w": "die",
+     "start": 57.558,
+     "end": 57.756
+    },
+    {
+     "w": "Hauswand",
+     "start": 57.756,
+     "end": 58.202
+    },
+    {
+     "w": "gegenüber.",
+     "start": 58.202,
+     "end": 58.747
+    },
+    {
+     "w": "Kein",
+     "start": 58.747,
+     "end": 58.994
+    },
+    {
+     "w": "Mann.",
+     "start": 58.994,
+     "end": 59.291
+    },
+    {
+     "w": "Perfekt.",
+     "start": 59.291,
+     "end": 59.737
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "text": "Bis mir das Fenster auffällt. In der Scheibe spiegelt sich die Straße hinter mir.",
+   "voice": "ben",
+   "start": 60.587,
+   "end": 64.647,
+   "words": [
+    {
+     "w": "Bis",
+     "start": 60.587,
+     "end": 60.785
+    },
+    {
+     "w": "mir",
+     "start": 60.785,
+     "end": 60.983
+    },
+    {
+     "w": "das",
+     "start": 60.983,
+     "end": 61.181
+    },
+    {
+     "w": "Fenster",
+     "start": 61.181,
+     "end": 61.577
+    },
+    {
+     "w": "auffällt.",
+     "start": 61.577,
+     "end": 62.072
+    },
+    {
+     "w": "In",
+     "start": 62.072,
+     "end": 62.221
+    },
+    {
+     "w": "der",
+     "start": 62.221,
+     "end": 62.419
+    },
+    {
+     "w": "Scheibe",
+     "start": 62.419,
+     "end": 62.815
+    },
+    {
+     "w": "spiegelt",
+     "start": 62.815,
+     "end": 63.261
+    },
+    {
+     "w": "sich",
+     "start": 63.261,
+     "end": 63.508
+    },
+    {
+     "w": "die",
+     "start": 63.508,
+     "end": 63.706
+    },
+    {
+     "w": "Straße",
+     "start": 63.706,
+     "end": 64.053
+    },
+    {
+     "w": "hinter",
+     "start": 64.053,
+     "end": 64.4
+    },
+    {
+     "w": "mir.",
+     "start": 64.4,
+     "end": 64.647
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "text": "Und mitten auf der Straße steht er.",
+   "voice": "ben",
+   "start": 65.297,
+   "end": 67.052,
+   "words": [
+    {
+     "w": "Und",
+     "start": 65.297,
+     "end": 65.492
+    },
+    {
+     "w": "mitten",
+     "start": 65.492,
+     "end": 65.833
+    },
+    {
+     "w": "auf",
+     "start": 65.833,
+     "end": 66.028
+    },
+    {
+     "w": "der",
+     "start": 66.028,
+     "end": 66.223
+    },
+    {
+     "w": "Straße",
+     "start": 66.223,
+     "end": 66.564
+    },
+    {
+     "w": "steht",
+     "start": 66.564,
+     "end": 66.857
+    },
+    {
+     "w": "er.",
+     "start": 66.857,
+     "end": 67.052
+    }
+   ]
+  },
+  {
+   "id": "t4",
+   "text": "Direkt hinter mir.",
+   "voice": "ben",
+   "start": 68.002,
+   "end": 68.904,
+   "words": [
+    {
+     "w": "Direkt",
+     "start": 68.002,
+     "end": 68.334
+    },
+    {
+     "w": "hinter",
+     "start": 68.334,
+     "end": 68.666
+    },
+    {
+     "w": "mir.",
+     "start": 68.666,
+     "end": 68.904
+    }
+   ]
+  },
+  {
+   "id": "f1",
+   "text": "Freitag. Ich poste nichts mehr. Tür zweimal abgeschlossen. Fenster nur gekippt, weil es so warm ist.",
+   "voice": "ben",
+   "start": 70.154,
+   "end": 75.166,
+   "words": [
+    {
+     "w": "Freitag.",
+     "start": 70.154,
+     "end": 70.6
+    },
+    {
+     "w": "Ich",
+     "start": 70.6,
+     "end": 70.799
+    },
+    {
+     "w": "poste",
+     "start": 70.799,
+     "end": 71.097
+    },
+    {
+     "w": "nichts",
+     "start": 71.097,
+     "end": 71.444
+    },
+    {
+     "w": "mehr.",
+     "start": 71.444,
+     "end": 71.742
+    },
+    {
+     "w": "Tür",
+     "start": 71.742,
+     "end": 71.941
+    },
+    {
+     "w": "zweimal",
+     "start": 71.941,
+     "end": 72.338
+    },
+    {
+     "w": "abgeschlossen.",
+     "start": 72.338,
+     "end": 73.082
+    },
+    {
+     "w": "Fenster",
+     "start": 73.082,
+     "end": 73.479
+    },
+    {
+     "w": "nur",
+     "start": 73.479,
+     "end": 73.678
+    },
+    {
+     "w": "gekippt,",
+     "start": 73.678,
+     "end": 74.124
+    },
+    {
+     "w": "weil",
+     "start": 74.124,
+     "end": 74.372
+    },
+    {
+     "w": "es",
+     "start": 74.372,
+     "end": 74.521
+    },
+    {
+     "w": "so",
+     "start": 74.521,
+     "end": 74.67
+    },
+    {
+     "w": "warm",
+     "start": 74.67,
+     "end": 74.918
+    },
+    {
+     "w": "ist.",
+     "start": 74.918,
+     "end": 75.166
+    }
+   ]
+  },
+  {
+   "id": "p1",
+   "text": "Und jetzt ist es drei Uhr zwölf.",
+   "voice": "benw",
+   "start": 76.216,
+   "end": 77.991,
+   "words": [
+    {
+     "w": "Und",
+     "start": 76.216,
+     "end": 76.432
+    },
+    {
+     "w": "jetzt",
+     "start": 76.432,
+     "end": 76.754
+    },
+    {
+     "w": "ist",
+     "start": 76.754,
+     "end": 76.969
+    },
+    {
+     "w": "es",
+     "start": 76.969,
+     "end": 77.131
+    },
+    {
+     "w": "drei",
+     "start": 77.131,
+     "end": 77.4
+    },
+    {
+     "w": "Uhr",
+     "start": 77.4,
+     "end": 77.615
+    },
+    {
+     "w": "zwölf.",
+     "start": 77.615,
+     "end": 77.991
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "text": "Auf dem Foto sind meine Vorhänge offen.",
+   "voice": "benw",
+   "start": 78.741,
+   "end": 80.904,
+   "words": [
+    {
+     "w": "Auf",
+     "start": 78.741,
+     "end": 78.957
+    },
+    {
+     "w": "dem",
+     "start": 78.957,
+     "end": 79.174
+    },
+    {
+     "w": "Foto",
+     "start": 79.174,
+     "end": 79.444
+    },
+    {
+     "w": "sind",
+     "start": 79.444,
+     "end": 79.714
+    },
+    {
+     "w": "meine",
+     "start": 79.714,
+     "end": 80.039
+    },
+    {
+     "w": "Vorhänge",
+     "start": 80.039,
+     "end": 80.526
+    },
+    {
+     "w": "offen.",
+     "start": 80.526,
+     "end": 80.904
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "text": "Ich drehe mich langsam zum Fenster.",
+   "voice": "benw",
+   "start": 81.754,
+   "end": 83.695,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 81.754,
+     "end": 81.97
+    },
+    {
+     "w": "drehe",
+     "start": 81.97,
+     "end": 82.293
+    },
+    {
+     "w": "mich",
+     "start": 82.293,
+     "end": 82.563
+    },
+    {
+     "w": "langsam",
+     "start": 82.563,
+     "end": 82.994
+    },
+    {
+     "w": "zum",
+     "start": 82.994,
+     "end": 83.21
+    },
+    {
+     "w": "Fenster.",
+     "start": 83.21,
+     "end": 83.695
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "text": "Die Vorhänge sind zu.",
+   "voice": "benw",
+   "start": 85.145,
+   "end": 86.31,
+   "words": [
+    {
+     "w": "Die",
+     "start": 85.145,
+     "end": 85.357
+    },
+    {
+     "w": "Vorhänge",
+     "start": 85.357,
+     "end": 85.833
+    },
+    {
+     "w": "sind",
+     "start": 85.833,
+     "end": 86.098
+    },
+    {
+     "w": "zu.",
+     "start": 86.098,
+     "end": 86.31
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "text": "Ich habe sie nicht zugezogen.",
+   "voice": "benw",
+   "start": 87.56,
+   "end": 89.168,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 87.56,
+     "end": 87.774
+    },
+    {
+     "w": "habe",
+     "start": 87.774,
+     "end": 88.042
+    },
+    {
+     "w": "sie",
+     "start": 88.042,
+     "end": 88.257
+    },
+    {
+     "w": "nicht",
+     "start": 88.257,
+     "end": 88.578
+    },
+    {
+     "w": "zugezogen.",
+     "start": 88.578,
+     "end": 89.168
+    }
+   ]
+  },
+  {
+   "id": "man",
+   "text": "Hallo, Ben.",
+   "voice": "man",
+   "start": 91.418,
+   "end": 92.593,
+   "words": [
+    {
+     "w": "Hallo,",
+     "start": 91.418,
+     "end": 92.103
+    },
+    {
+     "w": "Ben.",
+     "start": 92.103,
+     "end": 92.593
+    }
+   ]
+  }
+ ],
+ "alignDebug": []
+}

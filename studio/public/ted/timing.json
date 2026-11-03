@@ -1,0 +1,1992 @@
+{
+ "total": 179.386,
+ "sampleRate": 22050,
+ "fake": true,
+ "captionMap": {
+  "neunzehnhundertsechsundvierzig": "1946",
+  "Wörmont.": "Vermont.",
+  "Siättel,": "Seattle,",
+  "neunzehnhundertvierundsiebzig.": "1974.",
+  "Leik": "Lake",
+  "Sämmämisch,": "Sammamish,",
+  "vierzehnter": "14.",
+  "Solt": "Salt",
+  "Sitti,": "City,",
+  "neunzehnhundertfünfundsiebzig.": "1975."
+ },
+ "sentences": [
+  {
+   "id": "c1",
+   "text": "Man hat mich charmant genannt. Gutaussehend. Intelligent.",
+   "voice": "ted",
+   "start": 0.3,
+   "end": 4.058,
+   "words": [
+    {
+     "w": "Man",
+     "start": 0.3,
+     "end": 0.559
+    },
+    {
+     "w": "hat",
+     "start": 0.559,
+     "end": 0.818
+    },
+    {
+     "w": "mich",
+     "start": 0.818,
+     "end": 1.142
+    },
+    {
+     "w": "charmant",
+     "start": 1.142,
+     "end": 1.725
+    },
+    {
+     "w": "genannt.",
+     "start": 1.725,
+     "end": 2.308
+    },
+    {
+     "w": "Gutaussehend.",
+     "start": 2.308,
+     "end": 3.215
+    },
+    {
+     "w": "Intelligent.",
+     "start": 3.215,
+     "end": 4.058
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "text": "Ich habe Jura studiert. Ich habe für Politiker Wahlkampf gemacht.",
+   "voice": "ted",
+   "start": 4.708,
+   "end": 8.993,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 4.708,
+     "end": 4.967
+    },
+    {
+     "w": "habe",
+     "start": 4.967,
+     "end": 5.292
+    },
+    {
+     "w": "Jura",
+     "start": 5.292,
+     "end": 5.617
+    },
+    {
+     "w": "studiert.",
+     "start": 5.617,
+     "end": 6.266
+    },
+    {
+     "w": "Ich",
+     "start": 6.266,
+     "end": 6.526
+    },
+    {
+     "w": "habe",
+     "start": 6.526,
+     "end": 6.85
+    },
+    {
+     "w": "für",
+     "start": 6.85,
+     "end": 7.11
+    },
+    {
+     "w": "Politiker",
+     "start": 7.11,
+     "end": 7.759
+    },
+    {
+     "w": "Wahlkampf",
+     "start": 7.759,
+     "end": 8.408
+    },
+    {
+     "w": "gemacht.",
+     "start": 8.408,
+     "end": 8.993
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "text": "Und ich habe mindestens dreißig Frauen getötet.",
+   "voice": "ted",
+   "start": 9.743,
+   "end": 12.841,
+   "words": [
+    {
+     "w": "Und",
+     "start": 9.743,
+     "end": 10.001
+    },
+    {
+     "w": "ich",
+     "start": 10.001,
+     "end": 10.259
+    },
+    {
+     "w": "habe",
+     "start": 10.259,
+     "end": 10.582
+    },
+    {
+     "w": "mindestens",
+     "start": 10.582,
+     "end": 11.292
+    },
+    {
+     "w": "dreißig",
+     "start": 11.292,
+     "end": 11.808
+    },
+    {
+     "w": "Frauen",
+     "start": 11.808,
+     "end": 12.26
+    },
+    {
+     "w": "getötet.",
+     "start": 12.26,
+     "end": 12.841
+    }
+   ]
+  },
+  {
+   "id": "k1",
+   "text": "Geboren neunzehnhundertsechsundvierzig in Wörmont. Ich bin bei meinen Großeltern aufgewachsen, und jahrelang dachte ich, sie wären meine Eltern.",
+   "voice": "ted",
+   "start": 14.391,
+   "end": 23.884,
+   "words": [
+    {
+     "w": "Geboren",
+     "start": 14.391,
+     "end": 14.915
+    },
+    {
+     "w": "neunzehnhundertsechsundvierzig",
+     "start": 14.915,
+     "end": 16.944
+    },
+    {
+     "w": "in",
+     "start": 16.944,
+     "end": 17.141
+    },
+    {
+     "w": "Wörmont.",
+     "start": 17.141,
+     "end": 17.73
+    },
+    {
+     "w": "Ich",
+     "start": 17.73,
+     "end": 17.992
+    },
+    {
+     "w": "bin",
+     "start": 17.992,
+     "end": 18.254
+    },
+    {
+     "w": "bei",
+     "start": 18.254,
+     "end": 18.516
+    },
+    {
+     "w": "meinen",
+     "start": 18.516,
+     "end": 18.974
+    },
+    {
+     "w": "Großeltern",
+     "start": 18.974,
+     "end": 19.694
+    },
+    {
+     "w": "aufgewachsen,",
+     "start": 19.694,
+     "end": 20.611
+    },
+    {
+     "w": "und",
+     "start": 20.611,
+     "end": 20.872
+    },
+    {
+     "w": "jahrelang",
+     "start": 20.872,
+     "end": 21.527
+    },
+    {
+     "w": "dachte",
+     "start": 21.527,
+     "end": 21.985
+    },
+    {
+     "w": "ich,",
+     "start": 21.985,
+     "end": 22.313
+    },
+    {
+     "w": "sie",
+     "start": 22.313,
+     "end": 22.575
+    },
+    {
+     "w": "wären",
+     "start": 22.575,
+     "end": 22.967
+    },
+    {
+     "w": "meine",
+     "start": 22.967,
+     "end": 23.36
+    },
+    {
+     "w": "Eltern.",
+     "start": 23.36,
+     "end": 23.884
+    }
+   ]
+  },
+  {
+   "id": "k2",
+   "text": "Meine Mutter hat mir erzählt, sie sei meine große Schwester.",
+   "voice": "ted",
+   "start": 24.434,
+   "end": 28.389,
+   "words": [
+    {
+     "w": "Meine",
+     "start": 24.434,
+     "end": 24.823
+    },
+    {
+     "w": "Mutter",
+     "start": 24.823,
+     "end": 25.277
+    },
+    {
+     "w": "hat",
+     "start": 25.277,
+     "end": 25.536
+    },
+    {
+     "w": "mir",
+     "start": 25.536,
+     "end": 25.796
+    },
+    {
+     "w": "erzählt,",
+     "start": 25.796,
+     "end": 26.379
+    },
+    {
+     "w": "sie",
+     "start": 26.379,
+     "end": 26.639
+    },
+    {
+     "w": "sei",
+     "start": 26.639,
+     "end": 26.898
+    },
+    {
+     "w": "meine",
+     "start": 26.898,
+     "end": 27.287
+    },
+    {
+     "w": "große",
+     "start": 27.287,
+     "end": 27.676
+    },
+    {
+     "w": "Schwester.",
+     "start": 27.676,
+     "end": 28.389
+    }
+   ]
+  },
+  {
+   "id": "s1",
+   "text": "Siättel, neunzehnhundertvierundsiebzig. In der Nacht zum ersten Februar ging ich in ein Haus, in dem Studentinnen wohnten. Eine Tür war nicht abgeschlossen.",
+   "voice": "ted",
+   "start": 29.539,
+   "end": 39.823,
+   "words": [
+    {
+     "w": "Siättel,",
+     "start": 29.539,
+     "end": 30.129
+    },
+    {
+     "w": "neunzehnhundertvierundsiebzig.",
+     "start": 30.129,
+     "end": 32.16
+    },
+    {
+     "w": "In",
+     "start": 32.16,
+     "end": 32.356
+    },
+    {
+     "w": "der",
+     "start": 32.356,
+     "end": 32.618
+    },
+    {
+     "w": "Nacht",
+     "start": 32.618,
+     "end": 33.011
+    },
+    {
+     "w": "zum",
+     "start": 33.011,
+     "end": 33.273
+    },
+    {
+     "w": "ersten",
+     "start": 33.273,
+     "end": 33.732
+    },
+    {
+     "w": "Februar",
+     "start": 33.732,
+     "end": 34.256
+    },
+    {
+     "w": "ging",
+     "start": 34.256,
+     "end": 34.583
+    },
+    {
+     "w": "ich",
+     "start": 34.583,
+     "end": 34.845
+    },
+    {
+     "w": "in",
+     "start": 34.845,
+     "end": 35.042
+    },
+    {
+     "w": "ein",
+     "start": 35.042,
+     "end": 35.304
+    },
+    {
+     "w": "Haus,",
+     "start": 35.304,
+     "end": 35.697
+    },
+    {
+     "w": "in",
+     "start": 35.697,
+     "end": 35.893
+    },
+    {
+     "w": "dem",
+     "start": 35.893,
+     "end": 36.155
+    },
+    {
+     "w": "Studentinnen",
+     "start": 36.155,
+     "end": 37.007
+    },
+    {
+     "w": "wohnten.",
+     "start": 37.007,
+     "end": 37.596
+    },
+    {
+     "w": "Eine",
+     "start": 37.596,
+     "end": 37.924
+    },
+    {
+     "w": "Tür",
+     "start": 37.924,
+     "end": 38.186
+    },
+    {
+     "w": "war",
+     "start": 38.186,
+     "end": 38.448
+    },
+    {
+     "w": "nicht",
+     "start": 38.448,
+     "end": 38.841
+    },
+    {
+     "w": "abgeschlossen.",
+     "start": 38.841,
+     "end": 39.823
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "text": "Ich holte sie aus ihrem Zimmer im Keller, während die anderen schliefen.",
+   "voice": "ted",
+   "start": 40.373,
+   "end": 45.12,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 40.373,
+     "end": 40.634
+    },
+    {
+     "w": "holte",
+     "start": 40.634,
+     "end": 41.024
+    },
+    {
+     "w": "sie",
+     "start": 41.024,
+     "end": 41.284
+    },
+    {
+     "w": "aus",
+     "start": 41.284,
+     "end": 41.544
+    },
+    {
+     "w": "ihrem",
+     "start": 41.544,
+     "end": 41.934
+    },
+    {
+     "w": "Zimmer",
+     "start": 41.934,
+     "end": 42.389
+    },
+    {
+     "w": "im",
+     "start": 42.389,
+     "end": 42.584
+    },
+    {
+     "w": "Keller,",
+     "start": 42.584,
+     "end": 43.104
+    },
+    {
+     "w": "während",
+     "start": 43.104,
+     "end": 43.624
+    },
+    {
+     "w": "die",
+     "start": 43.624,
+     "end": 43.885
+    },
+    {
+     "w": "anderen",
+     "start": 43.885,
+     "end": 44.405
+    },
+    {
+     "w": "schliefen.",
+     "start": 44.405,
+     "end": 45.12
+    }
+   ]
+  },
+  {
+   "id": "v1",
+   "text": "Ich hatte eine Methode. Ich trug einen Gips am Arm, oder ich ging an Krücken.",
+   "voice": "ted",
+   "start": 47.17,
+   "end": 52.246,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 47.17,
+     "end": 47.43
+    },
+    {
+     "w": "hatte",
+     "start": 47.43,
+     "end": 47.821
+    },
+    {
+     "w": "eine",
+     "start": 47.821,
+     "end": 48.146
+    },
+    {
+     "w": "Methode.",
+     "start": 48.146,
+     "end": 48.732
+    },
+    {
+     "w": "Ich",
+     "start": 48.732,
+     "end": 48.992
+    },
+    {
+     "w": "trug",
+     "start": 48.992,
+     "end": 49.318
+    },
+    {
+     "w": "einen",
+     "start": 49.318,
+     "end": 49.708
+    },
+    {
+     "w": "Gips",
+     "start": 49.708,
+     "end": 50.033
+    },
+    {
+     "w": "am",
+     "start": 50.033,
+     "end": 50.229
+    },
+    {
+     "w": "Arm,",
+     "start": 50.229,
+     "end": 50.554
+    },
+    {
+     "w": "oder",
+     "start": 50.554,
+     "end": 50.879
+    },
+    {
+     "w": "ich",
+     "start": 50.879,
+     "end": 51.14
+    },
+    {
+     "w": "ging",
+     "start": 51.14,
+     "end": 51.465
+    },
+    {
+     "w": "an",
+     "start": 51.465,
+     "end": 51.66
+    },
+    {
+     "w": "Krücken.",
+     "start": 51.66,
+     "end": 52.246
+    }
+   ]
+  },
+  {
+   "id": "v2",
+   "text": "Ich ließ Bücher fallen und bat junge Frauen, mir beim Tragen zu helfen. Bis zu meinem Auto. Ein hellbrauner Käfer.",
+   "voice": "ted",
+   "start": 52.696,
+   "end": 60.211,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 52.696,
+     "end": 52.957
+    },
+    {
+     "w": "ließ",
+     "start": 52.957,
+     "end": 53.284
+    },
+    {
+     "w": "Bücher",
+     "start": 53.284,
+     "end": 53.742
+    },
+    {
+     "w": "fallen",
+     "start": 53.742,
+     "end": 54.199
+    },
+    {
+     "w": "und",
+     "start": 54.199,
+     "end": 54.46
+    },
+    {
+     "w": "bat",
+     "start": 54.46,
+     "end": 54.722
+    },
+    {
+     "w": "junge",
+     "start": 54.722,
+     "end": 55.114
+    },
+    {
+     "w": "Frauen,",
+     "start": 55.114,
+     "end": 55.637
+    },
+    {
+     "w": "mir",
+     "start": 55.637,
+     "end": 55.898
+    },
+    {
+     "w": "beim",
+     "start": 55.898,
+     "end": 56.225
+    },
+    {
+     "w": "Tragen",
+     "start": 56.225,
+     "end": 56.682
+    },
+    {
+     "w": "zu",
+     "start": 56.682,
+     "end": 56.878
+    },
+    {
+     "w": "helfen.",
+     "start": 56.878,
+     "end": 57.401
+    },
+    {
+     "w": "Bis",
+     "start": 57.401,
+     "end": 57.663
+    },
+    {
+     "w": "zu",
+     "start": 57.663,
+     "end": 57.859
+    },
+    {
+     "w": "meinem",
+     "start": 57.859,
+     "end": 58.316
+    },
+    {
+     "w": "Auto.",
+     "start": 58.316,
+     "end": 58.708
+    },
+    {
+     "w": "Ein",
+     "start": 58.708,
+     "end": 58.97
+    },
+    {
+     "w": "hellbrauner",
+     "start": 58.97,
+     "end": 59.754
+    },
+    {
+     "w": "Käfer.",
+     "start": 59.754,
+     "end": 60.211
+    }
+   ]
+  },
+  {
+   "id": "v3",
+   "text": "Den Beifahrersitz hatte ich ausgebaut.",
+   "voice": "ted",
+   "start": 60.761,
+   "end": 63.266,
+   "words": [
+    {
+     "w": "Den",
+     "start": 60.761,
+     "end": 61.018
+    },
+    {
+     "w": "Beifahrersitz",
+     "start": 61.018,
+     "end": 61.917
+    },
+    {
+     "w": "hatte",
+     "start": 61.917,
+     "end": 62.303
+    },
+    {
+     "w": "ich",
+     "start": 62.303,
+     "end": 62.56
+    },
+    {
+     "w": "ausgebaut.",
+     "start": 62.56,
+     "end": 63.266
+    }
+   ]
+  },
+  {
+   "id": "v4",
+   "text": "Neben dem Auto lag eine Brechstange. Ich schlug zu, bevor sie verstanden, was passiert. Dann die Handschellen.",
+   "voice": "ted",
+   "start": 64.416,
+   "end": 71.668,
+   "words": [
+    {
+     "w": "Neben",
+     "start": 64.416,
+     "end": 64.808
+    },
+    {
+     "w": "dem",
+     "start": 64.808,
+     "end": 65.07
+    },
+    {
+     "w": "Auto",
+     "start": 65.07,
+     "end": 65.396
+    },
+    {
+     "w": "lag",
+     "start": 65.396,
+     "end": 65.658
+    },
+    {
+     "w": "eine",
+     "start": 65.658,
+     "end": 65.984
+    },
+    {
+     "w": "Brechstange.",
+     "start": 65.984,
+     "end": 66.834
+    },
+    {
+     "w": "Ich",
+     "start": 66.834,
+     "end": 67.095
+    },
+    {
+     "w": "schlug",
+     "start": 67.095,
+     "end": 67.552
+    },
+    {
+     "w": "zu,",
+     "start": 67.552,
+     "end": 67.814
+    },
+    {
+     "w": "bevor",
+     "start": 67.814,
+     "end": 68.205
+    },
+    {
+     "w": "sie",
+     "start": 68.205,
+     "end": 68.467
+    },
+    {
+     "w": "verstanden,",
+     "start": 68.467,
+     "end": 69.251
+    },
+    {
+     "w": "was",
+     "start": 69.251,
+     "end": 69.512
+    },
+    {
+     "w": "passiert.",
+     "start": 69.512,
+     "end": 70.165
+    },
+    {
+     "w": "Dann",
+     "start": 70.165,
+     "end": 70.492
+    },
+    {
+     "w": "die",
+     "start": 70.492,
+     "end": 70.753
+    },
+    {
+     "w": "Handschellen.",
+     "start": 70.753,
+     "end": 71.668
+    }
+   ]
+  },
+  {
+   "id": "v5",
+   "text": "Ich habe mich an ihnen vergangen. Dann habe ich sie erwürgt.",
+   "voice": "ted",
+   "start": 72.818,
+   "end": 76.773,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 72.818,
+     "end": 73.077
+    },
+    {
+     "w": "habe",
+     "start": 73.077,
+     "end": 73.402
+    },
+    {
+     "w": "mich",
+     "start": 73.402,
+     "end": 73.726
+    },
+    {
+     "w": "an",
+     "start": 73.726,
+     "end": 73.92
+    },
+    {
+     "w": "ihnen",
+     "start": 73.92,
+     "end": 74.309
+    },
+    {
+     "w": "vergangen.",
+     "start": 74.309,
+     "end": 75.023
+    },
+    {
+     "w": "Dann",
+     "start": 75.023,
+     "end": 75.347
+    },
+    {
+     "w": "habe",
+     "start": 75.347,
+     "end": 75.671
+    },
+    {
+     "w": "ich",
+     "start": 75.671,
+     "end": 75.93
+    },
+    {
+     "w": "sie",
+     "start": 75.93,
+     "end": 76.19
+    },
+    {
+     "w": "erwürgt.",
+     "start": 76.19,
+     "end": 76.773
+    }
+   ]
+  },
+  {
+   "id": "v6",
+   "text": "Manche Orte, an denen ich sie zurückließ, habe ich später wieder besucht. Tage danach. Wochen danach.",
+   "voice": "ted",
+   "start": 78.223,
+   "end": 84.882,
+   "words": [
+    {
+     "w": "Manche",
+     "start": 78.223,
+     "end": 78.68
+    },
+    {
+     "w": "Orte,",
+     "start": 78.68,
+     "end": 79.072
+    },
+    {
+     "w": "an",
+     "start": 79.072,
+     "end": 79.268
+    },
+    {
+     "w": "denen",
+     "start": 79.268,
+     "end": 79.659
+    },
+    {
+     "w": "ich",
+     "start": 79.659,
+     "end": 79.921
+    },
+    {
+     "w": "sie",
+     "start": 79.921,
+     "end": 80.182
+    },
+    {
+     "w": "zurückließ,",
+     "start": 80.182,
+     "end": 80.965
+    },
+    {
+     "w": "habe",
+     "start": 80.965,
+     "end": 81.291
+    },
+    {
+     "w": "ich",
+     "start": 81.291,
+     "end": 81.552
+    },
+    {
+     "w": "später",
+     "start": 81.552,
+     "end": 82.009
+    },
+    {
+     "w": "wieder",
+     "start": 82.009,
+     "end": 82.466
+    },
+    {
+     "w": "besucht.",
+     "start": 82.466,
+     "end": 83.054
+    },
+    {
+     "w": "Tage",
+     "start": 83.054,
+     "end": 83.38
+    },
+    {
+     "w": "danach.",
+     "start": 83.38,
+     "end": 83.902
+    },
+    {
+     "w": "Wochen",
+     "start": 83.902,
+     "end": 84.359
+    },
+    {
+     "w": "danach.",
+     "start": 84.359,
+     "end": 84.882
+    }
+   ]
+  },
+  {
+   "id": "v7",
+   "text": "Ich habe es später selbst gestanden.",
+   "voice": "ted",
+   "start": 85.532,
+   "end": 87.905,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 85.532,
+     "end": 85.788
+    },
+    {
+     "w": "habe",
+     "start": 85.788,
+     "end": 86.109
+    },
+    {
+     "w": "es",
+     "start": 86.109,
+     "end": 86.301
+    },
+    {
+     "w": "später",
+     "start": 86.301,
+     "end": 86.75
+    },
+    {
+     "w": "selbst",
+     "start": 86.75,
+     "end": 87.199
+    },
+    {
+     "w": "gestanden.",
+     "start": 87.199,
+     "end": 87.905
+    }
+   ]
+  },
+  {
+   "id": "l1",
+   "text": "Leik Sämmämisch, vierzehnter Juli. Ein Sommertag am See. Hunderte Menschen.",
+   "voice": "ted",
+   "start": 89.255,
+   "end": 94.199,
+   "words": [
+    {
+     "w": "Leik",
+     "start": 89.255,
+     "end": 89.58
+    },
+    {
+     "w": "Sämmämisch,",
+     "start": 89.58,
+     "end": 90.361
+    },
+    {
+     "w": "vierzehnter",
+     "start": 90.361,
+     "end": 91.141
+    },
+    {
+     "w": "Juli.",
+     "start": 91.141,
+     "end": 91.532
+    },
+    {
+     "w": "Ein",
+     "start": 91.532,
+     "end": 91.792
+    },
+    {
+     "w": "Sommertag",
+     "start": 91.792,
+     "end": 92.443
+    },
+    {
+     "w": "am",
+     "start": 92.443,
+     "end": 92.638
+    },
+    {
+     "w": "See.",
+     "start": 92.638,
+     "end": 92.963
+    },
+    {
+     "w": "Hunderte",
+     "start": 92.963,
+     "end": 93.549
+    },
+    {
+     "w": "Menschen.",
+     "start": 93.549,
+     "end": 94.199
+    }
+   ]
+  },
+  {
+   "id": "l2",
+   "text": "Ich ging zu ihr, den Arm in einer Schlinge. Hi, ich bin Ted. Kannst du mir helfen, mein Segelboot ans Auto zu bringen?",
+   "voice": "ted",
+   "start": 94.749,
+   "end": 102.528,
+   "words": [
+    {
+     "w": "Ich",
+     "start": 94.749,
+     "end": 95.011
+    },
+    {
+     "w": "ging",
+     "start": 95.011,
+     "end": 95.337
+    },
+    {
+     "w": "zu",
+     "start": 95.337,
+     "end": 95.534
+    },
+    {
+     "w": "ihr,",
+     "start": 95.534,
+     "end": 95.86
+    },
+    {
+     "w": "den",
+     "start": 95.86,
+     "end": 96.122
+    },
+    {
+     "w": "Arm",
+     "start": 96.122,
+     "end": 96.383
+    },
+    {
+     "w": "in",
+     "start": 96.383,
+     "end": 96.579
+    },
+    {
+     "w": "einer",
+     "start": 96.579,
+     "end": 96.972
+    },
+    {
+     "w": "Schlinge.",
+     "start": 96.972,
+     "end": 97.625
+    },
+    {
+     "w": "Hi,",
+     "start": 97.625,
+     "end": 97.887
+    },
+    {
+     "w": "ich",
+     "start": 97.887,
+     "end": 98.148
+    },
+    {
+     "w": "bin",
+     "start": 98.148,
+     "end": 98.41
+    },
+    {
+     "w": "Ted.",
+     "start": 98.41,
+     "end": 98.737
+    },
+    {
+     "w": "Kannst",
+     "start": 98.737,
+     "end": 99.194
+    },
+    {
+     "w": "du",
+     "start": 99.194,
+     "end": 99.39
+    },
+    {
+     "w": "mir",
+     "start": 99.39,
+     "end": 99.652
+    },
+    {
+     "w": "helfen,",
+     "start": 99.652,
+     "end": 100.175
+    },
+    {
+     "w": "mein",
+     "start": 100.175,
+     "end": 100.502
+    },
+    {
+     "w": "Segelboot",
+     "start": 100.502,
+     "end": 101.155
+    },
+    {
+     "w": "ans",
+     "start": 101.155,
+     "end": 101.417
+    },
+    {
+     "w": "Auto",
+     "start": 101.417,
+     "end": 101.744
+    },
+    {
+     "w": "zu",
+     "start": 101.744,
+     "end": 101.94
+    },
+    {
+     "w": "bringen?",
+     "start": 101.94,
+     "end": 102.528
+    }
+   ]
+  },
+  {
+   "id": "l3",
+   "text": "Ein paar Stunden später, am selben See, dieselbe Frage.",
+   "voice": "ted",
+   "start": 104.378,
+   "end": 108.004,
+   "words": [
+    {
+     "w": "Ein",
+     "start": 104.378,
+     "end": 104.637
+    },
+    {
+     "w": "paar",
+     "start": 104.637,
+     "end": 104.961
+    },
+    {
+     "w": "Stunden",
+     "start": 104.961,
+     "end": 105.479
+    },
+    {
+     "w": "später,",
+     "start": 105.479,
+     "end": 105.997
+    },
+    {
+     "w": "am",
+     "start": 105.997,
+     "end": 106.191
+    },
+    {
+     "w": "selben",
+     "start": 106.191,
+     "end": 106.644
+    },
+    {
+     "w": "See,",
+     "start": 106.644,
+     "end": 106.968
+    },
+    {
+     "w": "dieselbe",
+     "start": 106.968,
+     "end": 107.551
+    },
+    {
+     "w": "Frage.",
+     "start": 107.551,
+     "end": 108.004
+    }
+   ]
+  },
+  {
+   "id": "l4",
+   "text": "Zeugen haben meinen Namen gehört. Und mein Auto gesehen. Trotzdem hat mich niemand gestoppt.",
+   "voice": "ted",
+   "start": 109.854,
+   "end": 115.919,
+   "words": [
+    {
+     "w": "Zeugen",
+     "start": 109.854,
+     "end": 110.31
+    },
+    {
+     "w": "haben",
+     "start": 110.31,
+     "end": 110.702
+    },
+    {
+     "w": "meinen",
+     "start": 110.702,
+     "end": 111.158
+    },
+    {
+     "w": "Namen",
+     "start": 111.158,
+     "end": 111.549
+    },
+    {
+     "w": "gehört.",
+     "start": 111.549,
+     "end": 112.071
+    },
+    {
+     "w": "Und",
+     "start": 112.071,
+     "end": 112.332
+    },
+    {
+     "w": "mein",
+     "start": 112.332,
+     "end": 112.658
+    },
+    {
+     "w": "Auto",
+     "start": 112.658,
+     "end": 112.984
+    },
+    {
+     "w": "gesehen.",
+     "start": 112.984,
+     "end": 113.571
+    },
+    {
+     "w": "Trotzdem",
+     "start": 113.571,
+     "end": 114.158
+    },
+    {
+     "w": "hat",
+     "start": 114.158,
+     "end": 114.419
+    },
+    {
+     "w": "mich",
+     "start": 114.419,
+     "end": 114.745
+    },
+    {
+     "w": "niemand",
+     "start": 114.745,
+     "end": 115.267
+    },
+    {
+     "w": "gestoppt.",
+     "start": 115.267,
+     "end": 115.919
+    }
+   ]
+  },
+  {
+   "id": "l5",
+   "text": "Zwei Monate später fand man ihre Überreste in einem Waldstück, ein paar Kilometer entfernt.",
+   "voice": "ted",
+   "start": 116.469,
+   "end": 122.468,
+   "words": [
+    {
+     "w": "Zwei",
+     "start": 116.469,
+     "end": 116.795
+    },
+    {
+     "w": "Monate",
+     "start": 116.795,
+     "end": 117.251
+    },
+    {
+     "w": "später",
+     "start": 117.251,
+     "end": 117.708
+    },
+    {
+     "w": "fand",
+     "start": 117.708,
+     "end": 118.034
+    },
+    {
+     "w": "man",
+     "start": 118.034,
+     "end": 118.295
+    },
+    {
+     "w": "ihre",
+     "start": 118.295,
+     "end": 118.621
+    },
+    {
+     "w": "Überreste",
+     "start": 118.621,
+     "end": 119.273
+    },
+    {
+     "w": "in",
+     "start": 119.273,
+     "end": 119.468
+    },
+    {
+     "w": "einem",
+     "start": 119.468,
+     "end": 119.86
+    },
+    {
+     "w": "Waldstück,",
+     "start": 119.86,
+     "end": 120.577
+    },
+    {
+     "w": "ein",
+     "start": 120.577,
+     "end": 120.838
+    },
+    {
+     "w": "paar",
+     "start": 120.838,
+     "end": 121.164
+    },
+    {
+     "w": "Kilometer",
+     "start": 121.164,
+     "end": 121.816
+    },
+    {
+     "w": "entfernt.",
+     "start": 121.816,
+     "end": 122.468
+    }
+   ]
+  },
+  {
+   "id": "u1",
+   "text": "Im Herbst zog ich nach Solt Leik Sitti, um Jura zu studieren. Und machte weiter.",
+   "voice": "ted",
+   "start": 123.618,
+   "end": 128.892,
+   "words": [
+    {
+     "w": "Im",
+     "start": 123.618,
+     "end": 123.813
+    },
+    {
+     "w": "Herbst",
+     "start": 123.813,
+     "end": 124.269
+    },
+    {
+     "w": "zog",
+     "start": 124.269,
+     "end": 124.529
+    },
+    {
+     "w": "ich",
+     "start": 124.529,
+     "end": 124.79
+    },
+    {
+     "w": "nach",
+     "start": 124.79,
+     "end": 125.115
+    },
+    {
+     "w": "Solt",
+     "start": 125.115,
+     "end": 125.441
+    },
+    {
+     "w": "Leik",
+     "start": 125.441,
+     "end": 125.766
+    },
+    {
+     "w": "Sitti,",
+     "start": 125.766,
+     "end": 126.222
+    },
+    {
+     "w": "um",
+     "start": 126.222,
+     "end": 126.418
+    },
+    {
+     "w": "Jura",
+     "start": 126.418,
+     "end": 126.743
+    },
+    {
+     "w": "zu",
+     "start": 126.743,
+     "end": 126.938
+    },
+    {
+     "w": "studieren.",
+     "start": 126.938,
+     "end": 127.655
+    },
+    {
+     "w": "Und",
+     "start": 127.655,
+     "end": 127.915
+    },
+    {
+     "w": "machte",
+     "start": 127.915,
+     "end": 128.371
+    },
+    {
+     "w": "weiter.",
+     "start": 128.371,
+     "end": 128.892
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "text": "Vor einem Einkaufszentrum zeigte ich einer jungen Frau eine Polizeimarke. Ich sagte, jemand habe versucht, ihr Auto aufzubrechen.",
+   "voice": "ted",
+   "start": 129.542,
+   "end": 138.046,
+   "words": [
+    {
+     "w": "Vor",
+     "start": 129.542,
+     "end": 129.803
+    },
+    {
+     "w": "einem",
+     "start": 129.803,
+     "end": 130.196
+    },
+    {
+     "w": "Einkaufszentrum",
+     "start": 130.196,
+     "end": 131.243
+    },
+    {
+     "w": "zeigte",
+     "start": 131.243,
+     "end": 131.7
+    },
+    {
+     "w": "ich",
+     "start": 131.7,
+     "end": 131.962
+    },
+    {
+     "w": "einer",
+     "start": 131.962,
+     "end": 132.355
+    },
+    {
+     "w": "jungen",
+     "start": 132.355,
+     "end": 132.812
+    },
+    {
+     "w": "Frau",
+     "start": 132.812,
+     "end": 133.14
+    },
+    {
+     "w": "eine",
+     "start": 133.14,
+     "end": 133.467
+    },
+    {
+     "w": "Polizeimarke.",
+     "start": 133.467,
+     "end": 134.382
+    },
+    {
+     "w": "Ich",
+     "start": 134.382,
+     "end": 134.644
+    },
+    {
+     "w": "sagte,",
+     "start": 134.644,
+     "end": 135.102
+    },
+    {
+     "w": "jemand",
+     "start": 135.102,
+     "end": 135.56
+    },
+    {
+     "w": "habe",
+     "start": 135.56,
+     "end": 135.887
+    },
+    {
+     "w": "versucht,",
+     "start": 135.887,
+     "end": 136.541
+    },
+    {
+     "w": "ihr",
+     "start": 136.541,
+     "end": 136.803
+    },
+    {
+     "w": "Auto",
+     "start": 136.803,
+     "end": 137.13
+    },
+    {
+     "w": "aufzubrechen.",
+     "start": 137.13,
+     "end": 138.046
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "text": "Sie stieg ein. Ich legte ihr eine Handschelle an und holte die Brechstange.",
+   "voice": "ted",
+   "start": 138.596,
+   "end": 143.54,
+   "words": [
+    {
+     "w": "Sie",
+     "start": 138.596,
+     "end": 138.856
+    },
+    {
+     "w": "stieg",
+     "start": 138.856,
+     "end": 139.246
+    },
+    {
+     "w": "ein.",
+     "start": 139.246,
+     "end": 139.572
+    },
+    {
+     "w": "Ich",
+     "start": 139.572,
+     "end": 139.832
+    },
+    {
+     "w": "legte",
+     "start": 139.832,
+     "end": 140.222
+    },
+    {
+     "w": "ihr",
+     "start": 140.222,
+     "end": 140.482
+    },
+    {
+     "w": "eine",
+     "start": 140.482,
+     "end": 140.808
+    },
+    {
+     "w": "Handschelle",
+     "start": 140.808,
+     "end": 141.588
+    },
+    {
+     "w": "an",
+     "start": 141.588,
+     "end": 141.784
+    },
+    {
+     "w": "und",
+     "start": 141.784,
+     "end": 142.044
+    },
+    {
+     "w": "holte",
+     "start": 142.044,
+     "end": 142.434
+    },
+    {
+     "w": "die",
+     "start": 142.434,
+     "end": 142.694
+    },
+    {
+     "w": "Brechstange.",
+     "start": 142.694,
+     "end": 143.54
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "text": "Sie wehrte sich, sprang aus dem Auto und rannte auf die Straße.",
+   "voice": "ted",
+   "start": 144.09,
+   "end": 148.243,
+   "words": [
+    {
+     "w": "Sie",
+     "start": 144.09,
+     "end": 144.35
+    },
+    {
+     "w": "wehrte",
+     "start": 144.35,
+     "end": 144.804
+    },
+    {
+     "w": "sich,",
+     "start": 144.804,
+     "end": 145.193
+    },
+    {
+     "w": "sprang",
+     "start": 145.193,
+     "end": 145.647
+    },
+    {
+     "w": "aus",
+     "start": 145.647,
+     "end": 145.907
+    },
+    {
+     "w": "dem",
+     "start": 145.907,
+     "end": 146.167
+    },
+    {
+     "w": "Auto",
+     "start": 146.167,
+     "end": 146.491
+    },
+    {
+     "w": "und",
+     "start": 146.491,
+     "end": 146.751
+    },
+    {
+     "w": "rannte",
+     "start": 146.751,
+     "end": 147.205
+    },
+    {
+     "w": "auf",
+     "start": 147.205,
+     "end": 147.464
+    },
+    {
+     "w": "die",
+     "start": 147.464,
+     "end": 147.724
+    },
+    {
+     "w": "Straße.",
+     "start": 147.724,
+     "end": 148.243
+    }
+   ]
+  },
+  {
+   "id": "u5",
+   "text": "Am selben Abend nahm ich eine andere mit. Vor einem Schultheater.",
+   "voice": "ted",
+   "start": 150.093,
+   "end": 154.378,
+   "words": [
+    {
+     "w": "Am",
+     "start": 150.093,
+     "end": 150.288
+    },
+    {
+     "w": "selben",
+     "start": 150.288,
+     "end": 150.742
+    },
+    {
+     "w": "Abend",
+     "start": 150.742,
+     "end": 151.132
+    },
+    {
+     "w": "nahm",
+     "start": 151.132,
+     "end": 151.457
+    },
+    {
+     "w": "ich",
+     "start": 151.457,
+     "end": 151.716
+    },
+    {
+     "w": "eine",
+     "start": 151.716,
+     "end": 152.041
+    },
+    {
+     "w": "andere",
+     "start": 152.041,
+     "end": 152.495
+    },
+    {
+     "w": "mit.",
+     "start": 152.495,
+     "end": 152.82
+    },
+    {
+     "w": "Vor",
+     "start": 152.82,
+     "end": 153.08
+    },
+    {
+     "w": "einem",
+     "start": 153.08,
+     "end": 153.469
+    },
+    {
+     "w": "Schultheater.",
+     "start": 153.469,
+     "end": 154.378
+    }
+   ]
+  },
+  {
+   "id": "a1",
+   "text": "August neunzehnhundertfünfundsiebzig. Eine normale Verkehrskontrolle.",
+   "voice": "ted",
+   "start": 156.428,
+   "end": 160.977,
+   "words": [
+    {
+     "w": "August",
+     "start": 156.428,
+     "end": 156.883
+    },
+    {
+     "w": "neunzehnhundertfünfundsiebzig.",
+     "start": 156.883,
+     "end": 158.898
+    },
+    {
+     "w": "Eine",
+     "start": 158.898,
+     "end": 159.222
+    },
+    {
+     "w": "normale",
+     "start": 159.222,
+     "end": 159.742
+    },
+    {
+     "w": "Verkehrskontrolle.",
+     "start": 159.742,
+     "end": 160.977
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "text": "Im Auto fanden sie eine Brechstange, Handschellen und einen Eispickel.",
+   "voice": "ted",
+   "start": 161.527,
+   "end": 166.142,
+   "words": [
+    {
+     "w": "Im",
+     "start": 161.527,
+     "end": 161.722
+    },
+    {
+     "w": "Auto",
+     "start": 161.722,
+     "end": 162.047
+    },
+    {
+     "w": "fanden",
+     "start": 162.047,
+     "end": 162.502
+    },
+    {
+     "w": "sie",
+     "start": 162.502,
+     "end": 162.762
+    },
+    {
+     "w": "eine",
+     "start": 162.762,
+     "end": 163.087
+    },
+    {
+     "w": "Brechstange,",
+     "start": 163.087,
+     "end": 163.932
+    },
+    {
+     "w": "Handschellen",
+     "start": 163.932,
+     "end": 164.777
+    },
+    {
+     "w": "und",
+     "start": 164.777,
+     "end": 165.037
+    },
+    {
+     "w": "einen",
+     "start": 165.037,
+     "end": 165.427
+    },
+    {
+     "w": "Eispickel.",
+     "start": 165.427,
+     "end": 166.142
+    }
+   ]
+  },
+  {
+   "id": "a3",
+   "text": "Carol hat mich wiedererkannt.",
+   "voice": "ted",
+   "start": 166.992,
+   "end": 168.903,
+   "words": [
+    {
+     "w": "Carol",
+     "start": 166.992,
+     "end": 167.374
+    },
+    {
+     "w": "hat",
+     "start": 167.374,
+     "end": 167.629
+    },
+    {
+     "w": "mich",
+     "start": 167.629,
+     "end": 167.947
+    },
+    {
+     "w": "wiedererkannt.",
+     "start": 167.947,
+     "end": 168.903
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "text": "Zwei Jahre später sprang ich aus dem Fenster eines Gerichtsgebäudes.",
+   "voice": "ted",
+   "start": 170.053,
+   "end": 174.536,
+   "words": [
+    {
+     "w": "Zwei",
+     "start": 170.053,
+     "end": 170.378
+    },
+    {
+     "w": "Jahre",
+     "start": 170.378,
+     "end": 170.768
+    },
+    {
+     "w": "später",
+     "start": 170.768,
+     "end": 171.223
+    },
+    {
+     "w": "sprang",
+     "start": 171.223,
+     "end": 171.678
+    },
+    {
+     "w": "ich",
+     "start": 171.678,
+     "end": 171.937
+    },
+    {
+     "w": "aus",
+     "start": 171.937,
+     "end": 172.197
+    },
+    {
+     "w": "dem",
+     "start": 172.197,
+     "end": 172.457
+    },
+    {
+     "w": "Fenster",
+     "start": 172.457,
+     "end": 172.977
+    },
+    {
+     "w": "eines",
+     "start": 172.977,
+     "end": 173.367
+    },
+    {
+     "w": "Gerichtsgebäudes.",
+     "start": 173.367,
+     "end": 174.536
+    }
+   ]
+  }
+ ],
+ "alignDebug": []
+}

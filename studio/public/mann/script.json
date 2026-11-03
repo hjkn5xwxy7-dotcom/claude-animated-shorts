@@ -1,0 +1,203 @@
+{
+  "title": "Der Mann unter der Laterne – Teil 1",
+  "voice": {
+    "model": "de_DE-thorsten-high",
+    "lengthScale": 1.0,
+    "gap": 0.25,
+    "lead": 0.3,
+    "tail": 2.4
+  },
+  "voices": {
+    "ben": {
+      "model": "de_DE-thorsten-high",
+      "lengthScale": 0.94,
+      "noiseScale": 0.75,
+      "pitch": 1.0
+    },
+    "benw": {
+      "model": "de_DE-thorsten_emotional-medium",
+      "speaker": "whisper",
+      "lengthScale": 1.04,
+      "pitch": 1.0
+    },
+    "man": {
+      "model": "de_DE-thorsten_emotional-medium",
+      "speaker": "whisper",
+      "lengthScale": 1.5,
+      "pitch": -4.0,
+      "reverb": 0.35
+    }
+  },
+  "sentences": [
+    {
+      "id": "c1",
+      "voice": "benw",
+      "text": "Es ist drei Uhr zwölf.",
+      "pause": 0.5
+    },
+    {
+      "id": "c2",
+      "voice": "benw",
+      "text": "Ich wurde gerade in einem Foto markiert.",
+      "pause": 0.4
+    },
+    {
+      "id": "c3",
+      "voice": "benw",
+      "text": "Das bin ich. Im Bett. Schlafend. Von draußen, durchs Fenster fotografiert.",
+      "pause": 0.4
+    },
+    {
+      "id": "c4",
+      "voice": "benw",
+      "text": "Hochgeladen vor einer Minute.",
+      "pause": 0.6
+    },
+    {
+      "id": "c5",
+      "voice": "benw",
+      "text": "Von meinem eigenen Account.",
+      "pause": 0.9
+    },
+    {
+      "id": "c6",
+      "voice": "ben",
+      "text": "Okeh. Ich muss euch erzählen, wie es dazu kam.",
+      "pause": 0.6
+    },
+    {
+      "id": "m1",
+      "voice": "ben",
+      "text": "Montag. Ich habe mein altes Handy online verkauft.",
+      "pause": 0.2
+    },
+    {
+      "id": "m2",
+      "voice": "ben",
+      "text": "Abgeholt hat es ein Mann. Bar bezahlt. Kein einziges Wort gesagt.",
+      "pause": 0.4
+    },
+    {
+      "id": "m3",
+      "voice": "ben",
+      "text": "Abends habe ich, wie jeden Abend, ein Foto von meiner Straße gepostet. Laternen, leere Straße. Zwölf Laiks.",
+      "pause": 0.5
+    },
+    {
+      "id": "d1",
+      "voice": "ben",
+      "text": "Dienstag. Gleiches Foto. Aber diesmal hat jemand kommentiert.",
+      "pause": 1.6
+    },
+    {
+      "id": "d2",
+      "voice": "ben",
+      "text": "Ich zoome rein. Und da steht wirklich jemand. Langer Mantel. Kapuze. Kein Gesicht.",
+      "pause": 0.4
+    },
+    {
+      "id": "d3",
+      "voice": "ben",
+      "text": "Ich dachte: Nachbar, geht mit dem Hund raus.",
+      "pause": 0.5
+    },
+    {
+      "id": "d4",
+      "voice": "ben",
+      "text": "Ohne Hund.",
+      "pause": 0.8
+    },
+    {
+      "id": "w1",
+      "voice": "ben",
+      "text": "Mittwoch. Er ist wieder auf dem Foto.",
+      "pause": 0.6
+    },
+    {
+      "id": "w2",
+      "voice": "ben",
+      "text": "Zwei Laternen näher.",
+      "pause": 0.8
+    },
+    {
+      "id": "w3",
+      "voice": "ben",
+      "text": "Also habe ich gemacht, was jeder vernünftige Mensch macht: Kommentar gelöscht. Passwort geändert.",
+      "pause": 0.5
+    },
+    {
+      "id": "t1",
+      "voice": "ben",
+      "text": "Donnerstag. Ich fotografiere nur noch die Hauswand gegenüber. Kein Mann. Perfekt.",
+      "pause": 0.6
+    },
+    {
+      "id": "t2",
+      "voice": "ben",
+      "text": "Bis mir das Fenster auffällt. In der Scheibe spiegelt sich die Straße hinter mir.",
+      "pause": 0.4
+    },
+    {
+      "id": "t3",
+      "voice": "ben",
+      "text": "Und mitten auf der Straße steht er.",
+      "pause": 0.7
+    },
+    {
+      "id": "t4",
+      "voice": "ben",
+      "text": "Direkt hinter mir.",
+      "pause": 1.0
+    },
+    {
+      "id": "f1",
+      "voice": "ben",
+      "text": "Freitag. Ich poste nichts mehr. Tür zweimal abgeschlossen. Fenster nur gekippt, weil es so warm ist.",
+      "pause": 0.8
+    },
+    {
+      "id": "p1",
+      "voice": "benw",
+      "text": "Und jetzt ist es drei Uhr zwölf.",
+      "pause": 0.5
+    },
+    {
+      "id": "p2",
+      "voice": "benw",
+      "text": "Auf dem Foto sind meine Vorhänge offen.",
+      "pause": 0.6
+    },
+    {
+      "id": "p3",
+      "voice": "benw",
+      "text": "Ich drehe mich langsam zum Fenster.",
+      "pause": 1.2
+    },
+    {
+      "id": "p4",
+      "voice": "benw",
+      "text": "Die Vorhänge sind zu.",
+      "pause": 1.0
+    },
+    {
+      "id": "p5",
+      "voice": "benw",
+      "text": "Ich habe sie nicht zugezogen.",
+      "pause": 2.0
+    },
+    {
+      "id": "man",
+      "voice": "man",
+      "text": "Hallo, Ben.",
+      "pause": 1.0
+    }
+  ],
+  "captionMap": {
+    "Okeh.": "Okay.",
+    "Laiks.": "Likes."
+  },
+  "notes": [
+    "Hinweis 1: altes Handy verkauft (noch angemeldet) -> Posts von Bens Account trotz neuem Passwort.",
+    "Hinweis 2: Fenster gekippt -> Weg nach drinnen. Auflösung in Teil 2."
+  ]
+}

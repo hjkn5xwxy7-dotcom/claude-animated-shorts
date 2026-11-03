@@ -1,0 +1,149 @@
+# Phase 0: render benchmark on GitHub-hosted runners (no GPU, software WebGL).
+# Splits a composition into frame chunks, renders them in parallel, joins them into one MP4 and reports timings.
+# Start it from the GitHub app or github.com: Actions -> "Render benchmark" -> Run workflow (once the file is on the
+# default branch). Until then a push that changes this file on the studio branch runs it with the defaults.
+name: Render benchmark
+
+on:
+  push:
+    branches: [claude/cloud-ai-animation-studio-aae6pa]
+    paths: [.github/workflows/render-benchmark.yml]
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: "Remotion composition id"
+        default: "BridgeShort"
+      frames:
+        description: "Frame range first-last (empty = whole composition)"
+        default: ""
+      chunks:
+        description: "Parallel render jobs (1-20)"
+        default: "20"
+      scale:
+        description: "Output scale (1 = 1080x1920)"
+        default: "1"
+      concurrency:
+        description: "Browser tabs per job"
+        default: "2"
+      release:
+        description: "Publish the MP4 as a GitHub release (direct download link for the iPhone)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+env:
+  COMP: ${{ inputs.composition || 'BridgeShort' }}
+  FRAMES: ${{ inputs.frames || '' }}
+  CHUNKS: ${{ inputs.chunks || '20' }}
+  SCALE: ${{ inputs.scale || '1' }}
+  TABS: ${{ inputs.concurrency || '2' }}
+  RELEASE: ${{ github.event_name == 'push' || inputs.release }}
+
+defaults:
+  run:
+    working-directory: studio
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: studio/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - id: plan
+        run: node scripts/plan-chunks.mjs
+
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        chunk: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: studio/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Browser libraries
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libnss3 libdbus-1-3 libatk1.0-0 libatk-bridge2.0-0 libgbm1 libxrandr2 libxkbcommon0 \
+            libxfixes3 libxcomposite1 libxdamage1 libpango-1.0-0 libcairo2 libcups2 libasound2t64 > /dev/null
+          npx remotion browser ensure
+      - name: Kenney models (CC0) from cache
+        uses: actions/cache/restore@v4
+        id: kenney
+        with:
+          path: studio/public/bridge/kenney
+          key: kenney-v2-${{ hashFiles('studio/scripts/fetch_kenney.py', 'studio/src/videos/bridge/world.ts') }}
+      - name: Kenney models (CC0) download
+        if: steps.kenney.outputs.cache-hit != 'true'
+        id: fetch
+        run: python3 scripts/fetch_kenney.py
+      - name: Kenney models (CC0) save cache
+        if: steps.fetch.outputs.complete == 'true' && matrix.chunk.index == '00'
+        uses: actions/cache/save@v4
+        with:
+          path: studio/public/bridge/kenney
+          key: ${{ steps.kenney.outputs.cache-primary-key }}
+      - name: Render frames ${{ matrix.chunk.from }}-${{ matrix.chunk.to }}
+        run: >
+          node scripts/bench.mjs --comp "$COMP" --from ${{ matrix.chunk.from }} --to ${{ matrix.chunk.to }}
+          --scale "$SCALE" --concurrency "$TABS" --out "out/parts/part_${{ matrix.chunk.index }}.mp4"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: part-${{ matrix.chunk.index }}
+          path: studio/out/parts/
+          retention-days: 3
+
+  join:
+    needs: render
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: part-*
+          path: studio/out/parts
+          merge-multiple: true
+      - name: Join parts and report
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          python3 scripts/join_parts.py out/parts "out/$COMP.mp4" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: video
+          path: |
+            studio/out/*.mp4
+            studio/out/benchmark.json
+      - name: Publish release
+        id: release
+        if: env.RELEASE == 'true'
+        # needs Settings -> Actions -> General -> Workflow permissions = "Read and write"; the video artifact above
+        # is the fallback download when that is off
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="bench-${{ github.run_number }}"
+          gh release create "$tag" "out/$COMP.mp4" out/benchmark.json --prerelease \
+            --target "${{ github.sha }}" --title "Render benchmark #${{ github.run_number }} ($COMP)" \
+            --notes-file out/benchmark.md
+          echo "Download: https://github.com/${{ github.repository }}/releases/download/$tag/$COMP.mp4" >> "$GITHUB_STEP_SUMMARY"
+      - name: Release hint
+        if: env.RELEASE == 'true' && failure() == false && steps.release.outcome == 'failure'
+        run: echo "Release blocked - set Settings > Actions > General > Workflow permissions to 'Read and write'. Download the 'video' artifact instead." >> "$GITHUB_STEP_SUMMARY"
