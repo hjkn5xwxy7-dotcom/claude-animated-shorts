@@ -54,4 +54,6 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "voices-${{ github.run_number }}" out/samples/* --prerelease --target "${{ github.sha }}" --title "Hörproben #${{ github.run_number }}" --notes "Voice auditions for the horror short"
+        run: |
+          gh release create "voices-${{ github.run_number }}" out/samples/* --prerelease --target "${{ github.sha }}" \
+            --title "Hörproben ${{ github.run_number }}" --notes "Voice auditions for the horror short"
