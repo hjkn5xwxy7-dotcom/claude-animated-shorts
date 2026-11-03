@@ -48,11 +48,12 @@ def words_aligned(text, al, sr, t0):
         spans.append(cur)
     ws = text.split()
     if len(spans) != len(ws):
+        DEBUG.append({"text": text, "words": len(ws), "spans": len(spans), "phonemes": "".join(a.phoneme for a in al)})
         return None
     return [{"w": w, "start": round(a, 3), "end": round(b, 3)} for w, (a, b) in zip(ws, spans)]
 
 
-sentences, audio, t = [], [], LEAD
+sentences, audio, t, DEBUG = [], [], LEAD, []
 if FAKE:
     for s in S["sentences"]:
         d = len(s["text"]) / 14.5 * LEN
@@ -107,5 +108,7 @@ else:
     print(f"[voice] alignments for all sentences: {aligned_all}")
 
 total = round((t if FAKE else len(x) / sr) + (TAIL if FAKE else 0), 3)
-json.dump({"total": total, "sampleRate": sr, "fake": FAKE, "sentences": sentences}, open(os.path.join(out_dir, "timing.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+if DEBUG:
+    print("[voice] alignment mismatches:", json.dumps(DEBUG[:4], ensure_ascii=False))
+json.dump({"total": total, "sampleRate": sr, "fake": FAKE, "sentences": sentences, "alignDebug": DEBUG}, open(os.path.join(out_dir, "timing.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"[voice] {len(sentences)} sentences, {total:.2f} s" + (" (estimated)" if FAKE else ""))
