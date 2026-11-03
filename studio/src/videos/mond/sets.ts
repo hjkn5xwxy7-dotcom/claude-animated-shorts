@@ -14,7 +14,8 @@ export const SPACE = new THREE.Vector3(0, 3000, 0);
 export const REEF = new THREE.Vector3(0, -3000, 0);
 export const WATER_Y = -2.0;
 export const QUAY_Z = 3.0;
-export type SetId = "town" | "space" | "reef";
+export const ROOM = new THREE.Vector3(3000, 0, 0);
+export type SetId = "town" | "space" | "reef" | "room";
 
 // ---------------- painted textures ----------------
 const earthTex = () => ctex("earthMap", 2048, 1024, (g, r) => {
@@ -74,7 +75,8 @@ const basic = (col: THREE.ColorRepresentation, extra: THREE.MeshBasicMaterialPar
 // ---------------- world ----------------
 export class MondWorld {
   root = new THREE.Group();
-  town = new THREE.Group(); space = new THREE.Group(); reef = new THREE.Group();
+  town = new THREE.Group(); space = new THREE.Group(); reef = new THREE.Group(); room = new THREE.Group();
+  curtainL!: THREE.Mesh; curtainR!: THREE.Mesh; phoneGlow!: THREE.Mesh; poolMat!: THREE.MeshBasicMaterial;
   sun = new THREE.DirectionalLight(0xffffff, 1);
   sky: THREE.Mesh; skyMat: THREE.ShaderMaterial;
   stars: THREE.Points; starMat: THREE.PointsMaterial;
@@ -88,7 +90,8 @@ export class MondWorld {
   bench = V(5.5, 0, 0.6);
   constructor() {
     const R = this.root;
-    R.add(this.town, this.space, this.reef);
+    R.add(this.town, this.space, this.reef, this.room);
+    this.room.position.copy(ROOM);
     this.space.position.copy(SPACE); this.reef.position.copy(REEF);
     // key light (moon / sun): the only shadow caster
     this.sun.castShadow = true;
@@ -127,13 +130,14 @@ export class MondWorld {
 
     this.windows = basic(new THREE.Color("#ffc46b").multiplyScalar(1.6));
     this.lampGlow = basic(new THREE.Color("#ffd28a").multiplyScalar(2.2));
+    this.poolMat = new THREE.MeshBasicMaterial({ map: glowTex(), color: "#ffb860", transparent: true, opacity: 0.5, depthWrite: false, blending: THREE.AdditiveBlending, fog: false });
     this.water = twoTone(new THREE.MeshLambertMaterial({ color: "#1f86b8", map: rep(seaTex(), 40, 40) }));
     this.snow = new THREE.Mesh(new THREE.PlaneGeometry(140, 14), twoTone(new THREE.MeshLambertMaterial({ color: "#f4f8ff" })));
     this.bulge = new THREE.Mesh(new THREE.SphereGeometry(6.04, 64, 32), basic("#9fe0ff", { transparent: true, opacity: 0.3, depthWrite: false }));
     this.moon3d = new THREE.Mesh(new THREE.SphereGeometry(1.7, 48, 24), mat("moon3d", "#ffffff", moonTex()));
     this.sun3d = new THREE.Mesh(new THREE.CircleGeometry(30, 64), basic(new THREE.Color("#fff3d2").multiplyScalar(3.2)));
     this.axis = new THREE.Group();
-    this.buildTown(); this.buildSpace(); this.buildReef();
+    this.buildTown(); this.buildSpace(); this.buildReef(); this.buildRoom();
   }
 
   private buildTown() {
@@ -163,6 +167,9 @@ export class MondWorld {
       b.add(new THREE.CylinderGeometry(0.07, 0.1, 3.6, 10).translate(lx, 1.8, QUAY_Z - 0.6), mat("iron", "#2b2d36"));
       b.add(boxGeo(V(lx - 0.22, 3.55, QUAY_Z - 0.82), V(lx + 0.22, 3.62, QUAY_Z - 0.38)), mat("iron", "#2b2d36"));
       const g = new THREE.Mesh(new THREE.SphereGeometry(0.2, 16, 10), this.lampGlow); g.position.set(lx, 3.4, QUAY_Z - 0.6); T.add(g);
+      // warm light pool on the ground under the lamp (additive, scaled by the look's lamps)
+      const pool = new THREE.Mesh(new THREE.CircleGeometry(2.6, 40), this.poolMat);
+      pool.rotation.x = -Math.PI / 2; pool.position.set(lx, 0.025, QUAY_Z - 1.2); pool.layers.set(NOINK); pool.renderOrder = 1; T.add(pool);
     }
     // bench
     const bm = lam("benchWood", () => ({ map: rep(planksHD(), 0.5, 0.5) }));
@@ -193,7 +200,7 @@ export class MondWorld {
   }
 
   /** warm night windows on a house front (facadeHD layout: n = floor(w / 2.2) windows per 2.8 m floor) */
-  private addWindows(T: THREE.Group, cx: number, z: number, w: number, h: number, r: () => number, y0 = 0) {
+  addWindows(T: THREE.Group, cx: number, z: number, w: number, h: number, r: () => number, y0 = 0) {
     const n = Math.max(1, Math.floor(w / 2.2)), floors = Math.max(1, Math.floor(h / 2.8)), geo = new THREE.PlaneGeometry(0.78, 1.05);
     for (let fl = 0; fl < floors; fl++) for (let i = 0; i < n; i++) {
       if (fl === 0 && i === Math.floor(n / 2)) continue;
@@ -258,6 +265,69 @@ export class MondWorld {
     b.build(F);
   }
 
+  /** Ben's ground-floor bedroom (local coords, floor at y 0): bed against the back wall (z -), window in the right wall
+   *  (x +2.2, centre z -0.8, sill 0.9 m, top 2.1 m) with curtains, nightstand with the phone, wardrobe, door; outside: the
+   *  street side with a house across the road */
+  private buildRoom() {
+    const Rm = this.room, b = new Batch();
+    const paper = lam("wallpaper", () => ({ map: rep(wallpaperTex(), 2, 1) }));
+    const floor = lam("roomFloor", () => ({ map: rep(planksHD(), 1.2, 1.2) }));
+    const W = 2.2, D = 2.4, H = 2.6, t = 0.12;
+    b.add(boxGeo(V(-W, -0.1, -D), V(W, 0, D)), floor);
+    b.add(boxGeo(V(-W, H, -D), V(W, H + 0.1, D)), lam("ceiling", () => ({ color: "#d9d4cc" })));
+    b.add(boxGeo(V(-W - t, 0, -D - t), V(W + t, H, -D)), paper);            // back wall
+    b.add(boxGeo(V(-W - t, 0, D), V(W + t, H, D + t)), paper);              // front wall (door side)
+    b.add(boxGeo(V(-W - t, 0, -D), V(-W, H, D)), paper);                    // left wall
+    // right wall with the window opening (z -1.4 .. -0.2, y 0.9 .. 2.1)
+    const z0 = -1.4, z1 = -0.2, y0 = 0.9, y1 = 2.1;
+    b.add(boxGeo(V(W, 0, -D), V(W + t, H, z0)), paper);
+    b.add(boxGeo(V(W, 0, z1), V(W + t, H, D)), paper);
+    b.add(boxGeo(V(W, 0, z0), V(W + t, y0, z1)), paper);
+    b.add(boxGeo(V(W, y1, z0), V(W + t, H, z1)), paper);
+    const frame = lam("winFrame", () => ({ color: "#efece6" }));
+    b.add(boxGeo(V(W - 0.06, y0 - 0.06, z0 - 0.06), V(W + t + 0.02, y0, z1 + 0.06)), frame);   // sill
+    b.add(boxGeo(V(W + 0.02, y0, z0 - 0.05), V(W + 0.08, y1, z0)), frame);
+    b.add(boxGeo(V(W + 0.02, y0, z1), V(W + 0.08, y1, z1 + 0.05)), frame);
+    b.add(boxGeo(V(W + 0.02, y1, z0 - 0.05), V(W + 0.08, y1 + 0.05, z1 + 0.05)), frame);
+    b.add(boxGeo(V(W + 0.02, y0, (z0 + z1) / 2 - 0.025), V(W + 0.08, y1, (z0 + z1) / 2 + 0.025)), frame);
+    // outside: plaster facade around the window, pavement, the house across the street
+    const plaster = lam("facadeOut", () => ({ color: "#cfc4b2" }));
+    b.add(boxGeo(V(W + t, -0.6, -D - 4), V(W + t + 0.02, H + 0.8, z0)), plaster);
+    b.add(boxGeo(V(W + t, -0.6, z1), V(W + t + 0.02, H + 0.8, D + 4)), plaster);
+    b.add(boxGeo(V(W + t, -0.6, z0), V(W + t + 0.02, y0, z1)), plaster);
+    b.add(boxGeo(V(W + t, y1, z0), V(W + t + 0.02, H + 0.8, z1)), plaster);
+    b.add(boxGeo(V(W + t, -0.7, -30), V(W + 30, -0.6, 30), 3), lam("cobbleM", () => ({ map: cobbleHD() })));
+    house(b, W + 16, -2, -Math.PI / 2, 9, 8, 9.8, 3, -0.6);
+    // furniture
+    const wood = lam("furnWood", () => ({ color: "#8a6446" })), sheet = lam("sheet", () => ({ color: "#e9edf3" })), duvet = lam("duvet", () => ({ color: "#5d7fb8" }));
+    b.add(boxGeo(V(-0.95, 0, -D), V(0.95, 0.35, -0.2)), wood);                         // bed frame
+    b.add(boxGeo(V(-0.9, 0.35, -D + 0.05), V(0.9, 0.55, -0.25)), sheet);              // mattress
+    b.add(boxGeo(V(-0.95, 0, -D), V(0.95, 1.1, -D + 0.08)), wood);                     // headboard
+    b.add(boxGeo(V(-0.55, 0.55, -D + 0.1), V(0.55, 0.7, -D + 0.6)), sheet);           // pillow
+    b.add(boxGeo(V(-0.92, 0.55, -1.55), V(0.92, 0.68, -0.22)), duvet);                // duvet (lower half)
+    b.add(boxGeo(V(-1.6, 0, -D + 0.05), V(-1.1, 0.55, -D + 0.5)), wood);              // nightstand
+    b.add(boxGeo(V(-2.15, 0, 0.2), V(-1.55, 2.1, 1.6)), lam("wardrobe", () => ({ color: "#6f5a4a" })));
+    b.add(boxGeo(V(-1.6, 0, D - 0.04), V(-0.7, 2.05, D)), lam("doorM", () => ({ color: "#7a5a40" })));
+    b.add(boxGeo(V(-0.85, 0.95, D - 0.1), V(-0.78, 1.0, D - 0.04)), mat("iron", "#2b2d36"));
+    b.add(boxGeo(V(-1.45, 0.55, -2.25), V(-1.25, 0.9, -2.05)), lam("lampFoot", () => ({ color: "#ddd" })));
+    b.build(Rm);
+    // phone on the nightstand (glows when it lights up)
+    this.phoneGlow = new THREE.Mesh(new THREE.PlaneGeometry(0.08, 0.15), basic(new THREE.Color("#bcd7ff").multiplyScalar(2)));
+    this.phoneGlow.rotation.x = -Math.PI / 2; this.phoneGlow.position.set(-1.33, 0.56, -2.1); this.phoneGlow.layers.set(NOINK); Rm.add(this.phoneGlow);
+    // curtains (scale.z: 1 = closed half, ~0.3 = bunched open)
+    const cm = twoTone(new THREE.MeshLambertMaterial({ color: "#c45a6a", side: THREE.DoubleSide, map: rep(curtainTex(), 1, 1) }));
+    const half = (z1 - z0) / 2 + 0.12;
+    const mk = (side: number) => {
+      const g = new THREE.PlaneGeometry(half, 1.5); g.translate(-side * half / 2, 0, 0);
+      const m = new THREE.Mesh(g, cm); m.rotation.y = Math.PI / 2; m.position.set(W - 0.08, (y0 + y1) / 2 + 0.05, side < 0 ? z1 + 0.12 : z0 - 0.12);
+      m.castShadow = true; Rm.add(m); return m;
+    };
+    this.curtainL = mk(-1); this.curtainR = mk(1);
+  }
+
+  /** curtains: 0 = open (bunched at the sides), 1 = closed */
+  setCurtains(k: number) { const s = 0.28 + 0.72 * k; this.curtainL.scale.x = s; this.curtainR.scale.x = s; }
+
   /** set every light / colour uniform from a look; `at` = the point the camera looks at (shadow box centre) */
   apply(L: Look, cam: THREE.Camera, at: THREE.Vector3, scene: THREE.Scene, setId: SetId) {
     TONE.uLitCol.value.set(...L.lit); TONE.uShadeCol.value.set(...L.shade); TONE.uShadeLift.value.set(...L.lift); TONE.uSat.value = L.sat;
@@ -273,7 +343,8 @@ export class MondWorld {
     this.windows.color.set("#ffc46b").multiplyScalar(1.6 * L.windows); this.windows.visible = L.windows > 0.01;
     this.lampGlow.color.set("#ffd28a").multiplyScalar(2.4 * L.lamps);
     this.water.color.set(L.water);
-    this.town.visible = setId === "town"; this.space.visible = setId === "space"; this.reef.visible = setId === "reef";
+    this.town.visible = setId === "town"; this.space.visible = setId === "space"; this.reef.visible = setId === "reef"; this.room.visible = setId === "room";
+    this.poolMat.opacity = Math.min(0.85, 0.5 * L.lamps);
   }
 }
 
@@ -284,6 +355,16 @@ const seaTex = () => ctex("seaPaint", 512, 512, (g, r) => {
   for (let y = 16; y < 512; y += 42) { g.beginPath(); for (let x = 0; x <= 512; x += 16) g.lineTo(x, y + 6 * Math.sin((x / 512) * Math.PI * 4 + y)); g.stroke(); }
   g.strokeStyle = "rgba(255,255,255,0.9)"; g.lineWidth = 4; g.lineCap = "round";
   for (let i = 0; i < 70; i++) { const x = r() * 512, y = r() * 512; g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + 10, y - 5, x + 22, y); g.stroke(); }
+});
+/** faded floral wallpaper */
+const wallpaperTex = () => ctex("wallpaper", 512, 512, (g, r) => {
+  g.fillStyle = "#b9b39f"; g.fillRect(0, 0, 512, 512);
+  g.fillStyle = "rgba(90,80,70,0.18)"; for (let x = 0; x < 512; x += 64) g.fillRect(x, 0, 6, 512);
+  for (let i = 0; i < 40; i++) { const x = (i % 8) * 64 + 32, y = Math.floor(i / 8) * 102 + 50 + (i % 2) * 40; g.fillStyle = "rgba(120,70,70,0.25)"; g.beginPath(); g.ellipse(x, y, 12, 16, 0, 0, 7); g.fill(); }
+});
+/** curtain folds */
+const curtainTex = () => ctex("curtain", 256, 256, (g) => {
+  for (let x = 0; x < 256; x += 2) { const k = 0.75 + 0.25 * Math.sin(x / 9); g.fillStyle = `rgb(${Math.round(255 * k)},${Math.round(255 * k)},${Math.round(255 * k)})`; g.fillRect(x, 0, 2, 256); }
 });
 /** soft round glow for sky discs */
 const glowTex = () => ctex("glow", 256, 256, (g) => {

@@ -63,14 +63,19 @@ export const drawExtras = (p: Pen, ex: Extra[], t: number) => {
 };
 
 /** a character request: drawing key, the draw call, card scale */
+export type Custom = "man" | "manPhone" | "sleeper";
 export type Cue = {
-  who: Outfit; side?: boolean; mirror?: boolean; x: number; y: number; z: number; scale?: number; sy?: number;
+  who: Outfit; side?: boolean; mirror?: boolean; x: number; y: number; z: number; scale?: number; sy?: number; custom?: Custom; arg?: number;
   front?: FrontOpts; sideOpts?: SideOpts; extras?: Extra[]; seed?: number;
 };
 /** design canvas key + draw for a cue (t = seconds, for animated extras) */
 export const cueDraw = (c: Cue, t: number, blink: number) => {
   const ex = c.extras ?? [];
   const tq = ex.some((e) => e === "sweat" || e === "question") ? Math.round(t * 12) / 12 : 0;
+  if (c.custom) {
+    const a = Math.round((c.arg ?? 0) * 20) / 20;
+    return { key: `custom|${c.custom}|${a}|${blink}`, draw: (p: Pen) => CUSTOM[c.custom!](p, a, blink) };
+  }
   const key = JSON.stringify([c.who, c.side ? c.sideOpts : c.front, ex, tq, blink, c.seed ?? 1]);
   const draw = (p: Pen) => {
     if (c.side) bodySide(p, c.who, { mode: "stand", ...c.sideOpts, blink, seed: c.seed ?? 3 });
@@ -78,6 +83,54 @@ export const cueDraw = (c: Cue, t: number, blink: number) => {
     drawExtras(p, ex, t);
   };
   return { key, draw };
+};
+
+// ---------------- the man in the coat (never a face) and Ben asleep ----------------
+const COAT = "#1d1c24", COAT_HI = "#2c2a36", VOID = "#050508";
+/** the man: long coat, deep hood with a black void, hands in the pockets; 600 x 1000 design, soles at y 975.
+ *  arg = head tilt (-1..1). */
+const drawMan = (p: Pen, tilt: number, phone = false) => {
+  const g = p.g;
+  // legs + shoes under the coat hem
+  p.poly([[262, 860], [292, 860], [290, 968], [256, 968]], "#15141b", 10);
+  p.poly([[308, 860], [338, 860], [344, 968], [310, 968]], "#15141b", 10);
+  p.poly([[236, 952], [292, 952], [294, 978], [232, 978]], "#0d0c12", 8);
+  p.poly([[308, 952], [366, 952], [368, 978], [306, 978]], "#0d0c12", 8);
+  // coat: narrow shoulders, long A-line to below the knee
+  p.poly([[214, 420], [386, 420], [420, 600], [446, 878], [154, 878], [180, 600]], COAT, 12);
+  g.save(); g.globalAlpha = 0.5; p.poly([[300, 430], [386, 420], [420, 600], [446, 878], [310, 878]], COAT_HI, 0); g.restore();
+  p.stroke([[300, 450], [300, 870]], 6, "#0b0a10");
+  for (const y of [520, 600, 680]) p.ell(316, y, 8, 8, "#3a3846", 0);
+  // arms: sleeves down to the pockets (or one hand up with a phone)
+  p.poly([[214, 430], [182, 600], [196, 700], [228, 700], [236, 560]], COAT, 10);
+  if (phone) {
+    p.poly([[386, 430], [440, 540], [404, 600], [378, 560]], COAT, 10);
+    p.poly([[392, 560], [452, 556], [456, 650], [396, 654]], "#20222c", 8);
+    p.ell(404, 600, 18, 18, "#d9c8b8", 6);
+  } else p.poly([[386, 430], [418, 600], [404, 700], [372, 700], [364, 560]], COAT, 10);
+  // hood: rounded peak, deep opening = flat black void, slight tilt
+  g.save(); g.translate(300, 330); g.rotate(tilt * 0.12); g.translate(-300, -330);
+  p.poly([[200, 430], [196, 330], [222, 250], [300, 205], [378, 250], [404, 330], [400, 430]], COAT, 12);
+  p.ell(300, 345, 70, 86, VOID, 0);
+  g.restore();
+  // lamp light from above: a cold-warm rim on the hood crown and shoulders so the silhouette reads against the dark
+  g.save(); g.globalAlpha = 0.85;
+  p.stroke([[214, 300], [236, 240], [300, 210], [364, 240], [386, 300]], 12, "#8a7f74");
+  p.stroke([[214, 426], [180, 600]], 9, "#6e655e"); p.stroke([[386, 426], [420, 600]], 9, "#6e655e");
+  g.restore();
+};
+/** Ben asleep on his side under the duvet, head on the pillow (side view, 1000 x 420 canvas) */
+export const drawSleeper = (p: Pen, breath: number) => {
+  const b = 6 * Math.sin(breath * Math.PI * 2);
+  p.poly([[60, 300], [70, 240], [140, 225], [220, 240], [228, 300]], "#e9edf3", 10);              // pillow
+  p.ell(170, 222, 78, 72, "#ffe2c2", 10);                                                           // head
+  p.poly([[96, 200], [120, 150], [190, 140], [246, 178], [248, 215], [200, 196], [130, 214]], BEN.hair!, 10); // hair
+  p.stroke([[150, 232], [176, 236]], 6); p.stroke([[196, 228], [218, 232]], 6);                    // closed eyes
+  p.poly([[230, 250 - b], [330, 205 - b], [600, 215 - b], [880, 250], [960, 300], [960, 380], [210, 380]], "#5d7fb8", 12); // duvet
+  p.line([[300, 260 - b], [520, 250 - b], [760, 268]], "#4a6aa0", 6, false);
+};
+const CUSTOM: Record<Custom, (p: Pen, a: number, blink: number) => void> = {
+  man: (p, a) => drawMan(p, a), manPhone: (p, a) => drawMan(p, a, true), sleeper: (p, a) => drawSleeper(p, a),
 };
 
 /** blink lid 0..1 for a character (4-frame blink every 0.5-2.3 s, deterministic) */

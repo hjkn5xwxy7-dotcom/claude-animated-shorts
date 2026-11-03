@@ -19,6 +19,7 @@ const G = (ky: number[], sat: [number, number, number], tS: [number, number], tM
 const GDAY = G([0, 0.1, 0.28, 0.6, 0.835, 0.945, 1], [1.0, 1.08, 1.0], [0.01, 0.002], [0, 0], [0.006, 0], [0.12, 0.45]);
 const GNIGHT = G([0, 0.09, 0.25, 0.55, 0.8, 0.93, 1], [0.95, 1.1, 1.0], [0.035, -0.01], [0.02, -0.01], [0, 0], [0.3, 0.38]);
 const GHOT = G([0, 0.1, 0.29, 0.61, 0.84, 0.95, 1], [1.0, 1.15, 1.05], [-0.02, 0.03], [-0.03, 0.04], [-0.02, 0.02], [0.2, 0.42]);
+const GHORROR = G([0, 0.07, 0.22, 0.5, 0.76, 0.9, 1], [0.8, 0.85, 0.9], [0.045, -0.02], [0.025, -0.015], [0, 0], [0.42, 0.32]);
 const GCOLD = G([0, 0.11, 0.3, 0.6, 0.83, 0.94, 1], [0.9, 0.85, 0.9], [0.04, -0.02], [0.03, -0.02], [0.01, -0.005], [0.2, 0.42]);
 
 export const LOOKS = {
@@ -42,6 +43,34 @@ export const LOOKS = {
     charTint: [0.95, 0.82, 0.66], charShade: 0.85, sun: [-0.3, 0.9, 0.2],
     skyTop: "#03060f", skyHor: "#0d1630", fog: "#0b1226", fogNear: 20, fogFar: 160,
     stars: 1, windows: 1, lamps: 1, water: "#0b1a38", grade: GNIGHT, gradeAmt: 1, bloom: 1.1,
+  },
+  /** horror street at night: cold, desaturated, close fog, the lamps make warm pools */
+  creep: {
+    lit: [0.2, 0.25, 0.4], shade: [0.05, 0.06, 0.13], lift: [0.02, 0.02, 0.06], sat: 0.7,
+    charTint: [0.62, 0.66, 0.85], charShade: 0.8, sun: [0.2, 0.6, 1],
+    skyTop: "#02040b", skyHor: "#0c1428", fog: "#0a1022", fogNear: 28, fogFar: 170,
+    stars: 0.5, windows: 0.7, lamps: 1.5, water: "#0b1a38", grade: GHORROR, gradeAmt: 1, bloom: 1.2,
+  },
+  /** Ben's bedroom at night: moonlight through the window, almost no colour */
+  room: {
+    lit: [0.3, 0.36, 0.55], shade: [0.05, 0.06, 0.12], lift: [0.015, 0.02, 0.05], sat: 0.65,
+    charTint: [0.55, 0.6, 0.8], charShade: 0.82, sun: [1, 0.35, -0.25],
+    skyTop: "#02040b", skyHor: "#0c1428", fog: "#05070f", fogNear: 30, fogFar: 140,
+    stars: 0.6, windows: 0.6, lamps: 1, water: "#0b1a38", grade: GHORROR, gradeAmt: 1, bloom: 1.2,
+  },
+  /** the same room, Ben's face lit by the phone */
+  roomPhone: {
+    lit: [0.3, 0.36, 0.55], shade: [0.05, 0.06, 0.12], lift: [0.015, 0.02, 0.05], sat: 0.65,
+    charTint: [0.78, 0.88, 1.1], charShade: 0.86, sun: [1, 0.35, -0.25],
+    skyTop: "#02040b", skyHor: "#0c1428", fog: "#05070f", fogNear: 30, fogFar: 140,
+    stars: 0.6, windows: 0.6, lamps: 1, water: "#0b1a38", grade: GHORROR, gradeAmt: 1, bloom: 1.2,
+  },
+  /** Monday evening at the door: dusk */
+  dusk: {
+    lit: [1.05, 0.82, 0.78], shade: [0.2, 0.2, 0.34], lift: [0.04, 0.04, 0.1], sat: 0.95,
+    charTint: [0.95, 0.85, 0.85], charShade: 0.86, sun: [-0.6, 0.25, 0.7],
+    skyTop: "#3a3c6e", skyHor: "#e0977a", fog: "#9a7c8c", fogNear: 25, fogFar: 220,
+    stars: 0.1, windows: 0.8, lamps: 0.8, water: "#2a4a7a", grade: GNIGHT, gradeAmt: 0.8, bloom: 0.9,
   },
   /** bright harbour morning */
   day: {

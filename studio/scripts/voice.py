@@ -77,8 +77,9 @@ def words_aligned(text, al, sr, t0):
 sentences, audio, t, DEBUG = [], [], LEAD, []
 if FAKE:
     for s in S["sentences"]:
-        d = len(s["text"]) / 17.7 * LEN
-        sentences.append({"id": s["id"], "text": s["text"], "start": round(t, 3), "end": round(t + d, 3), "words": words_prop(s["text"], t, t + d)})
+        vs = S.get("voices", {}).get(s.get("voice", "_"), {})
+        d = len(s["text"]) / 17.7 * vs.get("lengthScale", LEN) / 2 ** (float(vs.get("pitch", 0)) / 12)
+        sentences.append({"id": s["id"], "text": s["text"], "voice": s.get("voice", ""), "start": round(t, 3), "end": round(t + d, 3), "words": words_prop(s["text"], t, t + d)})
         t += d + GAP + float(s.get("pause", 0))
     sr = 22050
 else:
@@ -86,15 +87,47 @@ else:
     from piper.download_voices import download_voice
     mdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "models")
     os.makedirs(mdir, exist_ok=True)
-    onnx = os.path.join(mdir, MODEL + ".onnx")
-    if not os.path.exists(onnx):
-        download_voice(MODEL, __import__("pathlib").Path(mdir))
-    voice = PiperVoice.load(onnx, include_alignments=True)
-    sr = voice.config.sample_rate
-    cfg = SynthesisConfig(length_scale=LEN, normalize_audio=False)
+    # voices: script "voices" {name: {model, speaker?, lengthScale?, noiseScale?, pitch? (semitones), reverb? (wet 0..1)}};
+    # a sentence picks one with "voice" (default: the script-level "voice" model)
+    VOICES = S.get("voices", {})
+    loaded = {}
+    def get_voice(name):
+        spec = VOICES.get(name, {"model": MODEL, "lengthScale": LEN})
+        model = spec.get("model", MODEL)
+        if model not in loaded:
+            onnx = os.path.join(mdir, model + ".onnx")
+            if not os.path.exists(onnx):
+                download_voice(model, __import__("pathlib").Path(mdir))
+            loaded[model] = PiperVoice.load(onnx, include_alignments=True)
+        v = loaded[model]
+        sid = None
+        if "speaker" in spec:
+            sid = (v.config.speaker_id_map or {}).get(spec["speaker"])
+            if sid is None:
+                raise SystemExit(f"voice {name}: speaker {spec['speaker']} not in {list((v.config.speaker_id_map or {}).keys())}")
+        cfg = SynthesisConfig(speaker_id=sid, length_scale=spec.get("lengthScale", LEN), noise_scale=spec.get("noiseScale"), normalize_audio=False)
+        return v, cfg, 2 ** (float(spec.get("pitch", 0)) / 12), float(spec.get("reverb", 0))
+    sr = get_voice(S["sentences"][0].get("voice", "_"))[0].config.sample_rate
+
+    def repitch(a, k, src_sr):
+        """pitch * k (and duration / k) by resampling, plus conversion from the model rate to sr"""
+        n = int(round(len(a) * sr / src_sr / k))
+        return np.interp(np.linspace(0, len(a) - 1, n), np.arange(len(a)), a).astype(np.float32) if n != len(a) else a
+
+    def reverb(a, wet):
+        r = np.random.default_rng(3)
+        n = int(1.4 * sr)
+        ir = r.standard_normal(n) * np.exp(-6.9 * np.arange(n) / n)
+        ir[0] = 0
+        y = np.convolve(a, ir)[: len(a) + n] / np.sqrt(np.sum(ir ** 2)) * 0.35
+        out = np.zeros(len(y), np.float32); out[: len(a)] = a
+        return (1 - wet * 0.3) * out + wet * y
+
     audio.append(np.zeros(int(LEAD * sr), np.float32))
     aligned_all = True
     for s in S["sentences"]:
+        voice, cfg, k, wet = get_voice(s.get("voice", "_"))
+        vsr = voice.config.sample_rate
         chunks = list(voice.synthesize(s["text"], syn_config=cfg, include_alignments=True))
         start, words, ok = t, [], True
         texts = [s["text"]] if len(chunks) == 1 else None
@@ -106,19 +139,23 @@ else:
         for i, c in enumerate(chunks):
             if i:
                 audio.append(np.zeros(int(INNER * sr), np.float32)); t += INNER
-            a = c.audio_float_array.astype(np.float32)
-            w = words_aligned(texts[i], c.phoneme_alignments, sr, t) if (texts and c.phoneme_alignments) else None
+            raw = c.audio_float_array.astype(np.float32)
+            a = repitch(raw, k, vsr)
+            sc = (len(a) / sr) / max(1e-9, len(raw) / vsr)          # model time -> output time
+            w = words_aligned(texts[i], c.phoneme_alignments, vsr, 0.0) if (texts and c.phoneme_alignments) else None
             if w is None:
                 ok = False
-                w = words_energy(texts[i] if texts else s["text"], a, sr, t) if texts else None
+                w = words_energy(texts[i], raw, vsr, 0.0) if texts else None
             if w is not None:
-                words += w
+                words += [{"w": x["w"], "start": round(t + x["start"] * sc, 3), "end": round(t + x["end"] * sc, 3)} for x in w]
+            if wet > 0:
+                a = reverb(a, wet)
             audio.append(a); t += len(a) / sr
         if not ok:
             aligned_all = False
         if not words or len(words) != len(s["text"].split()):
             words = words_prop(s["text"], start, t)
-        sentences.append({"id": s["id"], "text": s["text"], "start": round(start, 3), "end": round(t, 3), "words": words, "aligned": ok})
+        sentences.append({"id": s["id"], "text": s["text"], "voice": s.get("voice", ""), "start": round(start, 3), "end": round(t, 3), "words": words, "aligned": ok})
         pause = GAP + float(s.get("pause", 0))
         audio.append(np.zeros(int(pause * sr), np.float32)); t += pause
     t -= GAP

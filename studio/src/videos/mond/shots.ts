@@ -20,6 +20,8 @@ export type Stage = {
   space?: { spin: number; tilt: number; wobble: number; bulge: number; moon: number; moonA: number };
   flash: number;                                            // white flash 0..1
   zoom?: number; filter?: string;                           // whole-frame punch zoom / CSS filter (freeze-frame gag)
+  flashColor?: string;                                      // flash colour (default white; black = blackout)
+  room?: { curtains: number; phone: number };               // bedroom set state
 };
 
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x));

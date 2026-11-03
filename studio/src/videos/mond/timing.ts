@@ -7,8 +7,8 @@ export type Word = { w: string; start: number; end: number };
 export type Sentence = { id: string; text: string; start: number; end: number; words: Word[] };
 export type Timing = { total: number; sentences: Sentence[]; fake?: boolean; captionMap?: Record<string, string> };
 
-export const TIMING_URL = () => staticFile("mond/timing.json");
-export const loadTiming = async (): Promise<Timing> => (await fetch(TIMING_URL())).json();
+export const TIMING_URL = (folder = "mond") => staticFile(`${folder}/timing.json`);
+export const loadTiming = async (folder = "mond"): Promise<Timing> => (await fetch(TIMING_URL(folder))).json();
 
 /** frames of the whole video: voice + a short tail for the last gag */
 export const framesOf = (t: Timing) => Math.ceil((t.total + 1.2) * FPS);

@@ -7,15 +7,15 @@ name: Make video
 on:
   push:
     branches: [claude/cloud-ai-animation-studio-aae6pa]
-    paths: [.github/workflows/make-video.yml, studio/public/mond/script.json]
+    paths: [.github/workflows/make-video.yml, studio/public/mond/script.json, studio/public/mann/script.json]
   workflow_dispatch:
     inputs:
       video:
         description: "Video folder under studio/public (script.json inside)"
-        default: "mond"
+        default: "mann"
       composition:
         description: "Remotion composition id"
-        default: "MondShort"
+        default: "MannShort"
       chunks:
         description: "Parallel render jobs (1-20)"
         default: "20"
@@ -28,8 +28,8 @@ permissions:
   contents: write
 
 env:
-  VIDEO: ${{ inputs.video || 'mond' }}
-  COMP: ${{ inputs.composition || 'MondShort' }}
+  VIDEO: ${{ inputs.video || 'mann' }}
+  COMP: ${{ inputs.composition || 'MannShort' }}
   CHUNKS: ${{ inputs.chunks || '20' }}
   RELEASE: ${{ github.event_name == 'push' || inputs.release }}
 
@@ -57,7 +57,7 @@ jobs:
       - name: Narration + word timings
         run: python3 scripts/voice.py "public/$VIDEO/script.json" "public/$VIDEO"
       - name: Score, SFX and mix
-        run: python3 scripts/mond_audio.py "public/$VIDEO"
+        run: python3 "scripts/${VIDEO}_audio.py" "public/$VIDEO"
       - uses: actions/upload-artifact@v4
         with:
           name: audio

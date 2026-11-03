@@ -16,16 +16,19 @@ import { Clock, FPS, Timing, framesOf, loadTiming } from "./timing";
 import { LOOKS } from "./looks";
 import { MondWorld } from "./sets";
 import { shotAt, Stage } from "./shots";
-import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle } from "./chars";
+import { cueDraw, lidAt, fxFish, fxRay, fxBubble, fxEyes, fxClock, fxZzz, fxJobSign, fxPop, fxFlake, fxWord, fxStars, fxPuddle, drawSleeper } from "./chars";
 import { Pen } from "../bridge/toon";
 import { Captions } from "./Captions";
 import { Overlays } from "./Overlays";
 
 export type MondProps = { timing: Timing | null };
-export const calcMond: CalculateMetadataFunction<MondProps> = async () => {
-  const timing = await loadTiming();
+export type ShotFn = (c: Clock, t: number) => { stage: Stage };
+/** metadata loader for a story folder under public/ (timing.json decides the length) */
+export const calcStory = (folder: string): CalculateMetadataFunction<MondProps> => async () => {
+  const timing = await loadTiming(folder);
   return { durationInFrames: framesOf(timing), props: { timing } };
 };
+export const calcMond = calcStory("mond");
 
 const makeBloom = () => {
   const b = new BloomEffect({ blendFunction: BlendFunction.ADD, intensity: 0.6, luminanceThreshold: 1.0, luminanceSmoothing: 0.2, mipmapBlur: true, levels: 6, radius: 0.6 });
@@ -36,7 +39,7 @@ const makeBloom = () => {
 
 /** design-canvas resolution by camera distance: [w, h, scale] (sized for 1080 x 1920) */
 const tier = (d: number): [number, number, number] => (d < 2.6 ? [1200, 2000, 2] : d < 6 ? [720, 1200, 1.2] : d < 14 ? [360, 600, 0.6] : [180, 300, 0.3]);
-const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg: number, kind: string) => void }> = {
+export const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg: number, kind: string) => void }> = {
   fish: { cw: 400, ch: 220, draw: (p, a, k) => fxFish(p, k.split(":")[1], Math.round(a * 4) / 4) },
   ray: { cw: 256, ch: 1024, draw: (p) => fxRay(p) },
   bubble: { cw: 64, ch: 64, draw: (p) => fxBubble(p) },
@@ -49,9 +52,11 @@ const FXDRAW: Record<string, { cw: number; ch: number; draw: (p: Pen, arg: numbe
   word: { cw: 700, ch: 260, draw: (p, _a, k) => fxWord(p, k.split(":")[1]) },
   stars: { cw: 420, ch: 210, draw: (p, a) => fxStars(p, Math.round(a * 12) / 12) },
   puddle: { cw: 400, ch: 200, draw: (p) => fxPuddle(p) },
+  // head toward the headboard: drawn mirrored (head on the right)
+  sleeper: { cw: 1000, ch: 420, draw: (p, a) => { p.g.translate(1000, 0); p.g.scale(-1, 1); drawSleeper(p, Math.round(a * 10) / 10); } },
 };
 
-const Inner: React.FC<{ clock: Clock }> = ({ clock }) => {
+const Inner: React.FC<{ clock: Clock; shot: ShotFn }> = ({ clock, shot }) => {
   const f = useCurrentFrame();
   const { camera, scene, gl } = useThree();
   const cam = camera as THREE.PerspectiveCamera;
@@ -85,7 +90,7 @@ const Inner: React.FC<{ clock: Clock }> = ({ clock }) => {
 
   // ---- pose the frame ----
   const t = f / FPS;
-  const { stage: S } = shotAt(clock, t);
+  const { stage: S } = shot(clock, t);
   cam.fov = S.cam.fov; cam.near = 0.1; cam.far = 3000; cam.updateProjectionMatrix();
   cam.position.set(...S.cam.pos); cam.up.set(0, 1, 0); cam.lookAt(...S.cam.look); cam.rotateZ(THREE.MathUtils.degToRad(S.cam.roll));
   cam.updateMatrixWorld();
@@ -94,6 +99,8 @@ const Inner: React.FC<{ clock: Clock }> = ({ clock }) => {
   poseSky(world, S, cam);
   poseSpace(world, S);
   world.snow.visible = S.gradeId === "snow";
+  world.setCurtains(S.room?.curtains ?? 0);
+  world.phoneGlow.visible = (S.room?.phone ?? 0) > 0.01;
   world.boats.forEach((b, i) => { b.position.y = -2 + 0.15 + 0.06 * Math.sin(t * 1.3 + i * 2); b.rotation.z = 0.025 * Math.sin(t * 1.1 + i); });
   placeCards(S, cam, t, f, pool, actors, fxs, world);
   fx.lens.focus = S.focus; fx.lens.cInf = S.cInf;
@@ -202,23 +209,25 @@ const useFont = () => {
   useEffect(() => { document.fonts.load("900 80px Montserrat").catch(() => null).finally(() => continueRender(h)); }, [h]);
 };
 
-export const MondShort: React.FC<MondProps> = ({ timing }) => {
+/** a story short: 3D world + flash / zoom + screen overlays + captions, all driven by one shot table */
+export const makeShort = (shot: ShotFn, Over: React.FC<{ clock: Clock }>): React.FC<MondProps> => ({ timing }) => {
   useFont();
   const f = useCurrentFrame();
   const clock = useMemo(() => (timing ? new Clock(timing) : null), [timing]);
   if (!clock) return null;
-  const S = shotAt(clock, f / FPS).stage;
+  const S = shot(clock, f / FPS).stage;
   return (
     <AbsoluteFill style={{ background: "#000" }}>
       <AbsoluteFill style={{ transform: `scale(${S.zoom ?? 1})`, filter: S.filter ?? "none" }}>
         <ThreeCanvas width={1080} height={1920} shadows gl={{ antialias: false, stencil: false, powerPreference: "high-performance" }} camera={{ fov: 40, near: 0.1, far: 3000 }}>
-          <Inner clock={clock} />
+          <Inner clock={clock} shot={shot} />
         </ThreeCanvas>
       </AbsoluteFill>
-      <Overlays clock={clock} />
-      {S.flash > 0 && <AbsoluteFill style={{ background: "#fff", opacity: S.flash }} />}
+      {S.flash > 0 && <AbsoluteFill style={{ background: S.flashColor ?? "#fff", opacity: S.flash }} />}
+      <Over clock={clock} />
       <Captions clock={clock} />
     </AbsoluteFill>
   );
 };
+export const MondShort = makeShort(shotAt, Overlays);
 export { SU };
