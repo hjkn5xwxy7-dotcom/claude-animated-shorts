@@ -131,7 +131,11 @@ jobs:
             studio/out/*.mp4
             studio/out/benchmark.json
       - name: Publish release
+        id: release
         if: env.RELEASE == 'true'
+        # needs Settings -> Actions -> General -> Workflow permissions = "Read and write"; the video artifact above
+        # is the fallback download when that is off
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -140,3 +144,6 @@ jobs:
             --target "${{ github.sha }}" --title "Render benchmark #${{ github.run_number }} ($COMP)" \
             --notes-file out/benchmark.md
           echo "Download: https://github.com/${{ github.repository }}/releases/download/$tag/$COMP.mp4" >> "$GITHUB_STEP_SUMMARY"
+      - name: Release hint
+        if: env.RELEASE == 'true' && failure() == false && steps.release.outcome == 'failure'
+        run: echo "Release blocked - set Settings > Actions > General > Workflow permissions to 'Read and write'. Download the 'video' artifact instead." >> "$GITHUB_STEP_SUMMARY"
