@@ -4,3 +4,5 @@ public/bridge/kenney/
 models/
 public/mond/voice.wav
 public/mond/mix.wav
+public/*/voice.wav
+public/*/mix.wav
