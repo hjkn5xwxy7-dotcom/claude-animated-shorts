@@ -1,0 +1,93 @@
+{
+  "title": "Was wäre, wenn der Mond verschwindet?",
+  "voice": {
+    "model": "de_DE-thorsten-high",
+    "lengthScale": 0.92,
+    "gap": 0.18
+  },
+  "sentences": [
+    {
+      "id": "hook",
+      "text": "Was wäre, wenn heute Nacht um Punkt zwölf der Mond einfach verschwindet?"
+    },
+    {
+      "id": "plopp",
+      "text": "Ben schaut gerade nach oben, und plopp.",
+      "pause": 0.25
+    },
+    {
+      "id": "weg",
+      "text": "Weg.",
+      "pause": 0.45
+    },
+    {
+      "id": "nichts",
+      "text": "Kein Knall, keine Trümmer. Erst mal passiert gar nichts."
+    },
+    {
+      "id": "dunkel",
+      "text": "Aber dann merkt Ben: Es ist dunkel. Richtig dunkel."
+    },
+    {
+      "id": "hundert",
+      "text": "Eine Vollmondnacht ist nämlich rund hundertmal heller als eine Nacht nur mit Sternen."
+    },
+    {
+      "id": "hafen",
+      "text": "Am nächsten Morgen am Hafen kratzen sich die Fischer am Kopf."
+    },
+    {
+      "id": "ebbe",
+      "text": "Ebbe und Flut sind fast verschwunden."
+    },
+    {
+      "id": "gezeiten",
+      "text": "Denn die Gezeiten macht vor allem der Mond. Ohne ihn zieht nur noch die Sonne am Meer, und die schafft gerade mal ein Drittel."
+    },
+    {
+      "id": "korallen",
+      "text": "Und die Korallen? Viele Riffe laichen alle in derselben Nacht, ein paar Tage nach dem Vollmond."
+    },
+    {
+      "id": "warten",
+      "text": "Jetzt warten sie. Und warten."
+    },
+    {
+      "id": "unheim",
+      "text": "Das wirklich Unheimliche kommt aber erst später.",
+      "pause": 0.3
+    },
+    {
+      "id": "kreisel",
+      "text": "Der Mond hält nämlich die Erdachse stabil, wie eine Hand, die einen Kreisel festhält."
+    },
+    {
+      "id": "taumeln",
+      "text": "Ohne ihn könnte die Erde über Millionen Jahre ins Taumeln geraten."
+    },
+    {
+      "id": "jahresz",
+      "text": "Dann spielen die Jahreszeiten verrückt: glühend heiße Sommer, eisige Winter."
+    },
+    {
+      "id": "finster",
+      "text": "Ach ja, und Sonnenfinsternisse gibt es auch nie wieder."
+    },
+    {
+      "id": "himmel",
+      "text": "Ben schaut in den leeren Himmel und denkt: Na ja, wenigstens eine gute Nachricht.",
+      "pause": 0.2
+    },
+    {
+      "id": "werwolf",
+      "text": "Die Werwölfe sind ab heute arbeitslos."
+    }
+  ],
+  "facts": [
+    "Vollmond ca. 0,1-0,3 Lux, klarer Sternenhimmel ca. 0,001-0,002 Lux: rund 100-mal heller.",
+    "Gezeitenkraft der Sonne ca. 46 % der des Mondes; ohne Mond bleiben ca. 0,46/1,46 = 32 % der heutigen Springtide-Antriebskraft.",
+    "Massenlaichen am Great Barrier Reef: wenige Nächte nach dem Vollmond (Okt.-Dez.), viele Riffe weltweit lunar gesteuert.",
+    "Der Mond stabilisiert die Neigung der Erdachse (Laskar et al. 1993); ohne ihn wären über Millionen Jahre deutlich größere Schwankungen möglich.",
+    "Ohne Mond keine Sonnenfinsternisse."
+  ]
+}

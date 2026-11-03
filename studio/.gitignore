@@ -1,3 +1,6 @@
 node_modules/
 out/
 public/bridge/kenney/
+models/
+public/mond/voice.wav
+public/mond/mix.wav

@@ -1,0 +1,95 @@
+// Light / colour presets of the moon short. One preset per shot (or a blend of two during a change of light):
+// world two-tone colours (shade.ts TONE), character card tint (shade.ts CHAR), key light direction for shadows,
+// sky gradient, fog, stars / moon / window glow, and the colour grade (grade.ts).
+import * as THREE from "three";
+import { GradeParams } from "../bridge/grade";
+
+type C3 = [number, number, number];
+export type Look = {
+  lit: C3; shade: C3; lift: C3; sat: number;           // world two-tone
+  charTint: C3; charShade: number;                      // character cards
+  sun: C3;                                              // direction TOWARD the key light (world space, normalised later)
+  skyTop: string; skyHor: string; fog: string; fogNear: number; fogFar: number;
+  stars: number; windows: number; lamps: number;         // 0..1
+  water: string; grade: GradeParams; gradeAmt: number; bloom: number;
+};
+
+const G = (ky: number[], sat: [number, number, number], tS: [number, number], tM: [number, number], tH: [number, number], vig: [number, number]): GradeParams =>
+  ({ ky, sat, tintS: tS, tintM: tM, tintH: tH, vig });
+const GDAY = G([0, 0.1, 0.28, 0.6, 0.835, 0.945, 1], [1.0, 1.08, 1.0], [0.01, 0.002], [0, 0], [0.006, 0], [0.12, 0.45]);
+const GNIGHT = G([0, 0.09, 0.25, 0.55, 0.8, 0.93, 1], [0.95, 1.1, 1.0], [0.035, -0.01], [0.02, -0.01], [0, 0], [0.3, 0.38]);
+const GHOT = G([0, 0.1, 0.29, 0.61, 0.84, 0.95, 1], [1.0, 1.15, 1.05], [-0.02, 0.03], [-0.03, 0.04], [-0.02, 0.02], [0.2, 0.42]);
+const GCOLD = G([0, 0.11, 0.3, 0.6, 0.83, 0.94, 1], [0.9, 0.85, 0.9], [0.04, -0.02], [0.03, -0.02], [0.01, -0.005], [0.2, 0.42]);
+
+export const LOOKS = {
+  /** moonlit night: cool blue key from the moon over the sea, warm windows */
+  night: {
+    lit: [0.62, 0.72, 1.05], shade: [0.13, 0.15, 0.3], lift: [0.03, 0.04, 0.1], sat: 0.9,
+    charTint: [0.72, 0.78, 1.0], charShade: 0.8, sun: [0.15, 0.55, 1],
+    skyTop: "#0b1638", skyHor: "#2c4a86", fog: "#20335f", fogNear: 30, fogFar: 260,
+    stars: 0.7, windows: 1, lamps: 1, water: "#1b3f7a", grade: GNIGHT, gradeAmt: 1, bloom: 0.9,
+  },
+  /** no moon: much darker, only windows and lamps */
+  dark: {
+    lit: [0.16, 0.19, 0.32], shade: [0.06, 0.07, 0.15], lift: [0.02, 0.02, 0.06], sat: 0.8,
+    charTint: [0.42, 0.46, 0.66], charShade: 0.8, sun: [0.15, 0.55, 1],
+    skyTop: "#03060f", skyHor: "#0d1630", fog: "#0b1226", fogNear: 20, fogFar: 160,
+    stars: 1, windows: 1, lamps: 1, water: "#0b1a38", grade: GNIGHT, gradeAmt: 1, bloom: 1.1,
+  },
+  /** dark night under a street lamp: warm light on the characters */
+  lamp: {
+    lit: [0.3, 0.27, 0.3], shade: [0.07, 0.07, 0.15], lift: [0.02, 0.02, 0.06], sat: 0.85,
+    charTint: [0.95, 0.82, 0.66], charShade: 0.85, sun: [-0.3, 0.9, 0.2],
+    skyTop: "#03060f", skyHor: "#0d1630", fog: "#0b1226", fogNear: 20, fogFar: 160,
+    stars: 1, windows: 1, lamps: 1, water: "#0b1a38", grade: GNIGHT, gradeAmt: 1, bloom: 1.1,
+  },
+  /** bright harbour morning */
+  day: {
+    lit: [1.58, 1.5, 1.33], shade: [0.3, 0.29, 0.36], lift: [0.05, 0.06, 0.11], sat: 1.08,
+    charTint: [1.0, 0.95, 0.93], charShade: 0.86, sun: [-0.45, 0.75, 0.55],
+    skyTop: "#3e7fd2", skyHor: "#b8d0ec", fog: "#b8d0ec", fogNear: 40, fogFar: 420,
+    stars: 0, windows: 0, lamps: 0, water: "#1f86b8", grade: GDAY, gradeAmt: 1, bloom: 0.5,
+  },
+  /** heat wave: orange sky, washed light */
+  hot: {
+    lit: [1.75, 1.35, 0.95], shade: [0.42, 0.28, 0.3], lift: [0.08, 0.04, 0.03], sat: 1.12,
+    charTint: [1.0, 0.86, 0.72], charShade: 0.88, sun: [-0.2, 0.9, 0.4],
+    skyTop: "#e8743a", skyHor: "#ffd28a", fog: "#ffc98a", fogNear: 25, fogFar: 260,
+    stars: 0, windows: 0, lamps: 0, water: "#3a8fb0", grade: GHOT, gradeAmt: 1, bloom: 0.7,
+  },
+  /** ice winter: pale blue, snow */
+  snow: {
+    lit: [1.25, 1.35, 1.55], shade: [0.36, 0.42, 0.62], lift: [0.06, 0.08, 0.14], sat: 0.85,
+    charTint: [0.88, 0.94, 1.0], charShade: 0.86, sun: [-0.4, 0.45, 0.6],
+    skyTop: "#8fa7c8", skyHor: "#dfe7f0", fog: "#d5dfea", fogNear: 12, fogFar: 140,
+    stars: 0, windows: 0.6, lamps: 0, water: "#5f7f9a", grade: GCOLD, gradeAmt: 1, bloom: 0.5,
+  },
+  /** outer space: hard white sunlight from the left, black-blue sky */
+  space: {
+    lit: [1.7, 1.65, 1.55], shade: [0.07, 0.08, 0.16], lift: [0.02, 0.03, 0.08], sat: 1.1,
+    charTint: [1, 1, 1], charShade: 0.9, sun: [-1, 0.15, 0.35],
+    skyTop: "#02030a", skyHor: "#070b1e", fog: "#000000", fogNear: 5000, fogFar: 9000,
+    stars: 1, windows: 0, lamps: 0, water: "#1b3f7a", grade: GDAY, gradeAmt: 0.8, bloom: 1.0,
+  },
+  /** coral reef: blue water, light from above, strong blue fog */
+  reef: {
+    lit: [1.05, 1.35, 1.45], shade: [0.2, 0.32, 0.5], lift: [0.04, 0.1, 0.16], sat: 1.15,
+    charTint: [0.85, 0.97, 1.0], charShade: 0.86, sun: [0.2, 1, 0.3],
+    skyTop: "#2fa8d8", skyHor: "#0d5a8f", fog: "#1673a8", fogNear: 4, fogFar: 46,
+    stars: 0, windows: 0, lamps: 0, water: "#1673a8", grade: GDAY, gradeAmt: 0.9, bloom: 0.6,
+  },
+} satisfies Record<string, Look>;
+export type LookId = keyof typeof LOOKS;
+
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+const l3 = (a: C3, b: C3, t: number): C3 => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)];
+const lc = (a: string, b: string, t: number) => "#" + new THREE.Color(a).lerp(new THREE.Color(b), t).getHexString();
+/** blend of two presets (t = 0 -> a, 1 -> b) */
+export const blendLook = (a: Look, b: Look, t: number): Look => t <= 0 ? a : t >= 1 ? b : ({
+  lit: l3(a.lit, b.lit, t), shade: l3(a.shade, b.shade, t), lift: l3(a.lift, b.lift, t), sat: lerp(a.sat, b.sat, t),
+  charTint: l3(a.charTint, b.charTint, t), charShade: lerp(a.charShade, b.charShade, t), sun: l3(a.sun, b.sun, t),
+  skyTop: lc(a.skyTop, b.skyTop, t), skyHor: lc(a.skyHor, b.skyHor, t), fog: lc(a.fog, b.fog, t),
+  fogNear: lerp(a.fogNear, b.fogNear, t), fogFar: lerp(a.fogFar, b.fogFar, t),
+  stars: lerp(a.stars, b.stars, t), windows: lerp(a.windows, b.windows, t), lamps: lerp(a.lamps, b.lamps, t),
+  water: lc(a.water, b.water, t), grade: t < 0.5 ? a.grade : b.grade, gradeAmt: lerp(a.gradeAmt, b.gradeAmt, t), bloom: lerp(a.bloom, b.bloom, t),
+});
